@@ -1,0 +1,886 @@
+---
+title: "Recent Player Scores"
+author: "giddybb"
+date: "21 February, 2020"
+output: html_document
+summary: Recent player average scores including information from  only the last 15 events.
+tags:
+- Player
+- Basic
+---
+
+
+
+
+
+
+
+
+
+
+
+The table below shows which players have scored best in the last 15 matches, ranked according to a standardized score (see below).  
+
+<table class="table table-striped" style="font-size: 11px; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:right;"> Rank </th>
+   <th style="text-align:right;"> Team_rank </th>
+   <th style="text-align:left;"> Players </th>
+   <th style="text-align:left;"> team </th>
+   <th style="text-align:left;"> StdScore </th>
+   <th style="text-align:left;"> Score </th>
+   <th style="text-align:right;"> n </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Si</span> </td>
+   <td style="text-align:left;"> <span style="     color: purple !important;">Zig-Zag Racers</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 50%; margin-left: 50%; text-align: left;">34437</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 48.36%; margin-left: 50%; text-align: left;">29984</span> </td>
+   <td style="text-align:right;"> 4 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">ZedexAJ</span> </td>
+   <td style="text-align:left;"> <span style="     color: purple !important;">Zig-Zag Racers</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 48.24%; margin-left: 50%; text-align: left;">33223</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 50%; margin-left: 50%; text-align: left;">31001</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Ben</span> </td>
+   <td style="text-align:left;"> <span style="     color: purple !important;">Zig-Zag Racers</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 47.9%; margin-left: 50%; text-align: left;">32989</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 49.04%; margin-left: 50%; text-align: left;">30408</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">#27</span> </td>
+   <td style="text-align:left;"> <span style="     color: purple !important;">Zig-Zag Racers</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 47.35%; margin-left: 50%; text-align: left;">32609</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 44.29%; margin-left: 50%; text-align: left;">27461</span> </td>
+   <td style="text-align:right;"> 5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">sii</span> </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">GreasySpanner</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 47.18%; margin-left: 50%; text-align: left;">32492</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 49.08%; margin-left: 50%; text-align: left;">30433</span> </td>
+   <td style="text-align:right;"> 5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Boshass</span> </td>
+   <td style="text-align:left;"> <span style="     color: purple !important;">Zig-Zag Racers</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 45.98%; margin-left: 50%; text-align: left;">31668</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 48.02%; margin-left: 50%; text-align: left;">29774</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Layoo</span> </td>
+   <td style="text-align:left;"> <span style="     color: purple !important;">Zig-Zag Racers</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 45.66%; margin-left: 50%; text-align: left;">31446</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 47.66%; margin-left: 50%; text-align: left;">29549</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">isham</span> </td>
+   <td style="text-align:left;"> <span style="     color: purple !important;">Zig-Zag Racers</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 44.09%; margin-left: 50%; text-align: left;">30364</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 42.87%; margin-left: 50%; text-align: left;">26580</span> </td>
+   <td style="text-align:right;"> 4 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Kevin</span> </td>
+   <td style="text-align:left;"> <span style="     color: purple !important;">Zig-Zag Racers</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 43.71%; margin-left: 50%; text-align: left;">30107</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 45.72%; margin-left: 50%; text-align: left;">28345</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">rusky79</span> </td>
+   <td style="text-align:left;"> <span style="     color: purple !important;">Zig-Zag Racers</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 42.55%; margin-left: 50%; text-align: left;">29308</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 44.52%; margin-left: 50%; text-align: left;">27603</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">CLee1701</span> </td>
+   <td style="text-align:left;"> <span style="     color: purple !important;">Zig-Zag Racers</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 42.2%; margin-left: 50%; text-align: left;">29063</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 42.15%; margin-left: 50%; text-align: left;">26134</span> </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Hail Eris</span> </td>
+   <td style="text-align:left;"> <span style="     color: purple !important;">Zig-Zag Racers</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 42%; margin-left: 50%; text-align: left;">28925</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 44.43%; margin-left: 50%; text-align: left;">27549</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Bman</span> </td>
+   <td style="text-align:left;"> <span style="     color: purple !important;">Zig-Zag Racers</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 41.8%; margin-left: 50%; text-align: left;">28791</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 44.1%; margin-left: 50%; text-align: left;">27340</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Ham</span> </td>
+   <td style="text-align:left;"> <span style="     color: purple !important;">Zig-Zag Racers</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 41.73%; margin-left: 50%; text-align: left;">28744</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 42.57%; margin-left: 50%; text-align: left;">26392</span> </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">cody</span> </td>
+   <td style="text-align:left;"> <span style="     color: purple !important;">Zig-Zag Racers</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 41.63%; margin-left: 50%; text-align: left;">28675</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 43.53%; margin-left: 50%; text-align: left;">26987</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">M</span> </td>
+   <td style="text-align:left;"> <span style="     color: purple !important;">Zig-Zag Racers</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 41.59%; margin-left: 50%; text-align: left;">28647</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 42.22%; margin-left: 50%; text-align: left;">26180</span> </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">giddybb</span> </td>
+   <td style="text-align:left;"> <span style="     color: purple !important;">Zig-Zag Racers</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 41.54%; margin-left: 50%; text-align: left;">28611</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 43.48%; margin-left: 50%; text-align: left;">26956</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Roly</span> </td>
+   <td style="text-align:left;"> <span style="     color: purple !important;">Zig-Zag Racers</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 41.48%; margin-left: 50%; text-align: left;">28571</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 43.64%; margin-left: 50%; text-align: left;">27056</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 19 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Layoo 2.0</span> </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">GreasySpanner</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 41.1%; margin-left: 50%; text-align: left;">28305</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 43.64%; margin-left: 50%; text-align: left;">27059</span> </td>
+   <td style="text-align:right;"> 5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 20 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Unknown</span> </td>
+   <td style="text-align:left;"> <span style="     color: purple !important;">Zig-Zag Racers</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 40.94%; margin-left: 50%; text-align: left;">28197</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 41.5%; margin-left: 50%; text-align: left;">25732</span> </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 21 </td>
+   <td style="text-align:right;"> 19 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Cody Alien</span> </td>
+   <td style="text-align:left;"> <span style="     color: purple !important;">Zig-Zag Racers</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 40.57%; margin-left: 50%; text-align: left;">27939</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 42.5%; margin-left: 50%; text-align: left;">26352</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 22 </td>
+   <td style="text-align:right;"> 20 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">kevrev</span> </td>
+   <td style="text-align:left;"> <span style="     color: purple !important;">Zig-Zag Racers</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 40.03%; margin-left: 50%; text-align: left;">27571</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 42.03%; margin-left: 50%; text-align: left;">26061</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 23 </td>
+   <td style="text-align:right;"> 21 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Sniper</span> </td>
+   <td style="text-align:left;"> <span style="     color: purple !important;">Zig-Zag Racers</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 40.02%; margin-left: 50%; text-align: left;">27564</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 42.33%; margin-left: 50%; text-align: left;">26245</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 24 </td>
+   <td style="text-align:right;"> 22 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">DimondCndy</span> </td>
+   <td style="text-align:left;"> <span style="     color: purple !important;">Zig-Zag Racers</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 39.35%; margin-left: 50%; text-align: left;">27099</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 41.22%; margin-left: 50%; text-align: left;">25556</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 25 </td>
+   <td style="text-align:right;"> 23 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Rapid</span> </td>
+   <td style="text-align:left;"> <span style="     color: purple !important;">Zig-Zag Racers</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 38.92%; margin-left: 50%; text-align: left;">26806</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 39.57%; margin-left: 50%; text-align: left;">24532</span> </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 26 </td>
+   <td style="text-align:right;"> 24 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Oli</span> </td>
+   <td style="text-align:left;"> <span style="     color: purple !important;">Zig-Zag Racers</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 38.82%; margin-left: 50%; text-align: left;">26737</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 41.78%; margin-left: 50%; text-align: left;">25906</span> </td>
+   <td style="text-align:right;"> 14 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 27 </td>
+   <td style="text-align:right;"> 25 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">dean</span> </td>
+   <td style="text-align:left;"> <span style="     color: purple !important;">Zig-Zag Racers</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 38.62%; margin-left: 50%; text-align: left;">26596</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 41.11%; margin-left: 50%; text-align: left;">25490</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 28 </td>
+   <td style="text-align:right;"> 26 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">zippo</span> </td>
+   <td style="text-align:left;"> <span style="     color: purple !important;">Zig-Zag Racers</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 38.43%; margin-left: 50%; text-align: left;">26470</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 40.43%; margin-left: 50%; text-align: left;">25069</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 29 </td>
+   <td style="text-align:right;"> 27 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Panos</span> </td>
+   <td style="text-align:left;"> <span style="     color: purple !important;">Zig-Zag Racers</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 38.29%; margin-left: 50%; text-align: left;">26373</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 40%; margin-left: 50%; text-align: left;">24801</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 30 </td>
+   <td style="text-align:right;"> 28 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Hal</span> </td>
+   <td style="text-align:left;"> <span style="     color: purple !important;">Zig-Zag Racers</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 38.09%; margin-left: 50%; text-align: left;">26235</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 40.27%; margin-left: 50%; text-align: left;">24969</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 31 </td>
+   <td style="text-align:right;"> 29 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Dunk</span> </td>
+   <td style="text-align:left;"> <span style="     color: purple !important;">Zig-Zag Racers</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 37.58%; margin-left: 50%; text-align: left;">25886</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 39.7%; margin-left: 50%; text-align: left;">24615</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 32 </td>
+   <td style="text-align:right;"> 30 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">RadRacer!</span> </td>
+   <td style="text-align:left;"> <span style="     color: purple !important;">Zig-Zag Racers</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 37.24%; margin-left: 50%; text-align: left;">25649</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 39.51%; margin-left: 50%; text-align: left;">24499</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 33 </td>
+   <td style="text-align:right;"> 31 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Pavle</span> </td>
+   <td style="text-align:left;"> <span style="     color: purple !important;">Zig-Zag Racers</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 37.22%; margin-left: 50%; text-align: left;">25637</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 39.02%; margin-left: 50%; text-align: left;">24192</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 34 </td>
+   <td style="text-align:right;"> 32 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">FunK</span> </td>
+   <td style="text-align:left;"> <span style="     color: purple !important;">Zig-Zag Racers</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 37.03%; margin-left: 50%; text-align: left;">25505</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 39.02%; margin-left: 50%; text-align: left;">24194</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 35 </td>
+   <td style="text-align:right;"> 33 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Merc</span> </td>
+   <td style="text-align:left;"> <span style="     color: purple !important;">Zig-Zag Racers</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 36.74%; margin-left: 50%; text-align: left;">25307</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 37.93%; margin-left: 50%; text-align: left;">23518</span> </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 36 </td>
+   <td style="text-align:right;"> 34 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">JDJ13</span> </td>
+   <td style="text-align:left;"> <span style="     color: purple !important;">Zig-Zag Racers</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 36.1%; margin-left: 50%; text-align: left;">24862</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 38.1%; margin-left: 50%; text-align: left;">23621</span> </td>
+   <td style="text-align:right;"> 14 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 37 </td>
+   <td style="text-align:right;"> 35 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Eagle</span> </td>
+   <td style="text-align:left;"> <span style="     color: purple !important;">Zig-Zag Racers</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 35.48%; margin-left: 50%; text-align: left;">24437</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 34.24%; margin-left: 50%; text-align: left;">21232</span> </td>
+   <td style="text-align:right;"> 4 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 38 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Jez</span> </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">GreasySpanner</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 35.43%; margin-left: 50%; text-align: left;">24405</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 38.9%; margin-left: 50%; text-align: left;">24117</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 39 </td>
+   <td style="text-align:right;"> 36 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">clost</span> </td>
+   <td style="text-align:left;"> <span style="     color: purple !important;">Zig-Zag Racers</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 35.08%; margin-left: 50%; text-align: left;">24163</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 37.51%; margin-left: 50%; text-align: left;">23259</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 40 </td>
+   <td style="text-align:right;"> 37 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Biff Studly</span> </td>
+   <td style="text-align:left;"> <span style="     color: purple !important;">Zig-Zag Racers</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 35.06%; margin-left: 50%; text-align: left;">24147</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 37.52%; margin-left: 50%; text-align: left;">23262</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Dudd</span> </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">GreasySpanner</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 34.75%; margin-left: 50%; text-align: left;">23931</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 38.01%; margin-left: 50%; text-align: left;">23570</span> </td>
+   <td style="text-align:right;"> 13 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 42 </td>
+   <td style="text-align:right;"> 38 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">andre</span> </td>
+   <td style="text-align:left;"> <span style="     color: purple !important;">Zig-Zag Racers</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 34.65%; margin-left: 50%; text-align: left;">23866</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 38.32%; margin-left: 50%; text-align: left;">23761</span> </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 43 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Blaze?</span> </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">GreasySpanner</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 34.61%; margin-left: 50%; text-align: left;">23835</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 38.64%; margin-left: 50%; text-align: left;">23957</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 44 </td>
+   <td style="text-align:right;"> 39 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">jim83</span> </td>
+   <td style="text-align:left;"> <span style="     color: purple !important;">Zig-Zag Racers</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 34.27%; margin-left: 50%; text-align: left;">23604</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 36.01%; margin-left: 50%; text-align: left;">22324</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 45 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Markman</span> </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">GreasySpanner</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 34.14%; margin-left: 50%; text-align: left;">23514</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 36.85%; margin-left: 50%; text-align: left;">22850</span> </td>
+   <td style="text-align:right;"> 5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 46 </td>
+   <td style="text-align:right;"> 40 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">4$hizzle</span> </td>
+   <td style="text-align:left;"> <span style="     color: purple !important;">Zig-Zag Racers</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 33.62%; margin-left: 50%; text-align: left;">23158</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 35.76%; margin-left: 50%; text-align: left;">22170</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 47 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Bobby boy</span> </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">GreasySpanner</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 33.44%; margin-left: 50%; text-align: left;">23029</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 37.38%; margin-left: 50%; text-align: left;">23178</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 48 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Hoon</span> </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">GreasySpanner</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 33.33%; margin-left: 50%; text-align: left;">22953</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 36.48%; margin-left: 50%; text-align: left;">22621</span> </td>
+   <td style="text-align:right;"> 5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 49 </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">sonny</span> </td>
+   <td style="text-align:left;"> <span style="     color: purple !important;">Zig-Zag Racers</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 33.33%; margin-left: 50%; text-align: left;">22953</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 35.27%; margin-left: 50%; text-align: left;">21866</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 50 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Rivi</span> </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">GreasySpanner</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 32.64%; margin-left: 50%; text-align: left;">22479</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 36.17%; margin-left: 50%; text-align: left;">22426</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 51 </td>
+   <td style="text-align:right;"> 42 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">GINVI</span> </td>
+   <td style="text-align:left;"> <span style="     color: purple !important;">Zig-Zag Racers</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 32.4%; margin-left: 50%; text-align: left;">22317</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 33.33%; margin-left: 50%; text-align: left;">20666</span> </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 52 </td>
+   <td style="text-align:right;"> 43 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Gerry</span> </td>
+   <td style="text-align:left;"> <span style="     color: purple !important;">Zig-Zag Racers</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 32.29%; margin-left: 50%; text-align: left;">22239</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 34.66%; margin-left: 50%; text-align: left;">21490</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 53 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Me1</span> </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">GreasySpanner</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 32.19%; margin-left: 50%; text-align: left;">22169</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 38.22%; margin-left: 50%; text-align: left;">23699</span> </td>
+   <td style="text-align:right;"> 3 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 54 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Vainiin</span> </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">GreasySpanner</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 31.76%; margin-left: 50%; text-align: left;">21875</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 40.6%; margin-left: 50%; text-align: left;">25172</span> </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 55 </td>
+   <td style="text-align:right;"> 44 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">chris p</span> </td>
+   <td style="text-align:left;"> <span style="     color: purple !important;">Zig-Zag Racers</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 31.69%; margin-left: 50%; text-align: left;">21826</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 33.82%; margin-left: 50%; text-align: left;">20970</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 56 </td>
+   <td style="text-align:right;"> 45 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Tamara</span> </td>
+   <td style="text-align:left;"> <span style="     color: purple !important;">Zig-Zag Racers</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 31.64%; margin-left: 50%; text-align: left;">21790</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 33.62%; margin-left: 50%; text-align: left;">20843</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 57 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Rob</span> </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">GreasySpanner</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 31.24%; margin-left: 50%; text-align: left;">21519</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 34.2%; margin-left: 50%; text-align: left;">21206</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 58 </td>
+   <td style="text-align:right;"> 46 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">KLOSS</span> </td>
+   <td style="text-align:left;"> <span style="     color: purple !important;">Zig-Zag Racers</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 30.98%; margin-left: 50%; text-align: left;">21336</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 33.11%; margin-left: 50%; text-align: left;">20529</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Mr D</span> </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">GreasySpanner</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 30.08%; margin-left: 50%; text-align: left;">20719</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 33.1%; margin-left: 50%; text-align: left;">20524</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 60 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Special One</span> </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">GreasySpanner</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 29.82%; margin-left: 50%; text-align: left;">20537</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 33.53%; margin-left: 50%; text-align: left;">20790</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 61 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Greavsie</span> </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">GreasySpanner</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 29.62%; margin-left: 50%; text-align: left;">20403</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 36.21%; margin-left: 50%; text-align: left;">22450</span> </td>
+   <td style="text-align:right;"> 3 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 62 </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">skm</span> </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">GreasySpanner</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 29.62%; margin-left: 50%; text-align: left;">20400</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 33.3%; margin-left: 50%; text-align: left;">20645</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 63 </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Bri</span> </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">GreasySpanner</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 29.6%; margin-left: 50%; text-align: left;">20386</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 33.72%; margin-left: 50%; text-align: left;">20906</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 64 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Beast</span> </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">GreasySpanner</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 29.47%; margin-left: 50%; text-align: left;">20297</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 35.44%; margin-left: 50%; text-align: left;">21976</span> </td>
+   <td style="text-align:right;"> 3 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 65 </td>
+   <td style="text-align:right;"> 19 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Barry Clappa</span> </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">GreasySpanner</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 29.43%; margin-left: 50%; text-align: left;">20270</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 32.59%; margin-left: 50%; text-align: left;">20206</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 66 </td>
+   <td style="text-align:right;"> 20 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Sam</span> </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">GreasySpanner</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 29.38%; margin-left: 50%; text-align: left;">20237</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 36.21%; margin-left: 50%; text-align: left;">22449</span> </td>
+   <td style="text-align:right;"> 3 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 67 </td>
+   <td style="text-align:right;"> 21 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Ethan Trooper</span> </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">GreasySpanner</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 29.18%; margin-left: 50%; text-align: left;">20100</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 32.65%; margin-left: 50%; text-align: left;">20246</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 68 </td>
+   <td style="text-align:right;"> 22 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Mad Moirman</span> </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">GreasySpanner</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 29.09%; margin-left: 50%; text-align: left;">20034</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 30.98%; margin-left: 50%; text-align: left;">19209</span> </td>
+   <td style="text-align:right;"> 10 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 69 </td>
+   <td style="text-align:right;"> 23 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Morph</span> </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">GreasySpanner</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 29.02%; margin-left: 50%; text-align: left;">19984</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 32.51%; margin-left: 50%; text-align: left;">20157</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 70 </td>
+   <td style="text-align:right;"> 24 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Santi</span> </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">GreasySpanner</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 28.38%; margin-left: 50%; text-align: left;">19544</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 35.41%; margin-left: 50%; text-align: left;">21953</span> </td>
+   <td style="text-align:right;"> 3 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 71 </td>
+   <td style="text-align:right;"> 25 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Zalgiris BC</span> </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">GreasySpanner</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 27.78%; margin-left: 50%; text-align: left;">19133</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 31.76%; margin-left: 50%; text-align: left;">19691</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 72 </td>
+   <td style="text-align:right;"> 26 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Wigan</span> </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">GreasySpanner</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 25.96%; margin-left: 50%; text-align: left;">17877</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 29.8%; margin-left: 50%; text-align: left;">18476</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 73 </td>
+   <td style="text-align:right;"> 27 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Scuba Steve</span> </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">GreasySpanner</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 25.66%; margin-left: 50%; text-align: left;">17672</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 29.35%; margin-left: 50%; text-align: left;">18196</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 74 </td>
+   <td style="text-align:right;"> 28 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Gomez</span> </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">GreasySpanner</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 25.65%; margin-left: 50%; text-align: left;">17665</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 36.1%; margin-left: 50%; text-align: left;">22385</span> </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 75 </td>
+   <td style="text-align:right;"> 29 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Beefpoo</span> </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">GreasySpanner</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 25.62%; margin-left: 50%; text-align: left;">17647</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 36.08%; margin-left: 50%; text-align: left;">22371</span> </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 76 </td>
+   <td style="text-align:right;"> 30 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Sparky</span> </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">GreasySpanner</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 24.33%; margin-left: 50%; text-align: left;">16758</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 28.09%; margin-left: 50%; text-align: left;">17419</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 77 </td>
+   <td style="text-align:right;"> 31 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Mirisek</span> </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">GreasySpanner</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 24.23%; margin-left: 50%; text-align: left;">16687</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 27.44%; margin-left: 50%; text-align: left;">17012</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 78 </td>
+   <td style="text-align:right;"> 32 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Karl</span> </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">GreasySpanner</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 23.32%; margin-left: 50%; text-align: left;">16061</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 27.27%; margin-left: 50%; text-align: left;">16911</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 79 </td>
+   <td style="text-align:right;"> 33 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Aidy</span> </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">GreasySpanner</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 22.79%; margin-left: 50%; text-align: left;">15695</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 26.92%; margin-left: 50%; text-align: left;">16693</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 80 </td>
+   <td style="text-align:right;"> 34 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Ou Herrie</span> </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">GreasySpanner</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 22.56%; margin-left: 50%; text-align: left;">15539</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 27.11%; margin-left: 50%; text-align: left;">16810</span> </td>
+   <td style="text-align:right;"> 13 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 81 </td>
+   <td style="text-align:right;"> 35 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Tazz Havoc</span> </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">GreasySpanner</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 21.96%; margin-left: 50%; text-align: left;">15127</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 25.73%; margin-left: 50%; text-align: left;">15951</span> </td>
+   <td style="text-align:right;"> 14 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 82 </td>
+   <td style="text-align:right;"> 36 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Sh1n0d@</span> </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">GreasySpanner</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 21.49%; margin-left: 50%; text-align: left;">14800</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 25.12%; margin-left: 50%; text-align: left;">15573</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 83 </td>
+   <td style="text-align:right;"> 37 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">G</span> </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">GreasySpanner</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 20.73%; margin-left: 50%; text-align: left;">14277</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 24.17%; margin-left: 50%; text-align: left;">14983</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 84 </td>
+   <td style="text-align:right;"> 38 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">RJB</span> </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">GreasySpanner</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 20.14%; margin-left: 50%; text-align: left;">13872</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 24.41%; margin-left: 50%; text-align: left;">15133</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 85 </td>
+   <td style="text-align:right;"> 39 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Frank</span> </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">GreasySpanner</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 20.08%; margin-left: 50%; text-align: left;">13828</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 24.45%; margin-left: 50%; text-align: left;">15157</span> </td>
+   <td style="text-align:right;"> 14 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 86 </td>
+   <td style="text-align:right;"> 40 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Desbok</span> </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">GreasySpanner</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 19.62%; margin-left: 50%; text-align: left;">13516</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 23.55%; margin-left: 50%; text-align: left;">14604</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 87 </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Southie</span> </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">GreasySpanner</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 18.55%; margin-left: 50%; text-align: left;">12777</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 27.31%; margin-left: 50%; text-align: left;">16930</span> </td>
+   <td style="text-align:right;"> 3 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 88 </td>
+   <td style="text-align:right;"> 42 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">WILGG</span> </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">GreasySpanner</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 18.54%; margin-left: 50%; text-align: left;">12768</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 30.15%; margin-left: 50%; text-align: left;">18695</span> </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 89 </td>
+   <td style="text-align:right;"> 43 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Colin Paul</span> </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">GreasySpanner</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 18.14%; margin-left: 50%; text-align: left;">12491</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 22.19%; margin-left: 50%; text-align: left;">13760</span> </td>
+   <td style="text-align:right;"> 14 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 90 </td>
+   <td style="text-align:right;"> 44 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Lofty</span> </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">GreasySpanner</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 18.02%; margin-left: 50%; text-align: left;">12412</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 25.51%; margin-left: 50%; text-align: left;">15818</span> </td>
+   <td style="text-align:right;"> 3 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 91 </td>
+   <td style="text-align:right;"> 45 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Soccer</span> </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">GreasySpanner</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 17.17%; margin-left: 50%; text-align: left;">11829</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 29.67%; margin-left: 50%; text-align: left;">18394</span> </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 92 </td>
+   <td style="text-align:right;"> 46 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Jules</span> </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">GreasySpanner</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 15.87%; margin-left: 50%; text-align: left;">10931</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 27.92%; margin-left: 50%; text-align: left;">17311</span> </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 93 </td>
+   <td style="text-align:right;"> 47 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Pob</span> </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">GreasySpanner</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 14.94%; margin-left: 50%; text-align: left;">10292</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 19.69%; margin-left: 50%; text-align: left;">12211</span> </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 94 </td>
+   <td style="text-align:right;"> 48 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">Crabbo</span> </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">GreasySpanner</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 6.64%; margin-left: 50%; text-align: left;">4575</span> </td>
+   <td style="text-align:left;"> <span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 20.2%; margin-left: 50%; text-align: left;">12522</span> </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+</tbody>
+</table>
+
+The standardized score is a score which has been adjusted for the difficulty of the event round, and the variability of score in the event round and which teams played in the event round (of Zig-Zag and GreasySpanner). Results have been rescaled back to the average across all the events to make them easier to interpret. Calculations include all players past and present, but only current players (in their current teams) are shown.

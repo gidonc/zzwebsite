@@ -5,12 +5,12 @@ headless = true  # This file represents a page section.
 active = true  # Activate this widget? true/false
 weight = 65  # Order that this section will appear.
 
-title = "Player Information"
+title = "Team Information"
 subtitle = ""
 
 [content]
   # Page type to display. E.g. project.
-  page_type = "project"
+  page_type = "teams"
   
   # Filter toolbar (optional).
   # Add or remove as many filters (`[[content.filter_button]]` instances) as you like.
@@ -26,12 +26,12 @@ subtitle = ""
     tag = "*"
 
   [[content.filter_button]]
-    name = "Basic"
-    tag = "Basic"
+    name = "Player results"
+    tag = "Player"
   
   [[content.filter_button]]
-    name = "Detailed"
-    tag = "Detailed"
+    name = "Team results"
+    tag = "Team"
   
 
 [design]

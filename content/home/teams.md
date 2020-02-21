@@ -26,12 +26,12 @@ subtitle = ""
     tag = "*"
 
   [[content.filter_button]]
-    name = "Player results"
-    tag = "Player"
+    name = "Basic"
+    tag = "Basic"
   
   [[content.filter_button]]
-    name = "Team results"
-    tag = "Team"
+    name = "Detailed"
+    tag = "Detailed"
   
 
 [design]

@@ -1,0 +1,1862 @@
+---
+title: "Recent Player Scores"
+author: "giddybb"
+date: "20 February, 2020"
+output: html_document
+summary: Recent player average scores including information from  only the last 15 events.
+tags:
+- Player
+- Basic
+---
+
+<script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
+
+
+<p>The table below shows which players have scored best in the last 15 matches, ranked according to a standardized score (see below).</p>
+<table class="table table-striped" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+Rank
+</th>
+<th style="text-align:left;">
+Players
+</th>
+<th style="text-align:left;">
+team
+</th>
+<th style="text-align:left;">
+StdScore
+</th>
+<th style="text-align:left;">
+Score
+</th>
+<th style="text-align:right;">
+n
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Si</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: purple !important;">Zig-Zag Racers</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 50%; margin-left: 50%; text-align: left;">33907</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 48.36%; margin-left: 50%; text-align: left;">29984</span>
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">sii</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">GreasySpanner</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 48.31%; margin-left: 50%; text-align: left;">32758</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 49.14%; margin-left: 50%; text-align: left;">30468</span>
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">ZedexAJ</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: purple !important;">Zig-Zag Racers</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 48.27%; margin-left: 50%; text-align: left;">32733</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 50%; margin-left: 50%; text-align: left;">31001</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Ben</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: purple !important;">Zig-Zag Racers</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 47.92%; margin-left: 50%; text-align: left;">32498</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 49.04%; margin-left: 50%; text-align: left;">30408</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">#27</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: purple !important;">Zig-Zag Racers</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 47.31%; margin-left: 50%; text-align: left;">32086</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 44.29%; margin-left: 50%; text-align: left;">27461</span>
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Boshass</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: purple !important;">Zig-Zag Racers</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 45.96%; margin-left: 50%; text-align: left;">31166</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 48.02%; margin-left: 50%; text-align: left;">29774</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Layoo</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: purple !important;">Zig-Zag Racers</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 45.63%; margin-left: 50%; text-align: left;">30942</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 47.66%; margin-left: 50%; text-align: left;">29549</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">isham</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: purple !important;">Zig-Zag Racers</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 43.98%; margin-left: 50%; text-align: left;">29823</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 42.87%; margin-left: 50%; text-align: left;">26580</span>
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Kevin</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: purple !important;">Zig-Zag Racers</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 43.64%; margin-left: 50%; text-align: left;">29592</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 45.72%; margin-left: 50%; text-align: left;">28345</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">rusky79</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: purple !important;">Zig-Zag Racers</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 42.45%; margin-left: 50%; text-align: left;">28787</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 44.52%; margin-left: 50%; text-align: left;">27603</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">JLD</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">GreasySpanner</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 42.23%; margin-left: 50%; text-align: left;">28638</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 44.99%; margin-left: 50%; text-align: left;">27895</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">CLee1701</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: purple !important;">Zig-Zag Racers</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 42.02%; margin-left: 50%; text-align: left;">28493</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 42.15%; margin-left: 50%; text-align: left;">26134</span>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Hail Eris</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: purple !important;">Zig-Zag Racers</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 41.88%; margin-left: 50%; text-align: left;">28400</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 44.43%; margin-left: 50%; text-align: left;">27549</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Bman</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: purple !important;">Zig-Zag Racers</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 41.68%; margin-left: 50%; text-align: left;">28265</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 44.1%; margin-left: 50%; text-align: left;">27340</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Layoo 2.0</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">GreasySpanner</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 41.57%; margin-left: 50%; text-align: left;">28190</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 43.02%; margin-left: 50%; text-align: left;">26672</span>
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Ham</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: purple !important;">Zig-Zag Racers</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 41.55%; margin-left: 50%; text-align: left;">28175</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 42.57%; margin-left: 50%; text-align: left;">26392</span>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">cody</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: purple !important;">Zig-Zag Racers</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 41.51%; margin-left: 50%; text-align: left;">28149</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 43.53%; margin-left: 50%; text-align: left;">26987</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">giddybb</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: purple !important;">Zig-Zag Racers</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 41.41%; margin-left: 50%; text-align: left;">28084</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 43.48%; margin-left: 50%; text-align: left;">26956</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">M</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: purple !important;">Zig-Zag Racers</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 41.4%; margin-left: 50%; text-align: left;">28078</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 42.22%; margin-left: 50%; text-align: left;">26180</span>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Roly</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: purple !important;">Zig-Zag Racers</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 41.35%; margin-left: 50%; text-align: left;">28044</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 43.64%; margin-left: 50%; text-align: left;">27056</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Unknown</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: purple !important;">Zig-Zag Racers</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 40.75%; margin-left: 50%; text-align: left;">27631</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 41.5%; margin-left: 50%; text-align: left;">25732</span>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Cody Alien</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: purple !important;">Zig-Zag Racers</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 40.41%; margin-left: 50%; text-align: left;">27406</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 42.5%; margin-left: 50%; text-align: left;">26352</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">kevrev</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: purple !important;">Zig-Zag Racers</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 39.87%; margin-left: 50%; text-align: left;">27036</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 42.03%; margin-left: 50%; text-align: left;">26061</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+24
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Sniper</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: purple !important;">Zig-Zag Racers</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 39.86%; margin-left: 50%; text-align: left;">27029</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 42.33%; margin-left: 50%; text-align: left;">26245</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+25
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">DimondCndy</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: purple !important;">Zig-Zag Racers</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 39.17%; margin-left: 50%; text-align: left;">26560</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 41.22%; margin-left: 50%; text-align: left;">25556</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Rapid</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: purple !important;">Zig-Zag Racers</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 38.7%; margin-left: 50%; text-align: left;">26245</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 39.57%; margin-left: 50%; text-align: left;">24532</span>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Oli</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: purple !important;">Zig-Zag Racers</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 38.63%; margin-left: 50%; text-align: left;">26195</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 41.78%; margin-left: 50%; text-align: left;">25906</span>
+</td>
+<td style="text-align:right;">
+14
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">dean</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: purple !important;">Zig-Zag Racers</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 38.42%; margin-left: 50%; text-align: left;">26053</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 41.11%; margin-left: 50%; text-align: left;">25490</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+29
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">zippo</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: purple !important;">Zig-Zag Racers</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 38.23%; margin-left: 50%; text-align: left;">25926</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 40.43%; margin-left: 50%; text-align: left;">25069</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Panos</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: purple !important;">Zig-Zag Racers</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 38.09%; margin-left: 50%; text-align: left;">25827</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 40%; margin-left: 50%; text-align: left;">24801</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+31
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Hal</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: purple !important;">Zig-Zag Racers</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 37.88%; margin-left: 50%; text-align: left;">25689</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 40.27%; margin-left: 50%; text-align: left;">24969</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+32
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Dunk</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: purple !important;">Zig-Zag Racers</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 37.36%; margin-left: 50%; text-align: left;">25337</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 39.7%; margin-left: 50%; text-align: left;">24615</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">RadRacer!</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: purple !important;">Zig-Zag Racers</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 37.01%; margin-left: 50%; text-align: left;">25098</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 39.51%; margin-left: 50%; text-align: left;">24499</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+34
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Pavle</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: purple !important;">Zig-Zag Racers</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 36.99%; margin-left: 50%; text-align: left;">25086</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 39.02%; margin-left: 50%; text-align: left;">24192</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">FunK</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: purple !important;">Zig-Zag Racers</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 36.8%; margin-left: 50%; text-align: left;">24953</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 39.02%; margin-left: 50%; text-align: left;">24194</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+36
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Merc</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: purple !important;">Zig-Zag Racers</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 36.5%; margin-left: 50%; text-align: left;">24752</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 37.93%; margin-left: 50%; text-align: left;">23518</span>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+37
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">JDJ13</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: purple !important;">Zig-Zag Racers</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 35.84%; margin-left: 50%; text-align: left;">24305</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 38.1%; margin-left: 50%; text-align: left;">23621</span>
+</td>
+<td style="text-align:right;">
+14
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+38
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Jez</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">GreasySpanner</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 35.58%; margin-left: 50%; text-align: left;">24126</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 38.31%; margin-left: 50%; text-align: left;">23756</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+39
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Eagle</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: purple !important;">Zig-Zag Racers</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 35.21%; margin-left: 50%; text-align: left;">23880</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 34.24%; margin-left: 50%; text-align: left;">21232</span>
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">clost</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: purple !important;">Zig-Zag Racers</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 34.8%; margin-left: 50%; text-align: left;">23600</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 37.51%; margin-left: 50%; text-align: left;">23259</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+41
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Biff Studly</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: purple !important;">Zig-Zag Racers</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 34.78%; margin-left: 50%; text-align: left;">23584</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 37.52%; margin-left: 50%; text-align: left;">23262</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+42
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">andre</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: purple !important;">Zig-Zag Racers</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 34.41%; margin-left: 50%; text-align: left;">23338</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 38.32%; margin-left: 50%; text-align: left;">23761</span>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+43
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Blaze?</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">GreasySpanner</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 34.23%; margin-left: 50%; text-align: left;">23211</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 37.76%; margin-left: 50%; text-align: left;">23413</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+44
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Dudd</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">GreasySpanner</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 34.15%; margin-left: 50%; text-align: left;">23156</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 36.88%; margin-left: 50%; text-align: left;">22868</span>
+</td>
+<td style="text-align:right;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+45
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">jim83</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: purple !important;">Zig-Zag Racers</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 33.97%; margin-left: 50%; text-align: left;">23036</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 36.01%; margin-left: 50%; text-align: left;">22324</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+46
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Markman</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">GreasySpanner</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 33.71%; margin-left: 50%; text-align: left;">22862</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 35.19%; margin-left: 50%; text-align: left;">21818</span>
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+47
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Hoon</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">GreasySpanner</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 33.35%; margin-left: 50%; text-align: left;">22619</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 35.19%; margin-left: 50%; text-align: left;">21820</span>
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+48
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">4$hizzle</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: purple !important;">Zig-Zag Racers</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 33.31%; margin-left: 50%; text-align: left;">22586</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 35.76%; margin-left: 50%; text-align: left;">22170</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+49
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">sonny</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: purple !important;">Zig-Zag Racers</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 33%; margin-left: 50%; text-align: left;">22380</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 35.27%; margin-left: 50%; text-align: left;">21866</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+50
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Rivi</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">GreasySpanner</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 32.36%; margin-left: 50%; text-align: left;">21942</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 35.38%; margin-left: 50%; text-align: left;">21935</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+51
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Bobby boy</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">GreasySpanner</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 32.17%; margin-left: 50%; text-align: left;">21816</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 35.98%; margin-left: 50%; text-align: left;">22309</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+52
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">GINVI</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: purple !important;">Zig-Zag Racers</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 32.11%; margin-left: 50%; text-align: left;">21774</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 33.33%; margin-left: 50%; text-align: left;">20666</span>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+53
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Gerry</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: purple !important;">Zig-Zag Racers</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 31.94%; margin-left: 50%; text-align: left;">21660</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 34.66%; margin-left: 50%; text-align: left;">21490</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+54
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">chris p</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: purple !important;">Zig-Zag Racers</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 31.33%; margin-left: 50%; text-align: left;">21243</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 33.82%; margin-left: 50%; text-align: left;">20970</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+55
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Tamara</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: purple !important;">Zig-Zag Racers</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 31.27%; margin-left: 50%; text-align: left;">21208</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 33.62%; margin-left: 50%; text-align: left;">20843</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+56
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Vainiin</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">GreasySpanner</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 31.05%; margin-left: 50%; text-align: left;">21053</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 39.3%; margin-left: 50%; text-align: left;">24365</span>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+57
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Rob</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">GreasySpanner</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 30.81%; margin-left: 50%; text-align: left;">20896</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 33.35%; margin-left: 50%; text-align: left;">20680</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+58
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">KLOSS</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: purple !important;">Zig-Zag Racers</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 30.6%; margin-left: 50%; text-align: left;">20750</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 33.11%; margin-left: 50%; text-align: left;">20529</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+59
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Me1</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">GreasySpanner</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 30.16%; margin-left: 50%; text-align: left;">20456</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 35.12%; margin-left: 50%; text-align: left;">21778</span>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+60
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Mr D</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">GreasySpanner</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 29.75%; margin-left: 50%; text-align: left;">20172</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 32.34%; margin-left: 50%; text-align: left;">20050</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+61
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">skm</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">GreasySpanner</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 29.56%; margin-left: 50%; text-align: left;">20049</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 32.74%; margin-left: 50%; text-align: left;">20297</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+62
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Bri</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">GreasySpanner</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 29.2%; margin-left: 50%; text-align: left;">19799</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 32.92%; margin-left: 50%; text-align: left;">20412</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+63
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Special One</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">GreasySpanner</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 29.1%; margin-left: 50%; text-align: left;">19731</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 32.53%; margin-left: 50%; text-align: left;">20172</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+64
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Barry Clappa</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">GreasySpanner</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 28.86%; margin-left: 50%; text-align: left;">19569</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 31.7%; margin-left: 50%; text-align: left;">19655</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+65
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Ethan Trooper</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">GreasySpanner</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 28.57%; margin-left: 50%; text-align: left;">19375</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 31.73%; margin-left: 50%; text-align: left;">19671</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+66
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Mad Moirman</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">GreasySpanner</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 28.4%; margin-left: 50%; text-align: left;">19259</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 29.82%; margin-left: 50%; text-align: left;">18488</span>
+</td>
+<td style="text-align:right;">
+9
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+67
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Sam</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">GreasySpanner</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 28.1%; margin-left: 50%; text-align: left;">19053</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 33.66%; margin-left: 50%; text-align: left;">20870</span>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+68
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Clown</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">GreasySpanner</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 27.98%; margin-left: 50%; text-align: left;">18976</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 33.62%; margin-left: 50%; text-align: left;">20842</span>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+69
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Morph</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">GreasySpanner</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 27.9%; margin-left: 50%; text-align: left;">18920</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 31.28%; margin-left: 50%; text-align: left;">19397</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+70
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Beast</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">GreasySpanner</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 27.88%; margin-left: 50%; text-align: left;">18905</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 32.2%; margin-left: 50%; text-align: left;">19967</span>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+71
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Santi</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">GreasySpanner</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 27.8%; margin-left: 50%; text-align: left;">18854</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 33.34%; margin-left: 50%; text-align: left;">20670</span>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+72
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Greavsie</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">GreasySpanner</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 27.66%; margin-left: 50%; text-align: left;">18756</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 33.07%; margin-left: 50%; text-align: left;">20506</span>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+73
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Zalgiris BC</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">GreasySpanner</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 26.93%; margin-left: 50%; text-align: left;">18264</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 30.73%; margin-left: 50%; text-align: left;">19055</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+74
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Wigan</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">GreasySpanner</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 25.38%; margin-left: 50%; text-align: left;">17214</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 28.99%; margin-left: 50%; text-align: left;">17974</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+75
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Sparky</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">GreasySpanner</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 24.84%; margin-left: 50%; text-align: left;">16847</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 27.97%; margin-left: 50%; text-align: left;">17343</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+76
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Scuba Steve</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">GreasySpanner</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 24.58%; margin-left: 50%; text-align: left;">16668</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 28.2%; margin-left: 50%; text-align: left;">17486</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+77
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Aidy</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">GreasySpanner</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 23.08%; margin-left: 50%; text-align: left;">15650</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 26.17%; margin-left: 50%; text-align: left;">16225</span>
+</td>
+<td style="text-align:right;">
+14
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+78
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Mirisek</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">GreasySpanner</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 22.74%; margin-left: 50%; text-align: left;">15419</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 26.06%; margin-left: 50%; text-align: left;">16159</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+79
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Karl</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">GreasySpanner</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 22.66%; margin-left: 50%; text-align: left;">15366</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 26.45%; margin-left: 50%; text-align: left;">16402</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+80
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Ou Herrie</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">GreasySpanner</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 21.53%; margin-left: 50%; text-align: left;">14600</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 26.15%; margin-left: 50%; text-align: left;">16212</span>
+</td>
+<td style="text-align:right;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+81
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Tazz Havoc</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">GreasySpanner</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 21.11%; margin-left: 50%; text-align: left;">14313</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 24.85%; margin-left: 50%; text-align: left;">15406</span>
+</td>
+<td style="text-align:right;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+82
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Sh1n0d@</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">GreasySpanner</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 20.93%; margin-left: 50%; text-align: left;">14192</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 24.4%; margin-left: 50%; text-align: left;">15127</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+83
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Lofty</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">GreasySpanner</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 20.5%; margin-left: 50%; text-align: left;">13902</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 24.5%; margin-left: 50%; text-align: left;">15190</span>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+84
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Frank</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">GreasySpanner</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 19.86%; margin-left: 50%; text-align: left;">13469</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 23.93%; margin-left: 50%; text-align: left;">14837</span>
+</td>
+<td style="text-align:right;">
+14
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+85
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">G</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">GreasySpanner</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 19.82%; margin-left: 50%; text-align: left;">13442</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 23.23%; margin-left: 50%; text-align: left;">14402</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+86
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Desbok</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">GreasySpanner</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 19.54%; margin-left: 50%; text-align: left;">13249</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 23.19%; margin-left: 50%; text-align: left;">14376</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+87
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">RJB</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">GreasySpanner</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 19.22%; margin-left: 50%; text-align: left;">13033</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 23.48%; margin-left: 50%; text-align: left;">14559</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+88
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Southie</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">GreasySpanner</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 18.96%; margin-left: 50%; text-align: left;">12858</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 25.42%; margin-left: 50%; text-align: left;">15763</span>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+89
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Soccer</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">GreasySpanner</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 17.78%; margin-left: 50%; text-align: left;">12056</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 28.66%; margin-left: 50%; text-align: left;">17767</span>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+90
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Colin Paul</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">GreasySpanner</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 16.15%; margin-left: 50%; text-align: left;">10952</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 21.35%; margin-left: 50%; text-align: left;">13239</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+91
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">Pob</span>
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">GreasySpanner</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 14.14%; margin-left: 50%; text-align: left;">9587</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 18.99%; margin-left: 50%; text-align: left;">11777</span>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+</tbody>
+</table>
+<p>The standardized score is a score which has been adjusted for the difficulty of the event round, and the variability of score in the event round and which teams played in the event round (of Zig-Zag and GreasySpanner). Results have been rescaled back to the average across all the events to make them easier to interpret. Calculations include all players past and present, but only current players (in their current teams) are shown.</p>

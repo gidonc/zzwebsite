@@ -136,15 +136,17 @@ re.players%>%
   rowid_to_column("Rank") %>%
   group_by(team) %>%
   mutate(Team_rank = dplyr::row_number(),
-         bottom_10 = Team_rank>(max(Team_rank)-11)) %>%
+         bottom_10 = Team_rank>(max(Team_rank)-11),
+         bottom_15 = Team_rank>(max(Team_rank)-16)) %>%
   
   ungroup() %>%
   mutate(StdScore=cb(StdScore),
          Score=cb(round(Score))) %>%
   mutate(Players=cell_spec(Players, color=ifelse(Current=="y"&!is.na(Current), "black", "blue"),
                            strikeout=ifelse(Current=="y", FALSE, TRUE))) %>%
-  mutate(Players=cell_spec(Team_rank, color=ifelse(bottom_10==TRUE, "red", "black"))) %>%
-  mutate(team=cell_spec(team, color=ifelse(team=="Zig-Zag Racers", "purple", "orange"))) %>%
+  mutate(Team_rank=cell_spec(Team_rank, color=ifelse(bottom_10==TRUE, "red", 
+                                                     ifelse(bottom_15, "orange", "black")))) %>%
+  mutate(team=cell_spec(team, color=ifelse(team=="Zig-Zag Racers", "purple", "blue"))) %>%
   dplyr::select(Rank, Team_rank, Players, team, StdScore, Score, n)  %>%
   kable(escape=F) %>%
   kable_styling(c("striped"), full_width = T, font_size = 11)

@@ -108,7 +108,7 @@ f2 <- lmer(std_score~ has_zig_zag + has_gs + (1|PlayerTeam), res_long_recent)
 
 
 ## All Time Results
-The table below shows which players tend to score using a standardized score (see below). 
+The table below shows ranks players using a standardized score (see below) and also reports their all time average score. 
 ```{r, echo=FALSE, message=FALSE}
 event_std<- res_long %>% 
   group_by(event_round) %>%  summarize(
@@ -118,7 +118,8 @@ event_std<- res_long %>%
 results_summary <- res_long %>%
   filter(!is.na(score)) %>%
   group_by(PlayerTeam) %>%
-  tally()
+  summarize(n=n(), Score=mean(score, na.rm = TRUE))
+
   
 re.players<-ranef(f1)$PlayerTeam %>% 
   rownames_to_column("PlayerTeam") %>%
@@ -128,16 +129,36 @@ re.players<-ranef(f1)$PlayerTeam %>%
   arrange(-StdScore) %>%
   left_join(results) %>%
   left_join(results_summary)
+# 
+# re.players%>%
+#   dplyr::select(Players, team, StdScore, Current, n)  %>%
+#   filter(Current=="y") %>%
+#   rowid_to_column("Rank") %>%
+#   mutate(StdScore=cb(StdScore)) %>%
+#   mutate(Players=cell_spec(Players, color=ifelse(Current=="y"&!is.na(Current), "black", "blue"),
+#                            strikeout=ifelse(Current=="y", FALSE, TRUE))) %>%
+#   mutate(team=cell_spec(team, color=ifelse(team=="Zig-Zag Racers", "purple", "orange"))) %>%
+#   mutate(Current=cell_spec(Current, align="r")) %>%
+#   kable(escape=F) %>%
+#   kable_styling(c("striped"), full_width = T, font_size = 11)
 
 re.players%>%
-  dplyr::select(Players, team, StdScore, Current, n)  %>%
   filter(Current=="y") %>%
   rowid_to_column("Rank") %>%
-  mutate(StdScore=cb(StdScore)) %>%
+  group_by(team) %>%
+  mutate(Team_rank = dplyr::row_number(),
+         bottom_10 = Team_rank>(max(Team_rank)-11),
+         bottom_15 = Team_rank>(max(Team_rank)-16)) %>%
+  
+  ungroup() %>%
+  mutate(StdScore=cb(StdScore),
+         Score=cb(round(Score))) %>%
   mutate(Players=cell_spec(Players, color=ifelse(Current=="y"&!is.na(Current), "black", "blue"),
                            strikeout=ifelse(Current=="y", FALSE, TRUE))) %>%
-  mutate(team=cell_spec(team, color=ifelse(team=="Zig-Zag Racers", "purple", "orange"))) %>%
-  mutate(Current=cell_spec(Current, align="r")) %>%
+  mutate(Team_rank=cell_spec(Team_rank, color=ifelse(bottom_10==TRUE, "red", 
+                                                     ifelse(bottom_15, "orange", "black")))) %>%
+  mutate(team=cell_spec(team, color=ifelse(team=="Zig-Zag Racers", "purple", "blue"))) %>%
+  dplyr::select(Rank, Team_rank, Players, team, StdScore, Score, n)  %>%
   kable(escape=F) %>%
   kable_styling(c("striped"), full_width = T, font_size = 11)
 ```

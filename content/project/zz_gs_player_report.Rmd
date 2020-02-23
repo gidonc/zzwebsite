@@ -96,6 +96,11 @@ gp_sd = sd(as.numeric(results$GP), na.rm=TRUE)
 gp_mu = mean(as.numeric(results$GP), na.rm=TRUE)
 score_sd = sd(as.numeric(res_long$score), na.rm=TRUE)
 score_mu = mean(as.numeric(res_long$score), na.rm=TRUE)
+
+most.recent.gs <- gs_res_long %>% filter(!is.na(score)) %>% arrange(-match_number) %>% slice(1) 
+most.recent.zz1 <- zz_res_long %>% filter(!is.na(score)) %>% arrange(-match_number) %>% slice(1) 
+
+
 ```
 
 
@@ -108,7 +113,11 @@ f2 <- lmer(std_score~ has_zig_zag + has_gs + (1|PlayerTeam), res_long_recent)
 
 
 ## All Time Results
-The table below shows ranks players using a standardized score (see below) and also reports their all time average score. 
+The table below shows ranks players using a standardized score (see below) and also reports their all time average score. The table is based on matches up to:  
+Zig-Zag Racers match vs `r most.recent.zz1$opposition` (`r most.recent.zz1$event`, round `r most.recent.zz1$round`)  
+GreasySpanner match vs `r most.recent.gs$opposition` (`r most.recent.gs$event`, round `r most.recent.gs$round`)
+
+
 ```{r, echo=FALSE, message=FALSE}
 event_std<- res_long %>% 
   group_by(event_round) %>%  summarize(

@@ -7,6 +7,6 @@ tags:
   - Zig-Zag Racers
 ---
 
-The red line in the graph below show the trajectory of JLD's scores. The grey line show the team median and the grey ribbon the range from top five score to bottom five score.
+The red line in the graph below shows the trajectory of JLD's scores. The grey line shows the team median and the grey ribbon indicates the range from top five score to bottom five score.
 
 ![Image title](JLD.jpg)

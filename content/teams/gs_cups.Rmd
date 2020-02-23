@@ -1,0 +1,70 @@
+---
+title: "Greasy Spanner Cups"
+author: "gidddybb"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: html_document
+tags:
+  - Teams
+  - zz2
+  - Detailed
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(googledrive)
+library(googlesheets4)
+library(tidyverse)
+library(ggrepel)
+library(arm)
+library(formattable)
+#library(rstanarm)
+library(kableExtra)
+drive_auth("gidon.d.cohen@gmail.com")
+sheets_auth(token=drive_token())
+
+
+matches <- read_sheet("1VfIqaB--8Y-pF06zp1KEBrTJyX1A_33XKG30n38Da14", sheet=3)
+
+zz_scores <- matches %>% 
+  mutate(zzcupst=zz_cups_before/1000,
+         result = ifelse(zz_points>opp_points, "wins", "losses"),
+         team = "zz",
+         winmargin=abs(zz_points-opp_points),
+         magnitude_cupchange=abs(zz_cup_change),
+         wincup = ifelse(result=="wins", zz_cups_before, opp_cups_before),
+         losecup = ifelse(result=="wins", opp_cups_before, zz_cups_before),
+         winrank = ifelse(result=="wins", zz_rank_before, opp_rank_before),
+         loserank = ifelse(result=="wins", opp_rank_before, zz_rank_before),
+         wingp = ifelse(result=="wins", 5427, gp_average),
+         losegp = ifelse(result=="wins", gp_average, 5427),
+         cupdiff = wincup-losecup,
+         gpdiff = wingp-losegp,
+         rankdiff = loserank-winrank,
+         cupratio = wincup/losecup,
+         gpratio = wingp/losegp,
+         rankratio = winrank/loserank,
+         res=ifelse(result=="wins", 1, 0),
+         res=ifelse(is.na(res)&zz_cup_change<0, 0, res),
+         result=ifelse(is.na(result)&zz_cup_change<0, "losses", result)
+         )
+
+
+all_matches <- zz_scores %>% 
+  filter(!is.na(opposition)) %>%
+  mutate(actual_match_no=rank(match_number, desc))
+```
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+
+
+all_matches %>%
+  ggplot(aes(x=match_number, y=zz_cups_before)) +
+  geom_point() +
+  geom_line() +
+  geom_label_repel(size=2, aes(label=opposition))+
+  theme_bw() +
+  labs(y="cups")
+
+
+```
+

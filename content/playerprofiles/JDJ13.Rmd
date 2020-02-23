@@ -1,0 +1,12 @@
+---
+title: "JDJ13"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: html_document
+summary: "a"
+tags:
+  - Zig-Zag Racers
+---
+
+The red line in the graph below show the trajectory of JDJ13's scores. The grey line show the team median and the grey ribbon the range from top five score to bottom five score.
+
+![Image title](JDJ13.jpg)

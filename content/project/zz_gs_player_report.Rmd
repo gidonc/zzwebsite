@@ -22,6 +22,9 @@ library(kableExtra)
 drive_auth("gidon.d.cohen@gmail.com")
 sheets_auth(token=drive_token())
 
+myclean <- function(x, illegal="[!. @$£()*&^~#]", replacement =""){
+  gsub(illegal, replacement, x)
+}
 
 zz_matches <- read_sheet("1ftRMXTRL84SO-eedX8EIof8i_5C64qemwskffr8DUXA", sheet=3)
 zz_results <- read_sheet("1ftRMXTRL84SO-eedX8EIof8i_5C64qemwskffr8DUXA", sheet=4, col_types="c", skip = 3) %>%
@@ -77,7 +80,10 @@ gs_res_long <- gs_results %>%
   inner_join(gs_matches, by="event_round") %>%
   mutate(matches_ago = max(match_number) + 1 - match_number)
 
-results <- bind_rows(zz_results, gs_results)
+results <- bind_rows(zz_results, gs_results) %>%
+    mutate(
+    safeplayername = myclean(fs::path_sanitize(Players)),
+    playerprofileurl = paste0("playerprofiles/", safeplayername, "/"))
 
 res_long <- bind_rows(zz_res_long, gs_res_long) %>%
   group_by(event_round) %>%
@@ -162,8 +168,9 @@ re.players%>%
   ungroup() %>%
   mutate(StdScore=cb(StdScore),
          Score=cb(round(Score))) %>%
-  mutate(Players=cell_spec(Players, color=ifelse(Current=="y"&!is.na(Current), "black", "blue"),
-                           strikeout=ifelse(Current=="y", FALSE, TRUE))) %>%
+  mutate(Players=paste0("[", Players, "](/", playerprofileurl, ")")) %>%
+  # mutate(Players=cell_spec(Players, color=ifelse(Current=="y"&!is.na(Current), "black", "blue"),
+  #                          strikeout=ifelse(Current=="y", FALSE, TRUE))) %>%
   mutate(Team_rank=cell_spec(Team_rank, color=ifelse(bottom_10==TRUE, "red", 
                                                      ifelse(bottom_15, "orange", "black")))) %>%
   mutate(team=cell_spec(team, color=ifelse(team=="Zig-Zag Racers", "purple", "blue"))) %>%
@@ -171,4 +178,5 @@ re.players%>%
   kable(escape=F) %>%
   kable_styling(c("striped"), full_width = T, font_size = 11)
 ```
+
 The standardized score is a score which has been adjusted for the difficulty of the event round, and the variability of score in the event round and which teams played in the event round (of Zig-Zag and GreasySpanner). Results have been rescaled back to the average across all the events to make them easier to interpret. Calculations include all players past and present, but only current players (in their current teams) are shown. N is the number of matches which the result is based on.

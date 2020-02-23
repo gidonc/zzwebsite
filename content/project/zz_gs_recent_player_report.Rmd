@@ -22,7 +22,9 @@ library(kableExtra)
 drive_auth("gidon.d.cohen@gmail.com")
 sheets_auth(token=drive_token())
 
-
+myclean <- function(x, illegal="[!. @$£()*&^~#]", replacement =""){
+  gsub(illegal, replacement, x)
+}
 zz_matches <- read_sheet("1ftRMXTRL84SO-eedX8EIof8i_5C64qemwskffr8DUXA", sheet=3)
 zz_results <- read_sheet("1ftRMXTRL84SO-eedX8EIof8i_5C64qemwskffr8DUXA", sheet=4, col_types="c", skip = 3) %>%
   mutate(team="Zig-Zag Racers")
@@ -77,7 +79,10 @@ gs_res_long <- gs_results %>%
   inner_join(gs_matches, by="event_round") %>%
   mutate(matches_ago = max(match_number) + 1 - match_number)
 
-results <- bind_rows(zz_results, gs_results)
+results <- bind_rows(zz_results, gs_results) %>%
+    mutate(
+    safeplayername = myclean(fs::path_sanitize(Players)),
+    playerprofileurl = paste0("playerprofiles/", safeplayername, "/"))
 
 res_long <- bind_rows(zz_res_long, gs_res_long) %>%
   group_by(event_round) %>%
@@ -150,8 +155,9 @@ re.players%>%
   ungroup() %>%
   mutate(StdScore=cb(StdScore),
          Score=cb(round(Score))) %>%
-  mutate(Players=cell_spec(Players, color=ifelse(Current=="y"&!is.na(Current), "black", "blue"),
-                           strikeout=ifelse(Current=="y", FALSE, TRUE))) %>%
+  mutate(Players=paste0("[", Players, "](/", playerprofileurl, ")")) %>%
+  # mutate(Players=cell_spec(Players, color=ifelse(Current=="y"&!is.na(Current), "black", "blue"),
+  #                          strikeout=ifelse(Current=="y", FALSE, TRUE))) %>%
   mutate(Team_rank=cell_spec(Team_rank, color=ifelse(bottom_10==TRUE, "red", 
                                                      ifelse(bottom_15, "orange", "black")))) %>%
   mutate(team=cell_spec(team, color=ifelse(team=="Zig-Zag Racers", "purple", "blue"))) %>%

@@ -6,12 +6,12 @@
 
 
 [[main]]
-  name = "Players"
+  name = "Player Summary"
   url = "#projects"
   weight = 30
 
 [[main]]
-  name = "Teams"
+  name = "Teams Summary"
   url = "#teams"
   weight = 40
 

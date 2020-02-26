@@ -18,7 +18,7 @@ zz_results <- read_sheet("1ftRMXTRL84SO-eedX8EIof8i_5C64qemwskffr8DUXA", sheet=4
 
 gs_matches <- read_sheet("1VfIqaB--8Y-pF06zp1KEBrTJyX1A_33XKG30n38Da14", sheet=3)
 gs_results <- read_sheet("1VfIqaB--8Y-pF06zp1KEBrTJyX1A_33XKG30n38Da14", sheet=4, col_types="c", skip = 3) %>%
-  mutate(team="GreasySpanner")
+  mutate(team="GS")
 
 
 myclean <- function(x, illegal="[!. @$£()*&^~#]", replacement =""){
@@ -90,7 +90,7 @@ res_long <- bind_rows(zz_res_long, gs_res_long) %>%
     event_mu = mean(score, na.rm=TRUE),
     std_score = (score-event_mu)/event_sd,
     has_zig_zag = sum(team=="Zig-Zag Racers"&!is.na(score), na.rm=TRUE)>0,
-    has_gs = sum(team=="GreasySpanner"&!is.na(score), na.rm=TRUE)>0) 
+    has_gs = sum(team=="GS"&!is.na(score), na.rm=TRUE)>0) 
 
 
 

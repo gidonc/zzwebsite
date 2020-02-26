@@ -30,8 +30,8 @@ subtitle = ""
     tag = "Zig-Zag Racers"
   
   [[content.filter_button]]
-    name = "GreasySpanner"
-    tag = "GreasySpanner"
+    name = "Zig-Zag GS"
+    tag = "Zig-Zag GS"
   
 
 [design]
@@ -43,7 +43,7 @@ subtitle = ""
   #   2 = Compact
   #   3 = Card
   #   5 = Showcase
-  view = 1
+  view = 2
 
   # For Showcase view, flip alternate rows?
   flip_alt_rows = false

@@ -2,9 +2,9 @@
 title: "Beefpoo"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: html_document
-summary: "a"
+summary: "player profile"
 tags:
-  - GreasySpanner
+  - GS
 ---
 
 The red line in the graph below shows the trajectory of Beefpoo's scores. The grey line shows the team median and the grey ribbon indicates the range from top five score to bottom five score.

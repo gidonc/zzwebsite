@@ -2,7 +2,7 @@
 title: "CLee1701"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: html_document
-summary: "a"
+summary: "player profile"
 tags:
   - Zig-Zag Racers
 ---

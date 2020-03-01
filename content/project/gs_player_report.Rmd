@@ -169,6 +169,7 @@ re.players%>%
   ungroup() %>%
   mutate(StdScore=cb(StdScore),
          Score=cb(round(Score))) %>%
+  filter(team=="GS") %>%
   mutate(Players=paste0("[", Players, "](/", playerprofileurl, ")")) %>%
   # mutate(Players=cell_spec(Players, color=ifelse(Current=="y"&!is.na(Current), "black", "blue"),
   #                          strikeout=ifelse(Current=="y", FALSE, TRUE))) %>%
@@ -176,7 +177,6 @@ re.players%>%
                                                      ifelse(bottom_15, "orange", "black")))) %>%
   mutate(team=cell_spec(team, color=ifelse(team=="Zig-Zag RZR", "purple", "blue"))) %>%
   dplyr::select(Rank, Team_rank, Players, team, StdScore, Score, n)  %>%
-  filter(team=="GS") %>%
   kable(escape=F) %>%
   kable_styling(c("striped"), full_width = T, font_size = 11)
 ```

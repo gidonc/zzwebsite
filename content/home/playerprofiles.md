@@ -27,7 +27,7 @@ subtitle = ""
 
   [[content.filter_button]]
     name = "Zig-Zag Racers"
-    tag = "Zig-Zag Racers"
+    tag = "Zig-Zag RZR"
   
   [[content.filter_button]]
     name = "Zig-Zag GS"

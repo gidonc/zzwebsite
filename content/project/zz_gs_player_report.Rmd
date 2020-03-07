@@ -119,7 +119,7 @@ f2 <- lmer(std_score~ has_zig_zag + has_gs + (1|PlayerTeam), res_long_recent)
 
 
 ## All Time Results
-The table below shows ranks players using a standardized score (see below) and also reports their all time average score. The table is based on matches up to:  
+The table below ranks players using a standardized score (see below) and also reports their all time average score. The table is based on matches up to:  
 Zig-Zag Racers match vs `r most.recent.zz1$opposition` (`r most.recent.zz1$event`, round `r most.recent.zz1$round`)  
 GS match vs `r most.recent.gs$opposition` (`r most.recent.gs$event`, round `r most.recent.gs$round`)
 

@@ -111,7 +111,7 @@ players <- filter(res_long, Current=="y") %>%
 
 # write templates
 
-
+do.call(file.remove, list(list.files("content/playerprofiles", full.names = TRUE)))
 
 for (n in 1:nrow(players)){
   this_safeplayer <- slice(players, n) %>% 

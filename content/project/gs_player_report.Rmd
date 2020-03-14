@@ -10,7 +10,7 @@ tags:
 - zz1
 ---
 
-```{r}
+```{r, echo=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 knitr::read_chunk("common_project_code.R")
 

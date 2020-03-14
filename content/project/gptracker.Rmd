@@ -61,7 +61,7 @@ the_first <- gplong %>%
 
 ```
 
-The graphs below show the garage power growth rate of members of Zig-Zag Racerz. Each graph is organised so the player whose garage power is increasing fastest comes first, and the player whose garage power is increasing slowest comes last. The 'Rate' figure is the change in GP between each match (so a rate of `r the_first` means that the players garage power goes up `r the_first` points on average between one match and the next).
+The graphs below show the garage power growth rate of members of Zig-Zag Racerz. Each graph is organised so the player whose garage power is increasing fastest comes first, and the player whose garage power is increasing slowest comes last. The 'Rate' figure is the change in GP between each match (so a rate of `r the_first` means that the players garage power goes up `r the_first` points on average between one match and the next). 
 
 ## The Big Hitters (GP over 3000)
 

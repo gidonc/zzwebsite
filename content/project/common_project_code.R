@@ -47,7 +47,9 @@ zz_results <- zz_results %>%
   mutate(PlayerTeam=paste0(Players, "(", team, ")")) 
 
 zz_matches <- zz_matches %>%
-  mutate(event_round=tolower(event_round))
+  mutate(event_round=tolower(event_round),
+         event_std = tolower(event))
+
 
 zz_res_long <- zz_results %>%
   pivot_longer(-c(Players, PlayerTeam, GP, Current, team), names_to="event_round", values_to = "score") %>%
@@ -59,7 +61,9 @@ gs_results <- gs_results %>%
   mutate(PlayerTeam=paste0(Players, "(", team, ")")) 
 
 gs_matches <- gs_matches %>%
-  mutate(event_round=tolower(event_round))
+  mutate(event_round=tolower(event_round),
+         event_std = tolower(event))
+
 
 gs_res_long <- gs_results %>%
   pivot_longer(-c(Players, PlayerTeam, GP, Current, team), names_to="event_round", values_to = "score") %>%

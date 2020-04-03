@@ -1,5 +1,5 @@
 ---
-title: "Zig-Zag Racerz Cups"
+title: "GT Cups"
 author: "gidddybb"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: html_document

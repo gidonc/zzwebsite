@@ -1,0 +1,12 @@
+---
+title: "huggy"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: html_document
+summary: "player profile"
+tags:
+  - Zig-Zag RZR
+---
+
+The red line in the graph below shows the trajectory of huggy's scores. The grey line shows the team median and the grey ribbon indicates the range from top five score to bottom five score.
+
+![Image title](huggy.jpg)

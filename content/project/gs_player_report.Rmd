@@ -26,7 +26,7 @@ knitr::read_chunk("common_project_code.R")
 
 
 
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
+```{r, echo=FALSE, warning=FALSE, message=FALSE, eval=FALSE}
 f1 <- lmer(std_score~ has_zig_zag + has_gs + (1|PlayerTeam), res_long)
 res_long_recent <- filter(res_long, matches_ago<16)
 f2 <- lmer(std_score~ has_zig_zag + has_gs + (1|PlayerTeam), res_long_recent)
@@ -39,7 +39,7 @@ Zig-Zag RZR match vs `r most.recent.zz1$opposition` (`r most.recent.zz1$event`, 
 GS match vs `r most.recent.gs$opposition` (`r most.recent.gs$event`, round `r most.recent.gs$round`)
 
 
-```{r, echo=FALSE, message=FALSE}
+```{r, echo=FALSE, message=FALSE, eval=FALSE}
 event_std<- res_long %>% 
   group_by(event_round) %>%  summarize(
     event_sd = sd(score, na.rm=TRUE), 

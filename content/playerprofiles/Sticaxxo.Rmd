@@ -7,6 +7,10 @@ tags:
   - Zig-Zag RZR
 ---
 
+Sticaxxo is currently a player in Zig-Zag RZR.
+
+Their best score has been 27706 in Bigger And Better 1.
+
 The red line in the graph below shows the trajectory of Sticaxxo's scores. The grey line shows the team median and the grey ribbon indicates the range from top five score to bottom five score.
 
-![Image title](Sticaxxo.jpg)
+![Sticaxxo performance relative to each team](Sticaxxo.jpg)

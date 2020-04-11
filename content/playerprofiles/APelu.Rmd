@@ -1,0 +1,16 @@
+---
+title: "APelu"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: html_document
+summary: "player profile"
+tags:
+  - GT
+---
+
+APelu is currently a player in GT.
+
+Their best score has been 23917 in Bigger And Better 3.
+
+The red line in the graph below shows the trajectory of APelu's scores. The grey line shows the team median and the grey ribbon indicates the range from top five score to bottom five score.
+
+![APelu performance relative to each team](APelu.jpg)

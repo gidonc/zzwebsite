@@ -7,6 +7,10 @@ tags:
   - Zig-Zag RZR
 ---
 
+Drasli is currently a player in Zig-Zag RZR.
+
+Their best score has been 25148 in Bigger And Better 1.
+
 The red line in the graph below shows the trajectory of Drasli's scores. The grey line shows the team median and the grey ribbon indicates the range from top five score to bottom five score.
 
-![Image title](Drasli.jpg)
+![Drasli performance relative to each team](Drasli.jpg)

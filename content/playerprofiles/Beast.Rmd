@@ -7,6 +7,10 @@ tags:
   - GS
 ---
 
+Beast is currently a player in GS.
+
+Their best score has been 25993 in Bonus Bonanza 2.
+
 The red line in the graph below shows the trajectory of Beast's scores. The grey line shows the team median and the grey ribbon indicates the range from top five score to bottom five score.
 
-![Image title](Beast.jpg)
+![Beast performance relative to each team](Beast.jpg)

@@ -1,0 +1,811 @@
+---
+title: "GT Overall Player Scores"
+author: "giddybb"
+date: "11 April, 2020"
+output: html_document
+summary: Zig-Zag GT player average scores including information from all events.
+tags:
+- Player
+- Detailed
+- zz3
+---
+
+<script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
+
+
+<div id="all-time-results" class="section level2">
+<h2>All Time Results</h2>
+<p>The table below shows ranks players using a standardized score (see below) and also reports their all time average score. The table is based on matches up to:<br />
+Zig-Zag RZR match vs Team tequila (Bigger and better, round 1)<br />
+GS match vs elite rookies (Bigger And Better, round 2)<br />
+GT match vs carmelaci (Bigger and better, round 3)</p>
+<table class="table table-striped" style="font-size: 11px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+Rank
+</th>
+<th style="text-align:left;">
+Team_rank
+</th>
+<th style="text-align:left;">
+Players
+</th>
+<th style="text-align:left;">
+team
+</th>
+<th style="text-align:left;">
+StdScore
+</th>
+<th style="text-align:left;">
+Score
+</th>
+<th style="text-align:right;">
+n
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">1</span>
+</td>
+<td style="text-align:left;">
+<a href="/playerprofiles/PP/">PP</a>
+</td>
+<td style="text-align:left;">
+<span style="     color: blue !important;">GT</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 45.94%; margin-left: 50%; text-align: left;">31683</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 48.35%; margin-left: 50%; text-align: left;">31184</span>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">2</span>
+</td>
+<td style="text-align:left;">
+<a href="/playerprofiles/Isham/">Isham</a>
+</td>
+<td style="text-align:left;">
+<span style="     color: blue !important;">GT</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 45.87%; margin-left: 50%; text-align: left;">31638</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 48.2%; margin-left: 50%; text-align: left;">31082</span>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">3</span>
+</td>
+<td style="text-align:left;">
+<a href="/playerprofiles/MightyMike/">MightyMike</a>
+</td>
+<td style="text-align:left;">
+<span style="     color: blue !important;">GT</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 43.57%; margin-left: 50%; text-align: left;">30048</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 44.59%; margin-left: 50%; text-align: left;">28758</span>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">4</span>
+</td>
+<td style="text-align:left;">
+<a href="/playerprofiles/markman/">markman</a>
+</td>
+<td style="text-align:left;">
+<span style="     color: blue !important;">GT</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 41.8%; margin-left: 50%; text-align: left;">28831</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 42.79%; margin-left: 50%; text-align: left;">27596</span>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">5</span>
+</td>
+<td style="text-align:left;">
+<a href="/playerprofiles/Brii/">Brii</a>
+</td>
+<td style="text-align:left;">
+<span style="     color: blue !important;">GT</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 40.56%; margin-left: 50%; text-align: left;">27975</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 40.79%; margin-left: 50%; text-align: left;">26304</span>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+34
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">6</span>
+</td>
+<td style="text-align:left;">
+<a href="/playerprofiles/robjenko/">robjenko</a>
+</td>
+<td style="text-align:left;">
+<span style="     color: blue !important;">GT</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 40.29%; margin-left: 50%; text-align: left;">27789</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 40.57%; margin-left: 50%; text-align: left;">26162</span>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+36
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">7</span>
+</td>
+<td style="text-align:left;">
+<a href="/playerprofiles/GTBen/">GTBen</a>
+</td>
+<td style="text-align:left;">
+<span style="     color: blue !important;">GT</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 40.12%; margin-left: 50%; text-align: left;">27672</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 38.88%; margin-left: 50%; text-align: left;">25076</span>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+37
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">8</span>
+</td>
+<td style="text-align:left;">
+<a href="/playerprofiles/DanGT/">DanGT</a>
+</td>
+<td style="text-align:left;">
+<span style="     color: blue !important;">GT</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 39.96%; margin-left: 50%; text-align: left;">27559</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 40.02%; margin-left: 50%; text-align: left;">25810</span>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+38
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">9</span>
+</td>
+<td style="text-align:left;">
+<a href="/playerprofiles/2h1s/">2h1s</a>
+</td>
+<td style="text-align:left;">
+<span style="     color: blue !important;">GT</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 39.59%; margin-left: 50%; text-align: left;">27303</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 39.61%; margin-left: 50%; text-align: left;">25546</span>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+39
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">10</span>
+</td>
+<td style="text-align:left;">
+<a href="/playerprofiles/giddy2/">giddy2</a>
+</td>
+<td style="text-align:left;">
+<span style="     color: blue !important;">GT</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 39.58%; margin-left: 50%; text-align: left;">27300</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 39.61%; margin-left: 50%; text-align: left;">25547</span>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+43
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">11</span>
+</td>
+<td style="text-align:left;">
+<a href="/playerprofiles/AndyCapitalA/">AndyCapitalA</a>
+</td>
+<td style="text-align:left;">
+<span style="     color: blue !important;">GT</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 38.37%; margin-left: 50%; text-align: left;">26459</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 37.89%; margin-left: 50%; text-align: left;">24433</span>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+45
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">12</span>
+</td>
+<td style="text-align:left;">
+<a href="/playerprofiles/APelu/">APelu</a>
+</td>
+<td style="text-align:left;">
+<span style="     color: blue !important;">GT</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 37.75%; margin-left: 50%; text-align: left;">26032</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 37.05%; margin-left: 50%; text-align: left;">23896</span>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+49
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">13</span>
+</td>
+<td style="text-align:left;">
+<a href="/playerprofiles/T-9999/">T-9999</a>
+</td>
+<td style="text-align:left;">
+<span style="     color: blue !important;">GT</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 37.3%; margin-left: 50%; text-align: left;">25723</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 40.04%; margin-left: 50%; text-align: left;">25824</span>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+50
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">14</span>
+</td>
+<td style="text-align:left;">
+<a href="/playerprofiles/Damien/">Damien</a>
+</td>
+<td style="text-align:left;">
+<span style="     color: blue !important;">GT</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 37.27%; margin-left: 50%; text-align: left;">25705</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 34.15%; margin-left: 50%; text-align: left;">22027</span>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+51
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">15</span>
+</td>
+<td style="text-align:left;">
+<a href="/playerprofiles/Kara/">Kara</a>
+</td>
+<td style="text-align:left;">
+<span style="     color: blue !important;">GT</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 37.25%; margin-left: 50%; text-align: left;">25688</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 36.36%; margin-left: 50%; text-align: left;">23448</span>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+52
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">16</span>
+</td>
+<td style="text-align:left;">
+<a href="/playerprofiles/Ridi/">Ridi</a>
+</td>
+<td style="text-align:left;">
+<span style="     color: blue !important;">GT</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 37.23%; margin-left: 50%; text-align: left;">25676</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 36.42%; margin-left: 50%; text-align: left;">23489</span>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+56
+</td>
+<td style="text-align:left;">
+<span style="     color: black !important;">17</span>
+</td>
+<td style="text-align:left;">
+<a href="/playerprofiles/CodyAlienJr/">CodyAlienJr</a>
+</td>
+<td style="text-align:left;">
+<span style="     color: blue !important;">GT</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 36.94%; margin-left: 50%; text-align: left;">25478</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 35.97%; margin-left: 50%; text-align: left;">23196</span>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+62
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">18</span>
+</td>
+<td style="text-align:left;">
+<a href="/playerprofiles/me1/">me1</a>
+</td>
+<td style="text-align:left;">
+<span style="     color: blue !important;">GT</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 35.01%; margin-left: 50%; text-align: left;">24142</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 33.38%; margin-left: 50%; text-align: left;">21528</span>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+63
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">19</span>
+</td>
+<td style="text-align:left;">
+<a href="/playerprofiles/Illuminate/">Illuminate</a>
+</td>
+<td style="text-align:left;">
+<span style="     color: blue !important;">GT</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 34.93%; margin-left: 50%; text-align: left;">24090</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 33.26%; margin-left: 50%; text-align: left;">21449</span>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+74
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">20</span>
+</td>
+<td style="text-align:left;">
+<a href="/playerprofiles/Yuvetium/">Yuvetium</a>
+</td>
+<td style="text-align:left;">
+<span style="     color: blue !important;">GT</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 33.76%; margin-left: 50%; text-align: left;">23281</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 31.67%; margin-left: 50%; text-align: left;">20424</span>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+83
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">21</span>
+</td>
+<td style="text-align:left;">
+<a href="/playerprofiles/rusky79/">rusky79</a>
+</td>
+<td style="text-align:left;">
+<span style="     color: blue !important;">GT</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 32.33%; margin-left: 50%; text-align: left;">22300</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 29.63%; margin-left: 50%; text-align: left;">19109</span>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+89
+</td>
+<td style="text-align:left;">
+<span style="     color: orange !important;">22</span>
+</td>
+<td style="text-align:left;">
+<a href="/playerprofiles/zzandy/">zzandy</a>
+</td>
+<td style="text-align:left;">
+<span style="     color: blue !important;">GT</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 30.77%; margin-left: 50%; text-align: left;">21220</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 27.56%; margin-left: 50%; text-align: left;">17772</span>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+93
+</td>
+<td style="text-align:left;">
+<span style="     color: red !important;">23</span>
+</td>
+<td style="text-align:left;">
+<a href="/playerprofiles/kitch/">kitch</a>
+</td>
+<td style="text-align:left;">
+<span style="     color: blue !important;">GT</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 29.49%; margin-left: 50%; text-align: left;">20338</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 25.68%; margin-left: 50%; text-align: left;">16564</span>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+95
+</td>
+<td style="text-align:left;">
+<span style="     color: red !important;">24</span>
+</td>
+<td style="text-align:left;">
+<a href="/playerprofiles/carlywoo/">carlywoo</a>
+</td>
+<td style="text-align:left;">
+<span style="     color: blue !important;">GT</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 28.92%; margin-left: 50%; text-align: left;">19942</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 25.04%; margin-left: 50%; text-align: left;">16152</span>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+109
+</td>
+<td style="text-align:left;">
+<span style="     color: red !important;">25</span>
+</td>
+<td style="text-align:left;">
+<a href="/playerprofiles/Twin2/">Twin 2</a>
+</td>
+<td style="text-align:left;">
+<span style="     color: blue !important;">GT</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 25.69%; margin-left: 50%; text-align: left;">17717</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 20.67%; margin-left: 50%; text-align: left;">13331</span>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+116
+</td>
+<td style="text-align:left;">
+<span style="     color: red !important;">26</span>
+</td>
+<td style="text-align:left;">
+<a href="/playerprofiles/jdl/">jdl</a>
+</td>
+<td style="text-align:left;">
+<span style="     color: blue !important;">GT</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 24.47%; margin-left: 50%; text-align: left;">16874</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 19.01%; margin-left: 50%; text-align: left;">12262</span>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+117
+</td>
+<td style="text-align:left;">
+<span style="     color: red !important;">27</span>
+</td>
+<td style="text-align:left;">
+<a href="/playerprofiles/Fearless/">Fearless</a>
+</td>
+<td style="text-align:left;">
+<span style="     color: blue !important;">GT</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 24.08%; margin-left: 50%; text-align: left;">16605</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 20.76%; margin-left: 50%; text-align: left;">13388</span>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+121
+</td>
+<td style="text-align:left;">
+<span style="     color: red !important;">28</span>
+</td>
+<td style="text-align:left;">
+<a href="/playerprofiles/Twinsbro/">Twinsbro</a>
+</td>
+<td style="text-align:left;">
+<span style="     color: blue !important;">GT</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 21.53%; margin-left: 50%; text-align: left;">14850</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 14.72%; margin-left: 50%; text-align: left;">9496</span>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+122
+</td>
+<td style="text-align:left;">
+<span style="     color: red !important;">29</span>
+</td>
+<td style="text-align:left;">
+<a href="/playerprofiles/mattoblack/">mattoblack</a>
+</td>
+<td style="text-align:left;">
+<span style="     color: blue !important;">GT</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 21.45%; margin-left: 50%; text-align: left;">14794</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 16.93%; margin-left: 50%; text-align: left;">10918</span>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+123
+</td>
+<td style="text-align:left;">
+<span style="     color: red !important;">30</span>
+</td>
+<td style="text-align:left;">
+<a href="/playerprofiles/crunchgum/">crunchgum</a>
+</td>
+<td style="text-align:left;">
+<span style="     color: blue !important;">GT</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 20.77%; margin-left: 50%; text-align: left;">14325</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 15.94%; margin-left: 50%; text-align: left;">10277</span>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+124
+</td>
+<td style="text-align:left;">
+<span style="     color: red !important;">31</span>
+</td>
+<td style="text-align:left;">
+<a href="/playerprofiles/Twin1/">Twin 1</a>
+</td>
+<td style="text-align:left;">
+<span style="     color: blue !important;">GT</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 20.75%; margin-left: 50%; text-align: left;">14307</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 15.9%; margin-left: 50%; text-align: left;">10253</span>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+126
+</td>
+<td style="text-align:left;">
+<span style="     color: red !important;">32</span>
+</td>
+<td style="text-align:left;">
+<a href="/playerprofiles/Zedexer/">Zedexer</a>
+</td>
+<td style="text-align:left;">
+<span style="     color: blue !important;">GT</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 18.82%; margin-left: 50%; text-align: left;">12976</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 11.1%; margin-left: 50%; text-align: left;">7160</span>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+127
+</td>
+<td style="text-align:left;">
+<span style="     color: red !important;">33</span>
+</td>
+<td style="text-align:left;">
+<a href="/playerprofiles/Shashank/">Shashank</a>
+</td>
+<td style="text-align:left;">
+<span style="     color: blue !important;">GT</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 12.17%; margin-left: 50%; text-align: left;">8394</span>
+</td>
+<td style="text-align:left;">
+<span style="display: inline-block; border-radius: 2px; padding-right: 2px; background-color: lightgreen; width: 2.01%; margin-left: 50%; text-align: left;">1296</span>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+</tbody>
+</table>
+<p>The standardized score is a score which has been adjusted for the difficulty of the event round, and the variability of score in the event round and which teams played in the event round (of Zig-Zag and GS). Results have been rescaled back to the average across all the events to make them easier to interpret. Calculations include all players past and present, but only current players (in their current teams) are shown. N is the number of matches which the result is based on.</p>
+</div>

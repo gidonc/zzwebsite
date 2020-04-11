@@ -14,14 +14,23 @@ myclean <- function(x, illegal="[!. @$£()*&^~#]", replacement =""){
   gsub(illegal, replacement, x)
 }
 
-zz_matches <- read_sheet("1ftRMXTRL84SO-eedX8EIof8i_5C64qemwskffr8DUXA", sheet=3)
+zz_matches <- read_sheet("1ftRMXTRL84SO-eedX8EIof8i_5C64qemwskffr8DUXA", sheet=3) %>%
+  mutate(teamname="RZR")
 zz_results <- read_sheet("1ftRMXTRL84SO-eedX8EIof8i_5C64qemwskffr8DUXA", sheet=4, col_types="c", skip = 3) %>%
   mutate(team="Zig-Zag RZR")
 
-gs_matches <- read_sheet("1VfIqaB--8Y-pF06zp1KEBrTJyX1A_33XKG30n38Da14", sheet=3)
+zz_oldscores <- read_sheet("1ftRMXTRL84SO-eedX8EIof8i_5C64qemwskffr8DUXA", sheet=6, col_types="c")
+
+
+gs_matches <- read_sheet("1VfIqaB--8Y-pF06zp1KEBrTJyX1A_33XKG30n38Da14", sheet=3) %>%
+  mutate(teamname="GS")
 gs_results <- read_sheet("1VfIqaB--8Y-pF06zp1KEBrTJyX1A_33XKG30n38Da14", sheet=4, col_types="c", skip = 3) %>%
   mutate(team="GS")
 
+gt_matches <- read_sheet("1oGTfeDSjWoqHaOZYrw09kMxP42bo_sBBVVKJbEThsMI", sheet=3) %>%
+  mutate(teamname="GT")
+gt_results <- read_sheet("1oGTfeDSjWoqHaOZYrw09kMxP42bo_sBBVVKJbEThsMI", sheet=4, col_types="c", skip = 3) %>%
+  mutate(team="GT")
 
 cb <- function(x) {
   range <- max(abs(x))
@@ -57,6 +66,19 @@ zz_res_long <- zz_results %>%
   inner_join(zz_matches, by="event_round") %>%
   mutate(matches_ago = max(match_number) + 1 - match_number)
 
+gt_results <- gt_results %>%
+  mutate(PlayerTeam=paste0(Players, "(", team, ")")) 
+
+gt_matches <- gt_matches %>%
+  mutate(event_round=tolower(event_round),
+         event_std = tolower(event))
+
+gt_res_long <- gt_results %>%
+  pivot_longer(-c(Players, PlayerTeam, GP, Current, team), names_to="event_round", values_to = "score") %>%
+  mutate(event_round=tolower(event_round))%>%
+  inner_join(gt_matches, by="event_round") %>%
+  mutate(matches_ago = max(match_number) + 1 - match_number)
+
 gs_results <- gs_results %>% 
   mutate(PlayerTeam=paste0(Players, "(", team, ")")) 
 
@@ -65,20 +87,23 @@ gs_matches <- gs_matches %>%
          event_std = tolower(event))
 
 
+
+
 gs_res_long <- gs_results %>%
   pivot_longer(-c(Players, PlayerTeam, GP, Current, team), names_to="event_round", values_to = "score") %>%
   mutate(event_round=tolower(event_round))%>%
   inner_join(gs_matches, by="event_round") %>%
   mutate(matches_ago = max(match_number) + 1 - match_number)
 
-results <- bind_rows(zz_results, gs_results) %>%
+results <- bind_rows(zz_results, gs_results, gt_results) %>%
   mutate(
     safeplayername = myclean(fs::path_sanitize(Players)),
     playerprofileurl = paste0("playerprofiles/", safeplayername, "/"))
 
-res_long <- bind_rows(zz_res_long, gs_res_long) %>%
+res_long <- bind_rows(zz_res_long, gs_res_long, gt_res_long) %>%
   group_by(event_round) %>%
-  mutate(
+  mutate(     
+    safeplayername = myclean(fs::path_sanitize(Players)),
     GP=as.numeric(GP),
     std_GP = (GP-mean(GP, na.rm=TRUE))/sd(GP, na.rm=TRUE),
     score = as.numeric(score),
@@ -86,6 +111,7 @@ res_long <- bind_rows(zz_res_long, gs_res_long) %>%
     event_mu = mean(score, na.rm=TRUE),
     std_score = (score-event_mu)/event_sd,
     has_zig_zag = sum(team=="Zig-Zag Racers"&!is.na(score), na.rm=TRUE)>0,
+    has_gt = sum(team=="GT"&!is.na(score), na.rm=TRUE)>0,
     has_gs = sum(team=="GS"&!is.na(score), na.rm=TRUE)>0)
 
 
@@ -96,7 +122,148 @@ score_mu = mean(as.numeric(res_long$score), na.rm=TRUE)
 
 most.recent.gs <- gs_res_long %>% filter(!is.na(score)) %>% arrange(-match_number) %>% slice(1) 
 most.recent.zz1 <- zz_res_long %>% filter(!is.na(score)) %>% arrange(-match_number) %>% slice(1) 
+most.recent.gt <- gt_res_long %>% filter(!is.na(score)) %>% arrange(-match_number) %>% slice(1) 
 
-f1 <- lmer(std_score~ has_zig_zag + has_gs + (1|PlayerTeam), res_long)
+f1 <- lmer(std_score~ has_zig_zag + has_gs + has_gt + (1|PlayerTeam), res_long)
 res_long_recent <- filter(res_long, matches_ago<16)
-f2 <- lmer(std_score~ has_zig_zag + has_gs + (1|PlayerTeam), res_long_recent)
+f2 <- lmer(std_score~ has_zig_zag + has_gs + has_gt + (1|PlayerTeam), res_long_recent)
+
+
+zz_oldscores <- zz_oldscores %>% 
+  mutate(zz_cups_before = as.numeric(zz_cups_before),
+         zz_points = as.numeric(zz_points),
+         opp_points = as.numeric(opp_points),
+         zz_cup_change=as.numeric(zz_cup_change),
+         zzcupst=zz_cups_before/1000,
+         result = ifelse(zz_points>opp_points, "wins", "losses"),
+         teamname = ifelse(team=="zz", "zig-zag", "rizzla"),
+         winmargin=abs(zz_points-opp_points),
+         magnitude_cupchange=abs(zz_cup_change),
+         match_number=as.numeric(match_number))
+zz_oldnodups <- zz_oldscores %>% slice(10:nrow(.))
+
+
+zz_scores <- zz_matches %>% 
+  mutate(zzcupst=zz_cups_before/1000,
+         result = ifelse(zz_points>opp_points, "wins", "losses"),
+         team = "zz",
+         winmargin=abs(zz_points-opp_points),
+         magnitude_cupchange=abs(zz_cup_change),
+         wincup = ifelse(result=="wins", zz_cups_before, opp_cups_before),
+         losecup = ifelse(result=="wins", opp_cups_before, zz_cups_before),
+         winrank = ifelse(result=="wins", zz_rank_before, opp_rank_before),
+         loserank = ifelse(result=="wins", opp_rank_before, zz_rank_before),
+         wingp = ifelse(result=="wins", 5427, gp_average),
+         losegp = ifelse(result=="wins", gp_average, 5427),
+         cupdiff = wincup-losecup,
+         gpdiff = wingp-losegp,
+         rankdiff = loserank-winrank,
+         cupratio = wincup/losecup,
+         gpratio = wingp/losegp,
+         rankratio = winrank/loserank,
+         res=ifelse(result=="wins", 1, 0),
+         res=ifelse(is.na(res)&zz_cup_change<0, 0, res),
+         result=ifelse(is.na(result)&zz_cup_change<0, "losses", result)
+  )
+
+
+zz_oldscores <- zz_oldscores %>% 
+  mutate(zz_cups_before = as.numeric(zz_cups_before),
+         zz_points = as.numeric(zz_points),
+         opp_points = as.numeric(opp_points),
+         zz_cup_change=as.numeric(zz_cup_change),
+         zzcupst=zz_cups_before/1000,
+         result = ifelse(zz_points>opp_points, "wins", "losses"),
+         teamname = ifelse(team=="zz", "zig-zag", "rizzla"),
+         winmargin=abs(zz_points-opp_points),
+         magnitude_cupchange=abs(zz_cup_change),
+         match_number=as.numeric(match_number))
+zz_oldnodups <- zz_oldscores %>% slice(10:nrow(.))
+
+zz_scores <- zz_matches %>% 
+  mutate(zzcupst=zz_cups_before/1000,
+         result = ifelse(zz_points>opp_points, "wins", "losses"),
+         team = "zz",
+         winmargin=abs(zz_points-opp_points),
+         magnitude_cupchange=abs(zz_cup_change),
+         wincup = ifelse(result=="wins", zz_cups_before, opp_cups_before),
+         losecup = ifelse(result=="wins", opp_cups_before, zz_cups_before),
+         winrank = ifelse(result=="wins", zz_rank_before, opp_rank_before),
+         loserank = ifelse(result=="wins", opp_rank_before, zz_rank_before),
+         wingp = ifelse(result=="wins", 5427, gp_average),
+         losegp = ifelse(result=="wins", gp_average, 5427),
+         cupdiff = wincup-losecup,
+         gpdiff = wingp-losegp,
+         rankdiff = loserank-winrank,
+         cupratio = wincup/losecup,
+         gpratio = wingp/losegp,
+         rankratio = winrank/loserank,
+         res=ifelse(result=="wins", 1, 0),
+         res=ifelse(is.na(res)&zz_cup_change<0, 0, res),
+         result=ifelse(is.na(result)&zz_cup_change<0, "losses", result)
+  )
+
+
+all_zz_matches <- zz_oldnodups %>%
+  filter(team=="zz") %>%
+  mutate(zz_rank_before=as.numeric(zz_rank_before),
+         opp_cups_before=as.numeric(opp_cups_before)) %>%
+  #select(zz_cups_before, opposition, match_number, opp_cups_before)  %>%
+  bind_rows(zz_scores) %>% 
+  mutate(actual_match_no=rank(match_number, desc)) %>%
+  mutate(event=ifelse(is.na(event), "unrecorded", event),
+         event_std=ifelse(is.na(event_std), "unrecorded", event_std)) %>%
+  mutate(teamname="RZR")
+
+
+gs_events <- gs_matches %>%
+  dplyr::rename(gs_event=event) %>%
+  group_by(gs_event, event_std) %>%
+  summarize(gs_no = min(match_number)) %>%
+  arrange(gs_no) %>%
+  ungroup() %>%
+  mutate(gs_event_id = row_number())
+
+
+gt_events <- gt_matches %>%
+  dplyr::rename(gt_event=event) %>%
+  group_by(gt_event, event_std) %>%
+  summarize(gt_no = min(match_number)) %>%
+  arrange(gt_no) %>%
+  ungroup() %>%
+  mutate(gt_event_id = row_number())
+
+zz_events <- all_zz_matches %>%
+  dplyr::rename(zz_event=event) %>%
+  group_by(zz_event, event_std) %>%
+  summarize(zz_no = min(match_number)) %>%
+  arrange(zz_no) %>%
+  ungroup()%>%
+  mutate(zz_event_id = row_number())
+
+events <- dplyr::full_join(gs_events, zz_events, by="event_std") %>%
+  dplyr::full_join(gt_events, by="event_std") %>%
+  arrange(zz_no, gs_no, gt_no) %>%
+  mutate(event_no = row_number())
+
+all_zz_matches <-  all_zz_matches%>% left_join(events %>% dplyr::select(event_std, event_no), by="event_std")
+gt_matches <- gt_matches %>% left_join(events %>% dplyr::select(event_std, event_no), by="event_std") 
+gs_matches <- gs_matches %>% left_join(events %>% dplyr::select(event_std, event_no), by="event_std")
+
+all_matches <- bind_rows(all_zz_matches, gs_matches, gt_matches)%>%
+  mutate(special_round=ifelse(event_std=="unrecorded", actual_match_no, round))
+
+all_event_rounds <- all_matches  %>%
+  group_by(event_std, event_no, special_round) %>%
+  summarize() %>%
+  arrange(event_no, special_round) %>%
+  ungroup()%>%
+  mutate(round_number=row_number())
+
+all_matches <- all_matches %>%
+  dplyr::left_join(all_event_rounds, by=c("event_std", "event_no", "special_round"))
+
+topscores<-all_matches %>% filter(!is.na(Rank1Cups))
+
+res_long <- res_long %>%
+  left_join(all_matches %>% dplyr::select(teamname, round, event_std, round_number))

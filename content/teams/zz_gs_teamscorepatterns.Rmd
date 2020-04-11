@@ -46,8 +46,12 @@ event_std<- res_long %>%
     event_sd = sd(score, na.rm=TRUE), 
     event_mu = mean(score, na.rm=TRUE),
     has_zig_zag = sum(team=="Zig-Zag Racers"&!is.na(score), na.rm=TRUE)>0,
-    has_gs = sum(team=="GreasySpanner"&!is.na(score), na.rm=TRUE)>0,
-    team_type = ifelse(has_zig_zag&has_gs, "both", ifelse(has_zig_zag, "zz1 only", "gs only"))) %>%
+    has_gs = sum(team=="GS"&!is.na(score), na.rm=TRUE)>0,
+    has_gt = sum(team=="GT"&!is.na(score), na.rm=TRUE)>0,
+    team_type = ifelse(has_zig_zag&has_gs&has_gt, "all", 
+                       ifelse(has_zig_zag, ifelse(has_gt, "zz1 and gt","zz1 only"), 
+                       ifelse(has_gt, "gt and gs", "gs only")))
+    ) %>%
   left_join(events, by="event_std") %>%
   arrange(event_id, round) %>%
   ungroup() %>%
@@ -62,22 +66,21 @@ event_byteam<- res_long %>%
   left_join(events) %>%
   arrange(event_id, round) %>%
   ungroup() %>%
-  left_join(event_std %>% dplyr::select(event, round, event_round_id))%>%
+  left_join(event_std %>% dplyr::select(event_std, round, event_round_id))%>%
   mutate(rd = round, 
-         event_label = ifelse(rd==1, event, NA_character_))
+         event_label = ifelse(rd==1, event_std, NA_character_))
 
 ```
 
 ```{r, echo=FALSE, message=FALSE}
 event_byteam %>%
-  mutate(event = factor(event, levels = events$event[order(events$event_id)])) %>%
-ggplot(aes(event_round_id, event_mu, colour=team)) +
-  facet_wrap(~event, scales="free_x")+
+  mutate(event_std = factor(event_std, levels = events$event_std[order(events$event_id)])) %>%
+ggplot(aes(round, event_mu, colour=team)) +
+  facet_wrap(~event_std, scales="free_x")+
   geom_point() +
   geom_line(aes(colour=team)) +
-  labs(x=NULL,
-       y="Average Score") +
-  scale_x_continuous(labels=NULL, breaks=waiver()) +
+  labs(y="Average Score") +
+  scale_x_continuous(labels=NULL, breaks=c(1,2,3,4)) +
   theme_bw()
 ```
 

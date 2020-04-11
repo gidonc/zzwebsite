@@ -7,6 +7,10 @@ tags:
   - GS
 ---
 
+Southie is currently a player in GS.
+
+Their best score has been 23532 in Bonus Bonanza 3.
+
 The red line in the graph below shows the trajectory of Southie's scores. The grey line shows the team median and the grey ribbon indicates the range from top five score to bottom five score.
 
-![Image title](Southie.jpg)
+![Southie performance relative to each team](Southie.jpg)

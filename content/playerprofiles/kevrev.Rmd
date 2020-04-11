@@ -7,6 +7,10 @@ tags:
   - Zig-Zag RZR
 ---
 
+kevrev is currently a player in Zig-Zag RZR.
+
+Their best score has been 35226 in I Hate Fish 3.
+
 The red line in the graph below shows the trajectory of kevrev's scores. The grey line shows the team median and the grey ribbon indicates the range from top five score to bottom five score.
 
-![Image title](kevrev.jpg)
+![kevrev performance relative to each team](kevrev.jpg)

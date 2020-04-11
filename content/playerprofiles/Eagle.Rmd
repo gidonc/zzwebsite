@@ -7,6 +7,10 @@ tags:
   - Zig-Zag RZR
 ---
 
+Eagle is currently a player in Zig-Zag RZR.
+
+Their best score has been 26853 in Bonus Bonanza 2.
+
 The red line in the graph below shows the trajectory of Eagle's scores. The grey line shows the team median and the grey ribbon indicates the range from top five score to bottom five score.
 
-![Image title](Eagle.jpg)
+![Eagle performance relative to each team](Eagle.jpg)

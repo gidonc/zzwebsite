@@ -1,5 +1,5 @@
 ---
-title: "Overall Player Scores"
+title: "Overall Combined Player Scores"
 author: "giddybb"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: html_document

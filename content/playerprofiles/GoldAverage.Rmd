@@ -7,6 +7,10 @@ tags:
   - Zig-Zag RZR
 ---
 
+Gold Average is currently a player in Zig-Zag RZR.
+
+Their best score has been 33358 in Razors Edge 3.
+
 The red line in the graph below shows the trajectory of Gold Average's scores. The grey line shows the team median and the grey ribbon indicates the range from top five score to bottom five score.
 
-![Image title](GoldAverage.jpg)
+![Gold Average performance relative to each team](GoldAverage.jpg)

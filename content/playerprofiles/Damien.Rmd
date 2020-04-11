@@ -1,0 +1,16 @@
+---
+title: "Damien"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: html_document
+summary: "player profile"
+tags:
+  - GT
+---
+
+Damien is currently a player in GT.
+
+Their best score has been 22027 in Bigger And Better 3.
+
+The red line in the graph below shows the trajectory of Damien's scores. The grey line shows the team median and the grey ribbon indicates the range from top five score to bottom five score.
+
+![Damien performance relative to each team](Damien.jpg)

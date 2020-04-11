@@ -7,6 +7,10 @@ tags:
   - Zig-Zag RZR
 ---
 
+#27 is currently a player in Zig-Zag RZR.
+
+Their best score has been 33538 in Top Speed 3.
+
 The red line in the graph below shows the trajectory of #27's scores. The grey line shows the team median and the grey ribbon indicates the range from top five score to bottom five score.
 
-![Image title](27.jpg)
+![#27 performance relative to each team](27.jpg)

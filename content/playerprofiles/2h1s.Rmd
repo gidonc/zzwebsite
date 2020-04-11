@@ -1,0 +1,16 @@
+---
+title: "2h1s"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: html_document
+summary: "player profile"
+tags:
+  - GT
+---
+
+2h1s is currently a player in GT.
+
+Their best score has been 25894 in Bigger And Better 3.
+
+The red line in the graph below shows the trajectory of 2h1s's scores. The grey line shows the team median and the grey ribbon indicates the range from top five score to bottom five score.
+
+![2h1s performance relative to each team](2h1s.jpg)

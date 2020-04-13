@@ -53,7 +53,7 @@ gplong <- gplong%>%
          max_gp=max(GP)) 
 
 the_first <- gplong %>%
-  filter(max_gp>3000, n_measures>1, current) %>%
+  filter(max_gp>4000, n_measures>1, current) %>%
   arrange(-event_slope_text) %>%
   ungroup() %>%
   slice(1) %>%
@@ -63,24 +63,24 @@ the_first <- gplong %>%
 
 The graphs below show the garage power growth rate of members of Zig-Zag GT. Each graph is organised so the player whose garage power is increasing fastest comes first, and the player whose garage power is increasing slowest comes last. The 'Rate' figure is the change in GP between each match (so a rate of `r the_first` means that the players garage power goes up `r the_first` points on average between one match and the next). 
 
-## The Big Hitters (GP over 3000)
+## The Big Hitters (GP over 4000)
 
 ```{r, echo=FALSE}
 
 
 gplong %>%
-  filter(max_gp>3000, n_measures>1, current) %>%
+  filter(max_gp>4000, n_measures>1, current) %>%
   ggplot(aes(event, GP, group=Players, nrow=7)) +
   facet_wrap(~Players_f + paste("rate: ", round(event_slope_text)), ncol=7)+
   geom_line() +
   theme_bw()
 ```
 
-## The Middle Order (GP 2000-3000)
+## The Middle Order (GP 2500-4000)
 
 ```{r, echo=FALSE}
 gplong%>%
-  filter(max_gp<3000, max_gp>2000, n_measures>1, current) %>%
+  filter(max_gp<4000, max_gp>2500, n_measures>1, current) %>%
   ggplot(aes(event, GP, group=Players)) +
   facet_wrap(~Players_f + paste("rate: ", round(event_slope_text)), ncol=7)+
   geom_line() +
@@ -88,11 +88,11 @@ gplong%>%
 ```
 
 
-## The Tail Enders (GP under 2000)
+## The Tail Enders (GP under 2500)
 
 ```{r, echo=FALSE, fig.height=7}
 gplong%>%
-  filter(max_gp<2000, n_measures>1, current) %>%
+  filter(max_gp<2500, n_measures>1, current) %>%
   ggplot(aes(event, GP, group=Players)) +
    facet_wrap(~Players_f + paste("rate: ", round(event_slope_text)), ncol=7)+
   geom_line() +

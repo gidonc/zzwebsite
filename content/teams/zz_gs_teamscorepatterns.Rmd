@@ -28,55 +28,15 @@ knitr::read_chunk(paste0(rprojroot::find_rstudio_root_file(), "/content/project/
 
 ## Team Average Scores
 
-```{r, echo=FALSE, message=FALSE}
-events <- gs_matches %>%
-  group_by(event, event_std) %>%
-  summarize(no = min(match_number)) %>%
-  arrange(no) %>%
-  mutate(event_id = row_number())
-
-```
-
 
 ```{r, echo=FALSE, message=FALSE}
-
-
-event_std<- res_long %>% 
-  group_by(event_std, round, event_round) %>%  summarize(
-    event_sd = sd(score, na.rm=TRUE), 
-    event_mu = mean(score, na.rm=TRUE),
-    has_zig_zag = sum(team=="Zig-Zag Racers"&!is.na(score), na.rm=TRUE)>0,
-    has_gs = sum(team=="GS"&!is.na(score), na.rm=TRUE)>0,
-    has_gt = sum(team=="GT"&!is.na(score), na.rm=TRUE)>0,
-    team_type = ifelse(has_zig_zag&has_gs&has_gt, "all", 
-                       ifelse(has_zig_zag, ifelse(has_gt, "zz1 and gt","zz1 only"), 
-                       ifelse(has_gt, "gt and gs", "gs only")))
-    ) %>%
-  left_join(events, by="event_std") %>%
-  arrange(event_id, round) %>%
-  ungroup() %>%
-  mutate(event_round_id = row_number())
-
-
-event_byteam<- res_long %>% 
-  group_by(event_std, round, event_round, team) %>%  
+res_long %>%
+  group_by(event_std_fct, round, event_round, team) %>%  
   summarize(
-    event_sd = sd(score, na.rm=TRUE), 
+    event_sd = sd(score, na.rm=TRUE),
     event_mu = mean(score, na.rm=TRUE)) %>%
-  left_join(events) %>%
-  arrange(event_id, round) %>%
-  ungroup() %>%
-  left_join(event_std %>% dplyr::select(event_std, round, event_round_id))%>%
-  mutate(rd = round, 
-         event_label = ifelse(rd==1, event_std, NA_character_))
-
-```
-
-```{r, echo=FALSE, message=FALSE}
-event_byteam %>%
-  mutate(event_std = factor(event_std, levels = events$event_std[order(events$event_id)])) %>%
-ggplot(aes(round, event_mu, colour=team)) +
-  facet_wrap(~event_std, scales="free_x")+
+  ggplot(aes(round, event_mu, colour=team)) +
+  facet_wrap(~event_std_fct, scales="free_x")+
   geom_point() +
   geom_line(aes(colour=team)) +
   labs(y="Average Score") +

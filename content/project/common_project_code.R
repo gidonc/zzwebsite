@@ -263,7 +263,11 @@ all_event_rounds <- all_matches  %>%
 all_matches <- all_matches %>%
   dplyr::left_join(all_event_rounds, by=c("event_std", "event_no", "special_round"))
 
+ordered_events <- events %>% arrange(event_no)
+
 topscores<-all_matches %>% filter(!is.na(Rank1Cups))
 
 res_long <- res_long %>%
-  left_join(all_matches %>% dplyr::select(teamname, round, event_std, round_number))
+  left_join(all_matches %>% dplyr::select(teamname, round, event_std, round_number)) 
+res_long <- res_long%>%
+  mutate(event_std_fct = factor(event_std, levels=ordered_events$event_std))

@@ -271,3 +271,31 @@ res_long <- res_long %>%
   left_join(all_matches %>% dplyr::select(teamname, round, event_std, round_number)) 
 res_long <- res_long%>%
   mutate(event_std_fct = factor(event_std, levels=ordered_events$event_std))
+
+f1 <- lmer(std_score~ has_zig_zag +has_zig_zag +  has_gs +has_gt+ (1|PlayerTeam), res_long)
+res_long_recent <- filter(res_long, matches_ago<16)
+f2 <- lmer(std_score~ has_zig_zag + has_gs + (1|PlayerTeam), res_long_recent)
+
+results_summary <- res_long %>%
+  filter(!is.na(score)) %>%
+  group_by(PlayerTeam) %>%
+  summarize(n=n(), Score=mean(score, na.rm = TRUE))
+
+re.players<-ranef(f1)$PlayerTeam %>% 
+  rownames_to_column("PlayerTeam") %>%
+  as_tibble() %>%
+  rename(StdScore=2) %>%
+  mutate(StdScore=round(StdScore*score_sd + score_mu, 0)) %>%
+  arrange(-StdScore) %>%
+  left_join(results) %>%
+  left_join(results_summary) %>%
+  arrange(-StdScore)  %>%
+  filter(Current=="y") %>%
+  rowid_to_column("Rank") %>%
+  group_by(team) %>%
+  mutate(Team_rank = dplyr::row_number(),
+         bottom_10 = Team_rank>(max(Team_rank)-11),
+         bottom_15 = Team_rank>(max(Team_rank)-16)) %>%
+  ungroup()
+
+

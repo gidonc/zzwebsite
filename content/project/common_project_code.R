@@ -272,6 +272,18 @@ res_long <- res_long %>%
 res_long <- res_long%>%
   mutate(event_std_fct = factor(event_std, levels=ordered_events$event_std))
 
+res_long <- res_long %>%
+  filter(!is.na(score)) %>%
+  group_by(round_number) %>%
+  arrange(-score) %>%
+  mutate(global_rank = dplyr::row_number()) %>%
+  mutate(global_count = n()) %>%
+  group_by(team, round_number) %>%
+  mutate(team_rank = dplyr::row_number()) %>%
+  mutate(team_count=n()) %>%
+  mutate(global_rank_out = paste(global_rank, "of", global_count),
+         team_rank_out = paste(team_rank, "of", team_count))
+
 f1 <- lmer(std_score~ has_zig_zag +has_zig_zag +  has_gs +has_gt+ (1|PlayerTeam), res_long)
 res_long_recent <- filter(res_long, matches_ago<16)
 f2 <- lmer(std_score~ has_zig_zag + has_gs + (1|PlayerTeam), res_long_recent)

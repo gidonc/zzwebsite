@@ -7,10 +7,52 @@ tags:
   - Zig-Zag RZR
 ---
 
+```{r, echo=FALSE, , message=FALSE, warning=FALSE}
+library(tidyverse)
+library(formattable)
+library(kableExtra)
+this_res_long <- readRDS(paste0(rprojroot::find_rstudio_root_file(), "/playerprofiles/res_long.RDS")) %>%
+  filter(Players=="Roly", team=="Zig-Zag RZR")
+
+bestrankdf <- this_res_long %>% 
+  ungroup() %>%
+  filter(team_rank==min(team_rank)) 
+  
+
+bestrank <- min(this_res_long$team_rank, na.rm=TRUE)
+best<- 
+if(nrow (bestrankdf)>2) { 
+  best <- paste(paste0("in ", pull(bestrankdf, event_round)[1]), "(and", nrow(bestrankdf) -1, "other times).")
+} else if(nrow(bestrankdf)==2){
+  best <- paste("in",  paste0(pull(bestrankdf, event_round), collapse=" and "), ".")
+    
+} else if(nrow(bestrankdf)==1){
+  best <- paste("in", pull(bestrankdf, event_round), ".")
+}
+```
+
+
 Roly is currently a player in Zig-Zag RZR.
 
 Their best score has been 35174 in I Hate Fish 3.
 
+Their highest rank within the team was `r bestrank` `r best` 
+
 The red line in the graph below shows the trajectory of Roly's scores. The grey line shows the team median and the grey ribbon indicates the range from top five score to bottom five score.
 
 ![Roly performance relative to each team](Roly.jpg)
+
+
+### Roly's scores
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+
+this_res_long %>%
+  arrange(round_number) %>%
+  ungroup() %>%
+  mutate(team_rank_out=cell_spec(team_rank_out, color=ifelse(team_rank<6, "green", 
+                                                     ifelse(team_rank>40, "orange", "black")))) %>%
+  dplyr::select(event_std, round, score, team_rank_out, global_rank_out) %>% 
+  kable(escape=F) %>%
+  kable_styling(c("striped"), full_width = T, font_size = 11)
+```

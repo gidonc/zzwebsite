@@ -25,11 +25,6 @@ knitr::read_chunk(paste0(rprojroot::find_rstudio_root_file(), "/content/project/
 ```
 
 
-
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
-
-```
-
 ## All Time Results
 The table below shows ranks players using a standardized score (see below) and also reports their all time average score. The table is based on matches up to:  
 Zig-Zag RZR match vs `r most.recent.zz1$opposition` (`r most.recent.zz1$event`, round `r most.recent.zz1$round`)  
@@ -39,7 +34,7 @@ GT match vs `r most.recent.gt$opposition` (`r most.recent.gt$event`, round `r mo
 
 ```{r, echo=FALSE, message=FALSE}
 
-re.players%>%
+re.playersf1 %>%
   mutate(StdScore=cb(StdScore),
          Score=cb(round(Score))) %>%
   filter(team=="GT") %>%

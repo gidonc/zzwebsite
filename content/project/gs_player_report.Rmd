@@ -12,7 +12,7 @@ tags:
 
 ```{r, echo=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-knitr::read_chunk("common_project_code.R")
+knitr::read_chunk(paste0(rprojroot::find_rstudio_root_file(), "/content/project/common_project_code.R"))
 
 ```
 
@@ -25,65 +25,19 @@ knitr::read_chunk("common_project_code.R")
 ```
 
 
-
-```{r, echo=FALSE, warning=FALSE, message=FALSE, eval=FALSE}
-f1 <- lmer(std_score~ has_zig_zag + has_gs + (1|PlayerTeam), res_long)
-res_long_recent <- filter(res_long, matches_ago<16)
-f2 <- lmer(std_score~ has_zig_zag + has_gs + (1|PlayerTeam), res_long_recent)
-```
-
-
 ## All Time Results
 The table below ranks players using a standardized score (see below) and also reports their all time average score. The table is based on matches up to:  
 Zig-Zag RZR match vs `r most.recent.zz1$opposition` (`r most.recent.zz1$event`, round `r most.recent.zz1$round`)  
-GS match vs `r most.recent.gs$opposition` (`r most.recent.gs$event`, round `r most.recent.gs$round`)
+GS match vs `r most.recent.gs$opposition` (`r most.recent.gs$event`, round `r most.recent.gs$round`)  
+GT match vs `r most.recent.gt$opposition` (`r most.recent.gt$event`, round `r most.recent.gt$round`)  
 
 
-```{r, echo=FALSE, message=FALSE, eval=FALSE}
-event_std<- res_long %>% 
-  group_by(event_round) %>%  summarize(
-    event_sd = sd(score, na.rm=TRUE), 
-    event_mu = mean(score, na.rm=TRUE))
+```{r, echo=FALSE, message=FALSE}
 
-results_summary <- res_long %>%
-  filter(!is.na(score)) %>%
-  group_by(PlayerTeam) %>%
-  summarize(n=n(), Score=mean(score, na.rm = TRUE))
-
-  
-re.players<-ranef(f1)$PlayerTeam %>% 
-  rownames_to_column("PlayerTeam") %>%
-  as_tibble() %>%
-  rename(StdScore=2) %>%
-  mutate(StdScore=round(StdScore*score_sd + score_mu, 0)) %>%
-  arrange(-StdScore) %>%
-  left_join(results) %>%
-  left_join(results_summary)
-# 
-# re.players%>%
-#   dplyr::select(Players, team, StdScore, Current, n)  %>%
-#   filter(Current=="y") %>%
-#   rowid_to_column("Rank") %>%
-#   mutate(StdScore=cb(StdScore)) %>%
-#   mutate(Players=cell_spec(Players, color=ifelse(Current=="y"&!is.na(Current), "black", "blue"),
-#                            strikeout=ifelse(Current=="y", FALSE, TRUE))) %>%
-#   mutate(team=cell_spec(team, color=ifelse(team=="Zig-Zag RZR", "purple", "orange"))) %>%
-#   mutate(Current=cell_spec(Current, align="r")) %>%
-#   kable(escape=F) %>%
-#   kable_styling(c("striped"), full_width = T, font_size = 11)
-
-re.players%>%
-  filter(Current=="y") %>%
-  rowid_to_column("Rank") %>%
-  group_by(team) %>%
-  mutate(Team_rank = dplyr::row_number(),
-         bottom_10 = Team_rank>(max(Team_rank)-11),
-         bottom_15 = Team_rank>(max(Team_rank)-16)) %>%
-  
-  ungroup() %>%
+re.playersf1 %>%
   mutate(StdScore=cb(StdScore),
          Score=cb(round(Score))) %>%
-  filter(team=="GS") %>%
+  #filter(team=="GS") %>%
   mutate(Players=paste0("[", Players, "](/", playerprofileurl, ")")) %>%
   # mutate(Players=cell_spec(Players, color=ifelse(Current=="y"&!is.na(Current), "black", "blue"),
   #                          strikeout=ifelse(Current=="y", FALSE, TRUE))) %>%

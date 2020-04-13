@@ -281,7 +281,7 @@ results_summary <- res_long %>%
   group_by(PlayerTeam) %>%
   summarize(n=n(), Score=mean(score, na.rm = TRUE))
 
-re.players<-ranef(f1)$PlayerTeam %>% 
+re.playersf1<-ranef(f1)$PlayerTeam %>% 
   rownames_to_column("PlayerTeam") %>%
   as_tibble() %>%
   rename(StdScore=2) %>%

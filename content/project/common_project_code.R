@@ -10,27 +10,47 @@ library(kableExtra)
 drive_auth("gidon.d.cohen@gmail.com")
 sheets_auth(token=drive_token())
 
+readdata <- FALSE
+
 myclean <- function(x, illegal="[!. @$£()*&^~#]", replacement =""){
   gsub(illegal, replacement, x)
 }
 
-zz_matches <- read_sheet("1ftRMXTRL84SO-eedX8EIof8i_5C64qemwskffr8DUXA", sheet=3) %>%
-  mutate(teamname="RZR")
-zz_results <- read_sheet("1ftRMXTRL84SO-eedX8EIof8i_5C64qemwskffr8DUXA", sheet=4, col_types="c", skip = 3) %>%
-  mutate(team="Zig-Zag RZR")
-
-zz_oldscores <- read_sheet("1ftRMXTRL84SO-eedX8EIof8i_5C64qemwskffr8DUXA", sheet=6, col_types="c")
-
-
-gs_matches <- read_sheet("1VfIqaB--8Y-pF06zp1KEBrTJyX1A_33XKG30n38Da14", sheet=3) %>%
-  mutate(teamname="GS")
-gs_results <- read_sheet("1VfIqaB--8Y-pF06zp1KEBrTJyX1A_33XKG30n38Da14", sheet=4, col_types="c", skip = 3) %>%
-  mutate(team="GS")
-
-gt_matches <- read_sheet("1oGTfeDSjWoqHaOZYrw09kMxP42bo_sBBVVKJbEThsMI", sheet=3) %>%
-  mutate(teamname="GT")
-gt_results <- read_sheet("1oGTfeDSjWoqHaOZYrw09kMxP42bo_sBBVVKJbEThsMI", sheet=4, col_types="c", skip = 3) %>%
-  mutate(team="GT")
+if(readdata==TRUE){
+  zz_matches <- read_sheet("1ftRMXTRL84SO-eedX8EIof8i_5C64qemwskffr8DUXA", sheet=3) %>%
+    mutate(teamname="RZR")
+  zz_results <- read_sheet("1ftRMXTRL84SO-eedX8EIof8i_5C64qemwskffr8DUXA", sheet=4, col_types="c", skip = 3) %>%
+    mutate(team="Zig-Zag RZR")
+  
+  zz_oldscores <- read_sheet("1ftRMXTRL84SO-eedX8EIof8i_5C64qemwskffr8DUXA", sheet=6, col_types="c")
+  
+  
+  gs_matches <- read_sheet("1VfIqaB--8Y-pF06zp1KEBrTJyX1A_33XKG30n38Da14", sheet=3) %>%
+    mutate(teamname="GS")
+  gs_results <- read_sheet("1VfIqaB--8Y-pF06zp1KEBrTJyX1A_33XKG30n38Da14", sheet=4, col_types="c", skip = 3) %>%
+    mutate(team="GS")
+  
+  gt_matches <- read_sheet("1oGTfeDSjWoqHaOZYrw09kMxP42bo_sBBVVKJbEThsMI", sheet=3) %>%
+    mutate(teamname="GT")
+  gt_results <- read_sheet("1oGTfeDSjWoqHaOZYrw09kMxP42bo_sBBVVKJbEThsMI", sheet=4, col_types="c", skip = 3) %>%
+    mutate(team="GT")
+  
+  readr::write_rds(zz_matches, paste0(rprojroot::find_rstudio_root_file(), "/resources/zz_matches.RDS"))
+  readr::write_rds(zz_results, paste0(rprojroot::find_rstudio_root_file(), "/resources/zz_results.RDS"))
+  readr::write_rds(zz_oldscores, paste0(rprojroot::find_rstudio_root_file(), "/resources/zz_oldscores.RDS"))
+  readr::write_rds(gs_matches, paste0(rprojroot::find_rstudio_root_file(), "/resources/gs_matches.RDS"))
+  readr::write_rds(gs_results, paste0(rprojroot::find_rstudio_root_file(), "/resources/gs_results.RDS"))
+  readr::write_rds(gt_matches, paste0(rprojroot::find_rstudio_root_file(), "/resources/gt_matches.RDS"))
+  readr::write_rds(gt_results, paste0(rprojroot::find_rstudio_root_file(), "/resources/gt_results.RDS"))
+} else {
+  zz_matches <- readr::read_rds(paste0(rprojroot::find_rstudio_root_file(), "/resources/zz_matches.RDS"))
+  zz_results <- readr::read_rds(paste0(rprojroot::find_rstudio_root_file(), "/resources/zz_results.RDS"))
+  zz_oldscores <- readr::read_rds(paste0(rprojroot::find_rstudio_root_file(), "/resources/zz_oldscores.RDS"))
+  gs_matches <- readr::read_rds(paste0(rprojroot::find_rstudio_root_file(), "/resources/gs_matches.RDS"))
+  gs_results <- readr::read_rds(paste0(rprojroot::find_rstudio_root_file(), "/resources/gs_results.RDS"))
+  gt_matches <- readr::read_rds(paste0(rprojroot::find_rstudio_root_file(), "/resources/gt_matches.RDS"))
+  gt_results <- readr::read_rds(paste0(rprojroot::find_rstudio_root_file(), "/resources/gt_results.RDS"))
+}
 
 cb <- function(x) {
   range <- max(abs(x))
@@ -310,4 +330,20 @@ re.playersf1<-ranef(f1)$PlayerTeam %>%
          bottom_15 = Team_rank>(max(Team_rank)-16)) %>%
   ungroup()
 
+re.playersf2<-ranef(f2)$PlayerTeam %>% 
+  rownames_to_column("PlayerTeam") %>%
+  as_tibble() %>%
+  rename(StdScore=2) %>%
+  mutate(StdScore=round(StdScore*score_sd + score_mu, 0)) %>%
+  arrange(-StdScore) %>%
+  left_join(results) %>%
+  left_join(results_summary) %>%
+  arrange(-StdScore)  %>%
+  filter(Current=="y") %>%
+  rowid_to_column("Rank") %>%
+  group_by(team) %>%
+  mutate(Team_rank = dplyr::row_number(),
+         bottom_10 = Team_rank>(max(Team_rank)-11),
+         bottom_15 = Team_rank>(max(Team_rank)-16)) %>%
+  ungroup()
 

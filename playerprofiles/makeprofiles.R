@@ -24,7 +24,7 @@ players <- filter(res_long, Current=="y") %>%
   group_by(safeplayername, Players, team) %>%
   summarize(maxscore=max(score, na.rm=TRUE), 
             bestevent=findbe(score, event_round)) %>%
-  ungroup()
+  ungroup() 
 
 # write templates
 
@@ -48,6 +48,7 @@ for (n in 1:nrow(players)){
   this_template <- sub("qqmaxscoreqq", maxscore, this_template)
   this_template <- sub("qqbesteventqq", bestevent, this_template)
   thisplayerdat <- res_long %>%
+    ungroup() %>%
     filter(safeplayername==this_safeplayer, Current=="y") %>%
     dplyr::select(-team)
   
@@ -72,3 +73,6 @@ for (n in 1:nrow(players)){
 }
 
 readr::write_rds(res_long, paste0(rprojroot::find_rstudio_root_file(), "/playerprofiles/res_long.RDS"))
+readr::write_rds(re.playersf1, paste0(rprojroot::find_rstudio_root_file(), "/playerprofiles/re.playersf1.RDS"))
+readr::write_rds(re.playersf2, paste0(rprojroot::find_rstudio_root_file(), "/playerprofiles/re.playersf2.RDS"))
+

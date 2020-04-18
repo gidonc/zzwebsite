@@ -10,7 +10,8 @@ library(kableExtra)
 drive_auth("gidon.d.cohen@gmail.com")
 sheets_auth(token=drive_token())
 
-readdata <- FALSE
+# Re-read the data if the stored data is more than three hours old (established date from just one of the stored data files)
+readdata <- Sys.time() - file.info(paste0(rprojroot::find_rstudio_root_file(), "/resources/gt_results.RDS"))$mtime > lubridate::hours(3)
 
 myclean <- function(x, illegal="[!. @$£()*&^~#]", replacement =""){
   gsub(illegal, replacement, x)
@@ -117,13 +118,13 @@ gs_res_long <- gs_results %>%
 
 results <- bind_rows(zz_results, gs_results, gt_results) %>%
   mutate(
-    safeplayername = myclean(fs::path_sanitize(Players)),
+    safeplayername = myclean(fs::path_sanitize(PlayerTeam)),
     playerprofileurl = paste0("playerprofiles/", safeplayername, "/"))
 
 res_long <- bind_rows(zz_res_long, gs_res_long, gt_res_long) %>%
   group_by(event_round) %>%
   mutate(     
-    safeplayername = myclean(fs::path_sanitize(Players)),
+    safeplayername = myclean(fs::path_sanitize(PlayerTeam)),
     GP=as.numeric(GP),
     std_GP = (GP-mean(GP, na.rm=TRUE))/sd(GP, na.rm=TRUE),
     score = as.numeric(score),
@@ -313,6 +314,11 @@ results_summary <- res_long %>%
   group_by(PlayerTeam) %>%
   summarize(n=n(), Score=mean(score, na.rm = TRUE))
 
+recent_results_summary <- res_long_recent %>%
+  filter(!is.na(score)) %>%
+  group_by(PlayerTeam) %>%
+  summarize(n=n(), Score=mean(score, na.rm = TRUE))
+
 re.playersf1<-ranef(f1)$PlayerTeam %>% 
   rownames_to_column("PlayerTeam") %>%
   as_tibble() %>%
@@ -337,7 +343,7 @@ re.playersf2<-ranef(f2)$PlayerTeam %>%
   mutate(StdScore=round(StdScore*score_sd + score_mu, 0)) %>%
   arrange(-StdScore) %>%
   left_join(results) %>%
-  left_join(results_summary) %>%
+  left_join(recent_results_summary) %>%
   arrange(-StdScore)  %>%
   filter(Current=="y") %>%
   rowid_to_column("Rank") %>%

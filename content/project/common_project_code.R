@@ -23,6 +23,8 @@ if(readdata==TRUE){
   zz_results <- read_sheet("1ftRMXTRL84SO-eedX8EIof8i_5C64qemwskffr8DUXA", sheet=4, col_types="c", skip = 3) %>%
     mutate(team="Zig-Zag RZR")
   
+  transfers <- read_sheet("1ftRMXTRL84SO-eedX8EIof8i_5C64qemwskffr8DUXA", sheet=7, col_types="c")
+  
   zz_oldscores <- read_sheet("1ftRMXTRL84SO-eedX8EIof8i_5C64qemwskffr8DUXA", sheet=6, col_types="c")
   
   
@@ -43,6 +45,7 @@ if(readdata==TRUE){
   readr::write_rds(gs_results, paste0(rprojroot::find_rstudio_root_file(), "/resources/gs_results.RDS"))
   readr::write_rds(gt_matches, paste0(rprojroot::find_rstudio_root_file(), "/resources/gt_matches.RDS"))
   readr::write_rds(gt_results, paste0(rprojroot::find_rstudio_root_file(), "/resources/gt_results.RDS"))
+  readr::write_rds(transfers, paste0(rprojroot::find_rstudio_root_file(), "/resources/transfers.RDS"))
 } else {
   zz_matches <- readr::read_rds(paste0(rprojroot::find_rstudio_root_file(), "/resources/zz_matches.RDS"))
   zz_results <- readr::read_rds(paste0(rprojroot::find_rstudio_root_file(), "/resources/zz_results.RDS"))
@@ -51,6 +54,7 @@ if(readdata==TRUE){
   gs_results <- readr::read_rds(paste0(rprojroot::find_rstudio_root_file(), "/resources/gs_results.RDS"))
   gt_matches <- readr::read_rds(paste0(rprojroot::find_rstudio_root_file(), "/resources/gt_matches.RDS"))
   gt_results <- readr::read_rds(paste0(rprojroot::find_rstudio_root_file(), "/resources/gt_results.RDS"))
+  transfers <- readr::read_rds(paste0(rprojroot::find_rstudio_root_file(), "/resources/transfers.RDS"))
 }
 
 cb <- function(x) {
@@ -287,6 +291,17 @@ all_matches <- all_matches %>%
 ordered_events <- events %>% arrange(event_no)
 
 topscores<-all_matches %>% filter(!is.na(Rank1Cups))
+
+transfers_long <- transfers %>%
+  rowid_to_column("crossprofile_id") %>%
+  pivot_longer(names_to="team", 
+               cols=-crossprofile_id) %>%
+  separate(team, into=c("team", "profile")) %>%
+  group_by(crossprofile_id, profile) %>%
+  mutate(profile_id = dplyr::row_number()) %>%
+  mutate(crossteam_name = value[!is.na(value)][1]) %>%
+  ungroup() %>%
+  mutate(team=ifelse(team=="zz1", "Zig-Zag RZR", ifelse(team=="zz2", "GS", "GT")))
 
 res_long <- res_long %>%
   left_join(all_matches %>% dplyr::select(teamname, round, event_std, round_number)) 

@@ -50,7 +50,7 @@ They are currently ranked `r this_allmatches_team_rank` in GT (`r this_allmatche
 
 In the last 15 matches they are ranked `r this_recent_team_rank` in GT (`r this_recent_overall_rank` in the Zig-Zag family).  
 
-Their best score was 14881 in Hop To It 3.
+Their best score was 16915 in Redline 1.
 
 Their highest rank within the team was `r bestrank` `r best` 
 

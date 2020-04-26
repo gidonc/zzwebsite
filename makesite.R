@@ -76,3 +76,35 @@ readr::write_rds(res_long, paste0(rprojroot::find_rstudio_root_file(), "/playerp
 readr::write_rds(re.playersf1, paste0(rprojroot::find_rstudio_root_file(), "/playerprofiles/re.playersf1.RDS"))
 readr::write_rds(re.playersf2, paste0(rprojroot::find_rstudio_root_file(), "/playerprofiles/re.playersf2.RDS"))
 
+blogdown::build_site()
+
+gitadd <- function(dir = rprojroot::find_rstudio_root_file()){
+  cmd_list <- list(
+    cmd1 = tolower(substr(dir,1,2)),
+    cmd2 = paste("cd",dir),
+    cmd3 = "git add -A"
+  )
+  cmd <- paste(unlist(cmd_list),collapse = " & ")
+  shell(cmd)
+}
+
+gitcommit <- function(msg = "commit from Rstudio", dir = rprojroot::find_rstudio_root_file()){
+  cmd = sprintf("git commit -m\"%s\"",msg)
+  system(cmd)
+}
+
+# Git push.
+gitpush <- function(dir = rprojroot::find_rstudio_root_file()){
+  cmd_list <- list(
+    cmd1 = tolower(substr(dir,1,2)),
+    cmd2 = paste("cd",dir),
+    cmd3 = "git push origin master"
+  )
+  cmd <- paste(unlist(cmd_list),collapse = " & ")
+  shell(cmd)
+}
+
+git2r::config(user.name = "gidonc",user.email = "gidon.cohen@durham.ac.uk")
+gitadd()
+gitcommit()
+gitpush()

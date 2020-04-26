@@ -31,16 +31,16 @@ players <- filter(res_long, Current=="y") %>%
 do.call(file.remove, list(list.files("content/playerprofiles", full.names = TRUE)))
 
 for (n in 1:nrow(players)){
-  this_safeplayer <- slice(players, n) %>% 
-    pull(safeplayername)
-  playername <- slice(players, n) %>%
-    pull(Players)
-  teamname <- slice(players, n) %>%
-    pull(team)
-  maxscore <- slice(players, n) %>% 
-    pull(maxscore)
-  bestevent <- slice(players, n) %>%
-    pull(bestevent)
+  this_safeplayer <- dplyr::slice(players, n) %>% 
+    dplyr::pull(safeplayername)
+  playername <- dplyr::slice(players, n) %>%
+    dplyr::pull(Players)
+  teamname <- dplyr::slice(players, n) %>%
+    dplyr::pull(team)
+  maxscore <- dplyr::slice(players, n) %>% 
+    dplyr::pull(maxscore)
+  bestevent <- dplyr::slice(players, n) %>%
+    dplyr::pull(bestevent)
   print(this_safeplayer)
   this_template <- sub("qqplayernameqq", playername, myrmd)
   this_template <- sub("qqpathtoimageqq", paste0(this_safeplayer, ".jpg"), this_template)

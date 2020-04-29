@@ -3,6 +3,7 @@ title: "GT Cups"
 author: "gidddybb"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: html_document
+summary: Cup progress for Zig-Zag GT.
 tags:
   - Teams
   - zz3

@@ -3,6 +3,7 @@ title: "Zig-Zag Cups: All Teams"
 author: "gidddybb"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: html_document
+summary: Cup progress for all Zig-Zag teams (with top and top 100 trajectory).
 tags:
   - Teams
   - zz1

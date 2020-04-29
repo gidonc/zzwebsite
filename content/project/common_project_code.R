@@ -320,9 +320,9 @@ res_long <- res_long %>%
   mutate(global_rank_out = paste(global_rank, "of", global_count),
          team_rank_out = paste(team_rank, "of", team_count))
 
-f1 <- lmer(std_score~ has_zig_zag +has_zig_zag +  has_gs +has_gt+ (1|PlayerTeam), res_long)
+f1 <- lmer(std_score~ has_zig_zag +  has_gs +has_gt+ (1|PlayerTeam), res_long)
 res_long_recent <- filter(res_long, matches_ago<16)
-f2 <- lmer(std_score~ has_zig_zag + has_gs + (1|PlayerTeam), res_long_recent)
+f2 <- lmer(std_score~ has_zig_zag + has_gs + has_gt + (1|PlayerTeam), res_long_recent)
 
 results_summary <- res_long %>%
   filter(!is.na(score)) %>%

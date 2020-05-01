@@ -6,6 +6,8 @@ output: html_document
 summary: Cup progress for Zig-Zag RZR.
 tags:
   - Teams
+  - Cups
+  - RZR
   - Detailed
 ---
 

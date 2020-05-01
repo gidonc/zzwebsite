@@ -6,16 +6,31 @@
 
 
 [[main]]
-  name = "Player Summary"
-  url = "#projects"
+  name = "Whole Family"
+  url = "#zzfamily"
+  weight = 10
+
+[[main]]
+  name = "RZR"
+  url = "#RZR"
+  weight = 20
+
+[[main]]
+  name = "GS"
+  url = "#GS"
   weight = 30
-
+  
 [[main]]
-  name = "Teams Summary"
-  url = "#teams"
+  name = "GT"
+  url = "#GT"
   weight = 40
-
+  
 [[main]]
-  name = "Player Profiles"
-  url = "#playerprofiles"
+  name = "Meet the Teams"
+  url = "#people"
   weight = 50
+  
+[[main]]
+  name = "Player Profles"
+  url = "#playerprofiles"
+  weight = 60

@@ -6,6 +6,7 @@ output: html_document
 summary: Recent player average scores including information from  only the last 15 events.
 tags:
 - Player
+- zzfamily
 - Basic
 ---
 

@@ -1,0 +1,89 @@
+---
+title: "About RZR"
+author: "giddybb"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: html_document
+summary: Zig-Zag RZR team information including cup history graphs.
+tags:
+- RZR
+---
+
+```{r, echo=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::read_chunk(paste0(rprojroot::find_rstudio_root_file(), "/content/project/common_project_code.R"))
+
+```
+
+
+```{r setup, include=FALSE}
+```
+
+
+```{r cleancalculate, echo=FALSE, message=FALSE, warning=FALSE}
+
+```
+
+
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+these_matches <- all_matches %>% filter(teamname=="RZR", !is.na(result)) %>% arrange(-event_no, -round_number)
+results <- these_matches  %>% pull(result) 
+recent_results <- head(results, 15)
+n_wins <- sum(results =="wins")
+n_losses <- sum(results=="losses")
+n_matches <- length(results)
+win_percentage <- 100*n_wins/n_matches
+
+n_recent_wins <- sum(recent_results =="wins")
+n_recent_losses <- sum(recent_results=="losses")
+n_recent_matches <- length(recent_results)
+recent_win_percentage <- 100*n_recent_wins/n_recent_matches
+
+current_cups <- these_matches %>% slice(1) %>% pull(zz_cups_before)
+current_rank <- these_matches %>% slice(1) %>% pull(zz_rank_before)
+last_opponent <- these_matches %>% slice(1) %>% pull(opposition)
+last_round <- these_matches %>% slice(1) %>% pull(event_round)
+
+
+```
+
+Zig-Zag RZR is the first team in the Zig-Zag family. RZR was formed (as Zig-Zag Racers)  at the end of June 2019 (at the start of the Newfangled vehicles event). It was born from the embers of rizzlaracers, a some time top 30 team brought down by an inactive leader.    
+
+RZR currently has `r current_cups` cups and is ranked `r current_rank` in the world. This was measured going into the match against `r last_opponent` (`r last_round`).
+
+Since formation RZR has played `r n_matches` matches, winning `r n_wins` of those (a win percentage of `r round(win_percentage)`%). Of their most recent `r n_recent_matches` matches RZR have won `r n_recent_wins` (a recent win percentage of `r round(recent_win_percentage)`%).  
+
+Performance data for RZR stored on this [google sheet](https://docs.google.com/spreadsheets/d/1ftRMXTRL84SO-eedX8EIof8i_5C64qemwskffr8DUXA/edit?usp=sharing)
+
+The two graphs below show the cup history of RZR. First, the cup progress over time with opposition names:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+
+
+all_matches %>%
+  filter(teamname=="RZR", !is.na(zz_cups_before)) %>%
+  ggplot(aes(x=match_number, y=zz_cups_before)) +
+  geom_point() +
+  geom_line() +
+  geom_label_repel(size=1, aes(label=opposition))+
+  theme_bw() +
+  labs(y="cups")
+
+
+```
+
+
+Second, the cup progress relative to the other Zig-Zag teams. 
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+
+all_matches %>%
+  ggplot(aes(x=round_number, y=zz_cups_before)) +
+  geom_line(size=1, aes(colour=teamname)) +
+  theme_bw() +
+  labs(y="cups")
+```
+
+
+

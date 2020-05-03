@@ -3,10 +3,10 @@
 widget = "portfolio"  # See https://sourcethemes.com/academic/docs/page-builder/
 headless = true  # This file represents a page section.
 active = true  # Activate this widget? true/false
-weight = 5  # Order that this section will appear.
+weight = 10  # Order that this section will appear.
 
 title = "Zig-Zag RZR"
-subtitle = ""
+subtitle = "![](/img/RZR.jpg)"
 
 [content]
   # Page type to display. E.g. project.
@@ -75,4 +75,4 @@ subtitle = ""
  # CSS class.
  css_class = ""
 +++
-
+Zig-Zag RZR is our first team.

@@ -6,7 +6,7 @@ active = true  # Activate this widget? true/false
 weight = 20  # Order that this section will appear.
 
 title = "Zig-Zag GS"
-subtitle = ""
+subtitle = "![](/img/GS.jpg)"
 
 [content]
   # Page type to display. E.g. project.
@@ -75,4 +75,4 @@ subtitle = ""
  # CSS class.
  css_class = ""
 +++
-
+Zig-Zag GS is our second team. 

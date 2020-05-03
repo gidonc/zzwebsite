@@ -286,7 +286,26 @@ all_event_rounds <- all_matches  %>%
   mutate(round_number=row_number())
 
 all_matches <- all_matches %>%
-  dplyr::left_join(all_event_rounds, by=c("event_std", "event_no", "special_round"))
+  dplyr::left_join(all_event_rounds, by=c("event_std", "event_no", "special_round"))  %>% 
+  mutate(zzcupst=zz_cups_before/1000,
+         result = ifelse(zz_points>opp_points, "wins", "losses"),
+         winmargin=abs(zz_points-opp_points),
+         magnitude_cupchange=abs(zz_cup_change),
+         wincup = ifelse(result=="wins", zz_cups_before, opp_cups_before),
+         losecup = ifelse(result=="wins", opp_cups_before, zz_cups_before),
+         winrank = ifelse(result=="wins", zz_rank_before, opp_rank_before),
+         loserank = ifelse(result=="wins", opp_rank_before, zz_rank_before),
+         cupdiff = wincup-losecup,
+         gpdiff = wingp-losegp,
+         rankdiff = loserank-winrank,
+         cupratio = wincup/losecup,
+         gpratio = wingp/losegp,
+         rankratio = winrank/loserank,
+         res=ifelse(result=="wins", 1, 0),
+         res=ifelse(is.na(res)&zz_cup_change<0, 0, res),
+         result=ifelse(is.na(result)&zz_cup_change<0, "losses", result)
+  )
+
 
 ordered_events <- events %>% arrange(event_no)
 

@@ -1,5 +1,5 @@
 ---
-title: "Brandin!"
+title: "diablo"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: html_document
 summary: "player profile"
@@ -12,18 +12,18 @@ library(tidyverse)
 library(formattable)
 library(kableExtra)
 this_res_long <- readRDS(paste0(rprojroot::find_rstudio_root_file(), "/playerprofiles/res_long.RDS")) %>%
-  filter(Players=="Brandin!", team=="GT")
+  filter(Players=="diablo", team=="GT")
 this_allmatches_overall_rank <- readRDS(paste0(rprojroot::find_rstudio_root_file(), "/playerprofiles/re.playersf1.RDS")) %>%
-  filter(Players=="Brandin!", team=="GT") %>%
+  filter(Players=="diablo", team=="GT") %>%
   pull(Rank)
 this_allmatches_team_rank <- readRDS(paste0(rprojroot::find_rstudio_root_file(), "/playerprofiles/re.playersf1.RDS")) %>%
-  filter(Players=="Brandin!", team=="GT") %>%
+  filter(Players=="diablo", team=="GT") %>%
   pull(Team_rank)
 this_recent_overall_rank <- readRDS(paste0(rprojroot::find_rstudio_root_file(), "/playerprofiles/re.playersf2.RDS")) %>%
-  filter(Players=="Brandin!", team=="GT") %>%
+  filter(Players=="diablo", team=="GT") %>%
   pull(Rank)
 this_recent_team_rank <- readRDS(paste0(rprojroot::find_rstudio_root_file(), "/playerprofiles/re.playersf2.RDS")) %>%
-  filter(Players=="Brandin!", team=="GT") %>%
+  filter(Players=="diablo", team=="GT") %>%
   pull(Team_rank)
 
 bestrankdf <- this_res_long %>% 
@@ -44,22 +44,22 @@ if(nrow (bestrankdf)>2) {
 ```
 
 
-Brandin! is currently a player in GT.  
+diablo is currently a player in GT.  
 
 They are currently ranked `r this_allmatches_team_rank` in GT (`r this_allmatches_overall_rank` in the Zig-Zag family).  
 
 In the last 15 matches they are ranked `r this_recent_team_rank` in GT (`r this_recent_overall_rank` in the Zig-Zag family).  
 
-Their best score was 1000 in Canyonball 1.
+Their best score was 2576 in Canyonball 4.
 
 Their highest rank within the team was `r bestrank` `r best` 
 
-Their scores relative to the rest of the team are shown in the figure and table below. In the figure, the red line shows the trajectory of Brandin!'s scores. The grey line shows the team median and the grey ribbon indicates the range from top five score to bottom five score.
+Their scores relative to the rest of the team are shown in the figure and table below. In the figure, the red line shows the trajectory of diablo's scores. The grey line shows the team median and the grey ribbon indicates the range from top five score to bottom five score.
 
-![Brandin! performance relative to each team](BrandinGT.jpg)
+![diablo performance relative to each team](diabloGT.jpg)
 
 
-### Brandin!'s scores
+### diablo's scores
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 

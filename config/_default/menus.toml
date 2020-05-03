@@ -26,11 +26,6 @@
   weight = 40
   
 [[main]]
-  name = "Meet the Teams"
-  url = "#people"
-  weight = 50
-  
-[[main]]
-  name = "Player Profles"
+  name = "Player Profiles"
   url = "#playerprofiles"
   weight = 60

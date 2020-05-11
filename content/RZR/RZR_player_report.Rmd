@@ -40,7 +40,7 @@ re.playersf1 %>%
   mutate(Team_rank=cell_spec(Team_rank, color=ifelse(bottom_10==TRUE, "red", 
                                                      ifelse(bottom_15, "orange", "black")))) %>%
   mutate(team=cell_spec(team, color=ifelse(team=="Zig-Zag RZR", "purple", "blue"))) %>%
-  mutate(Participation=cell_spec(paste0(round(Participation*100), "%"), color=ifelse(Participation==1, "black", "red"))) %>%
+  mutate(Participation=cell_spec(paste0(round(Participation), "%"), color=ifelse(Participation==100, "black", "red"))) %>%
   dplyr::select(Rank, Team_rank, Players, team, StdScore, Score, Participation, n)  %>%
   kable(escape=F) %>%
   kable_styling(c("striped"), full_width = T, font_size = 11)

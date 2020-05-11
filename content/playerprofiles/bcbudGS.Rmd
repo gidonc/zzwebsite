@@ -1,0 +1,74 @@
+---
+title: "bcbud"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: html_document
+summary: "player profile"
+tags:
+  - GS
+---
+
+```{r, echo=FALSE, , message=FALSE, warning=FALSE}
+library(tidyverse)
+library(formattable)
+library(kableExtra)
+this_res_long <- readRDS(paste0(rprojroot::find_rstudio_root_file(), "/playerprofiles/res_long.RDS")) %>%
+  filter(Players=="bcbud", team=="GS")
+this_allmatches_overall_rank <- readRDS(paste0(rprojroot::find_rstudio_root_file(), "/playerprofiles/re.playersf1.RDS")) %>%
+  filter(Players=="bcbud", team=="GS") %>%
+  pull(Rank)
+this_allmatches_team_rank <- readRDS(paste0(rprojroot::find_rstudio_root_file(), "/playerprofiles/re.playersf1.RDS")) %>%
+  filter(Players=="bcbud", team=="GS") %>%
+  pull(Team_rank)
+this_recent_overall_rank <- readRDS(paste0(rprojroot::find_rstudio_root_file(), "/playerprofiles/re.playersf2.RDS")) %>%
+  filter(Players=="bcbud", team=="GS") %>%
+  pull(Rank)
+this_recent_team_rank <- readRDS(paste0(rprojroot::find_rstudio_root_file(), "/playerprofiles/re.playersf2.RDS")) %>%
+  filter(Players=="bcbud", team=="GS") %>%
+  pull(Team_rank)
+
+bestrankdf <- this_res_long %>% 
+  ungroup() %>%
+  filter(team_rank==min(team_rank)) 
+  
+
+bestrank <- min(this_res_long$team_rank, na.rm=TRUE)
+best<- 
+if(nrow (bestrankdf)>2) { 
+  best <- paste(paste0("in ", pull(bestrankdf, event_round)[1]), "(and", nrow(bestrankdf) -1, "other times).")
+} else if(nrow(bestrankdf)==2){
+  best <- paste("in",  paste0(pull(bestrankdf, event_round), collapse=" and "), ".")
+    
+} else if(nrow(bestrankdf)==1){
+  best <- paste("in", pull(bestrankdf, event_round), ".")
+}
+```
+
+
+bcbud is currently a player in GS.  
+
+They are currently ranked `r this_allmatches_team_rank` in GS (`r this_allmatches_overall_rank` in the Zig-Zag family).  
+
+In the last 15 matches they are ranked `r this_recent_team_rank` in GS (`r this_recent_overall_rank` in the Zig-Zag family).  
+
+Their best score was 19412 in Bill's Ok Adventure 4.
+
+Their highest rank within the team was `r bestrank` `r best` 
+
+Their scores relative to the rest of the team are shown in the figure and table below. In the figure, the red line shows the trajectory of bcbud's scores. The grey line shows the team median and the grey ribbon indicates the range from top five score to bottom five score.
+
+![bcbud performance relative to each team](bcbudGS.jpg)
+
+
+### bcbud's scores
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+
+this_res_long %>%
+  arrange(round_number) %>%
+  ungroup() %>%
+  mutate(team_rank_out=cell_spec(team_rank_out, color=ifelse(team_rank<6, "green", 
+                                                     ifelse(team_rank>40, "orange", "black")))) %>%
+  dplyr::select(event_std, round, score, team_rank_out, global_rank_out) %>% 
+  kable(escape=F) %>%
+  kable_styling(c("striped"), full_width = T, font_size = 11)
+```

@@ -128,6 +128,8 @@ results <- bind_rows(zz_results, gs_results, gt_results) %>%
 res_long <- bind_rows(zz_res_long, gs_res_long, gt_res_long) %>%
   group_by(event_round) %>%
   mutate(     
+    participated = ifelse(is.na(score), NA_real_, ifelse(score=="NP", 0, 1)),
+    score = ifelse(is.na(participated), NA_real_, ifelse(participated==1, score, 0)),
     safeplayername = myclean(fs::path_sanitize(PlayerTeam)),
     GP=as.numeric(GP),
     std_GP = (GP-mean(GP, na.rm=TRUE))/sd(GP, na.rm=TRUE),
@@ -346,12 +348,12 @@ f2 <- lmer(std_score~ has_zig_zag + has_gs + has_gt + (1|PlayerTeam), res_long_r
 results_summary <- res_long %>%
   filter(!is.na(score)) %>%
   group_by(PlayerTeam) %>%
-  summarize(n=n(), Score=mean(score, na.rm = TRUE))
+  summarize(n=n(), Score=mean(score, na.rm = TRUE), Participation=mean(participated)*100)
 
 recent_results_summary <- res_long_recent %>%
   filter(!is.na(score)) %>%
   group_by(PlayerTeam) %>%
-  summarize(n=n(), Score=mean(score, na.rm = TRUE))
+  summarize(n=n(), Score=mean(score, na.rm = TRUE), Participation=mean(participated)*100)
 
 re.playersf1<-ranef(f1)$PlayerTeam %>% 
   rownames_to_column("PlayerTeam") %>%

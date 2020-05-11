@@ -50,7 +50,7 @@ They are currently ranked `r this_allmatches_team_rank` in GS (`r this_allmatche
 
 In the last 15 matches they are ranked `r this_recent_team_rank` in GS (`r this_recent_overall_rank` in the Zig-Zag family).  
 
-Their best score was 23431 in Bill's Ok Adventure 1.
+Their best score was 26048 in Bill's Ok Adventure 4.
 
 Their highest rank within the team was `r bestrank` `r best` 
 

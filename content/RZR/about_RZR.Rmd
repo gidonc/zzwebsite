@@ -28,6 +28,7 @@ knitr::read_chunk(paste0(rprojroot::find_rstudio_root_file(), "/content/project/
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 these_matches <- all_matches %>% filter(teamname=="RZR", !is.na(result)) %>% arrange(-event_no, -round_number)
+inc_current_match <- all_matches %>% filter(teamname=="RZR", !is.na(opposition), !is.na(zz_cups_before), !is.na(zz_rank_before)) %>% arrange(-event_no, -round_number)
 results <- these_matches  %>% pull(result) 
 recent_results <- head(results, 15)
 n_wins <- sum(results =="wins")
@@ -40,17 +41,18 @@ n_recent_losses <- sum(recent_results=="losses")
 n_recent_matches <- length(recent_results)
 recent_win_percentage <- 100*n_recent_wins/n_recent_matches
 
-current_cups <- these_matches %>% slice(1) %>% pull(zz_cups_before)
-current_rank <- these_matches %>% slice(1) %>% pull(zz_rank_before)
-last_opponent <- these_matches %>% slice(1) %>% pull(opposition)
-last_round <- these_matches %>% slice(1) %>% pull(event_round)
+
+current_cups <- inc_current_match %>% slice(1) %>% pull(zz_cups_before)
+current_rank <- inc_current_match %>% slice(1) %>% pull(zz_rank_before)
+last_opponent <- inc_current_match %>% slice(1) %>% pull(opposition)
+last_round <- inc_current_match %>% slice(1) %>% pull(event_round)
 
 
 ```
 
 Zig-Zag RZR is the first team in the Zig-Zag family. RZR was formed (as Zig-Zag Racers)  at the end of June 2019 (at the start of the Newfangled vehicles event). It was born from the embers of rizzlaracers, a some time top 30 team brought down by an inactive leader.    
 
-RZR currently has `r current_cups` cups and is ranked `r current_rank` in the world. This was measured going into the match against `r last_opponent` (`r last_round`).
+RZR  was last recorded as having `r format(current_cups, scientific=FALSE)` cups and being ranked `r current_rank` in the world. This measurement was taken going into the match against `r last_opponent` (`r last_round`).
 
 Since formation RZR has played `r n_matches` matches, winning `r n_wins` of those (a win percentage of `r round(win_percentage)`%). Of their most recent `r n_recent_matches` matches RZR have won `r n_recent_wins` (a recent win percentage of `r round(recent_win_percentage)`%).  
 

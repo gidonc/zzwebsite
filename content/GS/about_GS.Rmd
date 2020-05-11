@@ -28,6 +28,7 @@ knitr::read_chunk(paste0(rprojroot::find_rstudio_root_file(), "/content/project/
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 these_matches <- all_matches %>% filter(teamname=="GS", !is.na(result)) %>% arrange(-event_no, -round_number)
+inc_current_match <- all_matches %>% filter(teamname=="GS", !is.na(opposition), !is.na(zz_cups_before), !is.na(zz_rank_before)) %>% arrange(-event_no, -round_number)
 results <- these_matches  %>% pull(result) 
 recent_results <- head(results, 15)
 n_wins <- sum(results =="wins")

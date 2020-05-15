@@ -13,7 +13,7 @@ On Monday 18 May 2020 the current players in Zig-Zag GS and Zig-Zag GT will be r
 
 The page identifies which team each player has been assigned to.  
 The destinations for current Zig-Zag GS Players can be found [here](#gs-destinations).  
-The destinations for current Zig-Zag GT Players can be found [here](#gt-destinations)
+The destinations for current Zig-Zag GT Players can be found [here](#gt-destinations)  
 
 ```{r, echo=FALSE}
 knitr::opts_chunk$set(echo = TRUE)

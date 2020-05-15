@@ -15,6 +15,8 @@ The page identifies which team each player has been assigned to.
 The destinations for current Zig-Zag GS Players can be found [here](#gs-destinations).  
 The destinations for current Zig-Zag GT Players can be found [here](#gt-destinations)  
 
+Once the two teams are set-up there will be movement between them depending on performance. The top players from Zig-Zag GB may move to GT if they score well, the bottom players from GT will be asked to move to GB. 
+
 ```{r, echo=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 knitr::read_chunk(paste0(rprojroot::find_rstudio_root_file(), "/content/project/common_project_code.R"))

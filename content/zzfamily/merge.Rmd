@@ -15,6 +15,8 @@ The page identifies which team each player has been assigned to.
 The destinations for current Zig-Zag GS Players can be found [here](#gs-destinations).  
 The destinations for current Zig-Zag GT Players can be found [here](#gt-destinations)  
 
+Players will have until 15:30 pm (UK time) on 18 May to move to their new teams before matchmaking will commence. 
+
 Once the two teams are set-up there will be movement between them depending on performance. The top players from Zig-Zag GB may move to GT if they score well, the bottom players from GT will be asked to move to GB. 
 
 ```{r, echo=FALSE}
@@ -33,7 +35,7 @@ knitr::read_chunk(paste0(rprojroot::find_rstudio_root_file(), "/content/project/
 
 ## GS Destinations
 
-The table below gives the desintations for current Zig-Zag GS players. After you have collected your weekly chest on Monday morning, all players should leave Zig-Zag GS. If your destination is GT you should move to Zig-Zag GT. If your destination is GB you should move to Zig-Zag GB. If your name does not appear on the list, just ask in chat or on Discord.
+The table below gives the destintations for current Zig-Zag GS players. After you have collected your weekly chest on Monday morning, all players should leave Zig-Zag GS. If your destination is GT you should move to Zig-Zag GT. If your destination is GB you should move to Zig-Zag GB. If your name does not appear on the list, just ask in chat or on Discord.
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 gs_results %>% 
@@ -48,7 +50,7 @@ gs_results %>%
 ```
 
 ## GT Destinations
-The table below gives the desintations for current Zig-Zag GT players. If your destination is GT you do not need to do anything - you should stay put. If your destination is GB, then after you have collected your weekly chest on Monday morning, you should leave Zig-Zag GT and join Zig-Zag GB instead. If your name does not appear on the list, just ask in chat or on Discord.
+The table below gives the destintations for current Zig-Zag GT players. If your destination is GT you do not need to do anything - you should stay put. If your destination is GB, then after you have collected your weekly chest on Monday morning, you should leave Zig-Zag GT and join Zig-Zag GB instead. If your name does not appear on the list, just ask in chat or on Discord.
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 gt_results %>% 
   filter(Current=="y") %>%

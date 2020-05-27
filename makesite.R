@@ -11,6 +11,7 @@ score_mu = mean(as.numeric(res_long$score), na.rm=TRUE)
 most.recent.gs <- gs_res_long %>% filter(!is.na(score)) %>% arrange(-match_number) %>% slice(1) 
 most.recent.zz1 <- zz_res_long %>% filter(!is.na(score)) %>% arrange(-match_number) %>% slice(1) 
 most.recent.zz3 <- gt_res_long %>% filter(!is.na(score)) %>% arrange(-match_number) %>% slice(1)
+most.recent.gts <- gts_res_long %>% filter(!is.na(score)) %>% arrange(-match_number) %>% slice(1)
 
 findbe <- function(score, event_round){
   if (sum(is.na(score)) == length(score)){

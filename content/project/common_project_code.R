@@ -120,7 +120,7 @@ gt_res_long <- gt_results %>%
 gts_res_long <- gts_results %>%
   pivot_longer(-c(Players, PlayerTeam, GP, Current, team), names_to="event_round", values_to = "score") %>%
   mutate(event_round=tolower(event_round))%>%
-  inner_join(gt_matches, by="event_round") %>%
+  inner_join(gts_matches, by="event_round") %>%
   mutate(matches_ago = max(match_number) + 1 - match_number)
 
 gs_results <- gs_results %>% 
@@ -169,7 +169,7 @@ res_long <- bind_rows(zz_res_long, gts_res_long) %>%
   group_by(event_round) %>%
   mutate(     
     participated = ifelse(is.na(score), NA_real_, ifelse(score=="NP", 0, 1)),
-    score = ifelse(is.na(participated), NA_real_, ifelse(participated==1, score, 0)),
+    score = ifelse(is.na(participated), NA_real_, ifelse(participated==1, as.numeric(score), 0)),
     safeplayername = myclean(fs::path_sanitize(PlayerTeam)),
     GP=as.numeric(GP),
     std_GP = (GP-mean(GP, na.rm=TRUE))/sd(GP, na.rm=TRUE),
@@ -323,7 +323,8 @@ events <- dplyr::full_join(gs_events, zz_events, by="event_std") %>%
   mutate(event_no = row_number())
 
 all_zz_matches <-  all_zz_matches%>% left_join(events %>% dplyr::select(event_std, event_no), by="event_std")
-gt_matches <- gt_matches %>% left_join(events %>% dplyr::select(event_std, event_no), by="event_std") gts_matches <- gts_matches %>% left_join(events %>% dplyr::select(event_std, event_no), by="event_std") 
+gt_matches <- gt_matches %>% left_join(events %>% dplyr::select(event_std, event_no), by="event_std") 
+gts_matches <- gts_matches %>% left_join(events %>% dplyr::select(event_std, event_no), by="event_std") 
 gs_matches <- gs_matches %>% left_join(events %>% dplyr::select(event_std, event_no), by="event_std")
 
 all_matches <- bind_rows(all_zz_matches, gs_matches, gt_matches, gts_matches)%>%
@@ -390,9 +391,9 @@ res_long <- res_long %>%
   mutate(global_rank_out = paste(global_rank, "of", global_count),
          team_rank_out = paste(team_rank, "of", team_count))
 
-f1 <- lmer(std_score~ has_zig_zag +  has_gs +has_gt+ (1|PlayerTeam), res_long)
+f1 <- lmer(std_score~ has_zig_zag +  has_gts + (1|PlayerTeam), res_long)
 res_long_recent <- filter(res_long, matches_ago<16)
-f2 <- lmer(std_score~ has_zig_zag + has_gs + has_gt + (1|PlayerTeam), res_long_recent)
+f2 <- lmer(std_score~ has_zig_zag + has_gts + (1|PlayerTeam), res_long_recent)
 
 results_summary <- res_long %>%
   filter(!is.na(score)) %>%

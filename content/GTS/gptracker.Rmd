@@ -1,0 +1,101 @@
+---
+title: 'Zig-Zag GT: Garage Power'
+author: "giddybb"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: html_document
+summary: Garage power trends for players in Zig-Zag second team.
+tags:
+- Player
+- Detailed
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE)
+library(tidyverse)
+library(haven)
+library(huxtable)
+library(googledrive)
+library(googlesheets4)
+library(stringr)
+library(ggrepel)
+library(arm)
+drive_auth("gidon.d.cohen@gmail.com")
+sheets_auth(token=drive_token())
+gptracker <- read_sheet("1oGTfeDSjWoqHaOZYrw09kMxP42bo_sBBVVKJbEThsMI", sheet=5)
+
+```
+
+```{r, echo=FALSE}
+gplong <- gptracker %>% 
+  pivot_longer(cols=contains("event_no"), names_to="variable", values_to="GP", values_drop_na = TRUE ) %>%
+  separate(variable,into=c("prefix", "event"), " ") %>%
+  mutate(event=as.numeric(event))
+
+```
+```{r, echo=FALSE}
+f1 <- lmer(GP ~(1+ event|Players), gplong)
+
+ref <- ranef(f1)$Players %>%
+  rownames_to_column("Players") %>%
+  rename(event_slope = event) %>%
+  arrange(-event_slope) %>%
+  mutate(event_slope_text = ifelse(event_slope<0, 0, event_slope))
+  
+
+gplong <- gplong %>%
+  left_join(ref, by="Players") %>%
+  mutate(Players_f = factor(Players, levels = ref$Players))
+
+gplong <- gplong%>%
+  mutate(last_match=max(event)) %>%
+  group_by(Players) %>%
+  mutate(n_measures=n(), min_gp=min(GP), last_player_match=max(event), current=last_player_match==last_match,
+         max_gp=max(GP)) 
+
+the_first <- gplong %>%
+  filter(max_gp>4000, n_measures>1, current) %>%
+  arrange(-event_slope_text) %>%
+  ungroup() %>%
+  slice(1) %>%
+  pull(event_slope_text) %>% round()
+
+```
+
+The graphs below show the garage power growth rate of members of Zig-Zag GTS. Each graph is organised so the player whose garage power is increasing fastest comes first, and the player whose garage power is increasing slowest comes last. The 'Rate' figure is the change in GP between each match (so a rate of `r the_first` means that the players garage power goes up `r the_first` points on average between one match and the next). 
+
+## The Big Hitters (GP over 6000)
+
+```{r, echo=FALSE}
+
+
+gplong %>%
+  filter(max_gp>6000, n_measures>1, current) %>%
+  ggplot(aes(event, GP, group=Players, nrow=7)) +
+  facet_wrap(~Players_f + paste("rate: ", round(event_slope_text)), ncol=7)+
+  geom_line() +
+  theme_bw()
+```
+
+## The Middle Order (GP 4000-6000)
+
+```{r, echo=FALSE}
+gplong%>%
+  filter(max_gp<6000, max_gp>4000, n_measures>1, current) %>%
+  ggplot(aes(event, GP, group=Players)) +
+  facet_wrap(~Players_f + paste("rate: ", round(event_slope_text)), ncol=7)+
+  geom_line() +
+  theme_bw()
+```
+
+
+## The Tail Enders (GP under 4000)
+
+```{r, echo=FALSE, fig.height=7}
+gplong%>%
+  filter(max_gp<4000, n_measures>1, current) %>%
+  ggplot(aes(event, GP, group=Players)) +
+   facet_wrap(~Players_f + paste("rate: ", round(event_slope_text)), ncol=7)+
+  geom_line() +
+  theme_bw()
+```
+

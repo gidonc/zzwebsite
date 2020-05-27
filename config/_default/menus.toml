@@ -16,15 +16,10 @@
   weight = 20
 
 [[main]]
-  name = "GS"
-  url = "#GS"
+  name = "GTS"
+  url = "#GTS"
   weight = 30
-  
-[[main]]
-  name = "GT"
-  url = "#GT"
-  weight = 40
-  
+
 [[main]]
   name = "Player Profiles"
   url = "#playerprofiles"

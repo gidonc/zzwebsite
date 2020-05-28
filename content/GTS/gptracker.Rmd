@@ -1,5 +1,5 @@
 ---
-title: 'Zig-Zag GT: Garage Power'
+title: 'Zig-Zag GTS: Garage Power'
 author: "giddybb"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: html_document

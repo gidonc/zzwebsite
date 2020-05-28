@@ -37,7 +37,7 @@ GTS match vs `r most.recent.gts$opposition` (`r most.recent.gts$event`, round `r
 re.playersf1 %>%
   mutate(StdScore=cb(StdScore),
          Score=cb(round(Score))) %>%
-  filter(team=="GT") %>%
+  filter(team=="GTS") %>%
   mutate(Players=paste0("[", Players, "](/", playerprofileurl, ")")) %>%
   # mutate(Players=cell_spec(Players, color=ifelse(Current=="y"&!is.na(Current), "black", "blue"),
   #                          strikeout=ifelse(Current=="y", FALSE, TRUE))) %>%

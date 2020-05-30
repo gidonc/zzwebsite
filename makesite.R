@@ -21,7 +21,7 @@ findbe <- function(score, event_round){
   }
   res
 }
-players <- filter(res_long, Current=="y") %>% 
+players <- filter(res_long, Current=="y", team %in% c("GTS", "Zig-Zag RZR")) %>% 
   group_by(safeplayername, Players, team) %>%
   summarize(maxscore=max(score, na.rm=TRUE), 
             bestevent=findbe(score, event_round)) %>%
@@ -54,6 +54,7 @@ for (n in 1:nrow(players)){
     dplyr::select(-team)
   
   res_long %>%
+    filter(team %in% c("GTS", "Zig-Zag RZR")) %>%
     dplyr::group_by(round_number, event_std, round, event_round, team) %>%
     summarize(med = median(score, na.rm=TRUE), high=quantile(score, probs=.9, na.rm=TRUE), low=quantile(score, probs=.1, na.rm=TRUE)) %>%
     ggplot(aes(round_number, med)) +

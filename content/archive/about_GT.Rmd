@@ -49,7 +49,7 @@ last_round <- inc_current_match %>% slice(1) %>% pull(event_round)
 
 ```
 
-Zig-Zag GT is the third team in the Zig-Zag family. It was formed at the end of December 2019 (during the Let it Slide event) as an academy team for Zig-Zag. It was known as Zig-Zag Racerz. It changed its name to Zig-Zag GT after merging with parts of two other teams: first, the leadership of GrandTour (formerly Khaleesi) and second, parts of GreasySpanner.
+Zig-Zag GT is the third team in the Zig-Zag family. It was formed at the end of December 2019 (during the Let it Slide event) as an academy team for Zig-Zag. It was known as Zig-Zag Racerz. It changed its name to Zig-Zag GT after merging with parts of two other teams: first, the leadership of GrandTour (formerly Khaleesi) and second, parts of GreasySpanner. In May 2020 Zig-Zag GT merged with Zig-Zag GS. The top players from the two teams formed Zig-Zag GTS in the new second team. The other players from the two teams formed the new academy team Zig-Zag GB.  
 
 GT  was last recorded as having `r format(current_cups, scientific=FALSE)` cups and being ranked `r current_rank` in the world. This measurement was taken going into the match against `r last_opponent` (`r last_round`).
 

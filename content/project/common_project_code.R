@@ -165,7 +165,7 @@ results <- bind_rows(zz_results, gts_results) %>%
 #     has_gt = sum(team=="GT"&!is.na(score), na.rm=TRUE)>0,
 #     has_gs = sum(team=="GS"&!is.na(score), na.rm=TRUE)>0)
 
-res_long <- bind_rows(zz_res_long, gts_res_long) %>%
+res_long <- bind_rows(zz_res_long, gts_res_long, gs_res_long, gt_res_long) %>%
   group_by(event_round) %>%
   mutate(     
     participated = ifelse(is.na(score), NA_real_, ifelse(score=="NP", 0, 1)),

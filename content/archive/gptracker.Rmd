@@ -29,7 +29,8 @@ gptracker <- read_sheet("1oGTfeDSjWoqHaOZYrw09kMxP42bo_sBBVVKJbEThsMI", sheet=5)
 gplong <- gptracker %>% 
   pivot_longer(cols=contains("event_no"), names_to="variable", values_to="GP", values_drop_na = TRUE ) %>%
   separate(variable,into=c("prefix", "event"), " ") %>%
-  mutate(event=as.numeric(event))
+  mutate(event=as.numeric(event)) %>%
+  filter(event < 67)
 
 ```
 ```{r, echo=FALSE}

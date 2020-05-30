@@ -50,7 +50,7 @@ last_round <- inc_current_match %>% slice(1) %>% pull(event_round)
 
 ```
 
-Zig-Zag GS is the second team in the Zig-Zag family. GS was known as GreasySpanner before joining the Zig-Zag family. GreasySpanner joined the Zig-Zag  Family in Febuary 2020 (during the Bill My Valentine event).   
+Zig-Zag GS was the second team in the Zig-Zag family. GS was known as GreasySpanner before joining the Zig-Zag family. GreasySpanner joined the Zig-Zag  Family in Febuary 2020 (during the Bill My Valentine event). In May 2020 Zig-Zag GS merged with Zig-Zag GT. The top players from the two teams formed Zig-Zag GTS in the new second team. The other players from the two teams formed the new academy team Zig-Zag GB.  
 
 GS  was last recorded as having `r format(current_cups, scientific=FALSE)` cups and being ranked `r current_rank` in the world. This measurement was taken going into the match against `r last_opponent` (`r last_round`).
 

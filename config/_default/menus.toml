@@ -24,3 +24,8 @@
   name = "Player Profiles"
   url = "#playerprofiles"
   weight = 60
+  
+[[main]]
+  name = "Archive"
+  url = "#archive"
+  weight = 70

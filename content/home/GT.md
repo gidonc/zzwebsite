@@ -5,7 +5,7 @@ headless = true  # This file represents a page section.
 active = true  # Activate this widget? true/false
 weight = 30  # Order that this section will appear.
 
-title = "Zig-Zag GT"
+title = "Zig-Zag GB"
 subtitle = "![](/img/GT.jpg)"
 
 [content]
@@ -75,4 +75,4 @@ subtitle = "![](/img/GT.jpg)"
  # CSS class.
  css_class = ""
 +++
-Zig-Zag GT is our third team.
+Zig-Zag GB is our third team. 

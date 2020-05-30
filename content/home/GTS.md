@@ -75,4 +75,4 @@ subtitle = "![](/img/GS.jpg)"
  # CSS class.
  css_class = ""
 +++
-Zig-Zag GS is our second team. 
+Zig-Zag GTS is our second team. 

@@ -19,22 +19,6 @@ tags:
 <p><img src="/RZR/about_RZR_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>Second, the cup progress relative to the other Zig-Zag teams.</p>
 <p><img src="/RZR/about_RZR_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
-<pre class="r"><code>the_table &lt;- all_matches %&gt;%
-  arrange(-event_no, -special_round) %&gt;%
-  filter(teamname==&quot;RZR&quot;) %&gt;%
-  mutate(opposition = paste0(opposition, &quot; (cups:&quot;, opp_cups_before, &quot;; rank: &quot;, opp_rank_before, &quot;)&quot;))%&gt;%
-  mutate(zz_cup_change=ifelse(is.na(zz_cup_change), zz_cups_after-zz_cups_before, zz_cup_change)) %&gt;%
-  dplyr::select(event_round, opposition, zz_points, opp_points, zz_cups_before, zz_cup_change, result)
-  
-
-wins &lt;- which(the_table$result==&quot;wins&quot;)
-losses &lt;- which(the_table$result==&quot;losses&quot;)
-the_table%&gt;%
-  dplyr::select(-result) %&gt;%
-  kable(booktabs = T) %&gt;%
-  kable_styling() %&gt;%
-  row_spec(wins, bold = TRUE, color = &quot;black&quot;, background = &quot;lightgreen&quot;) %&gt;%
-  row_spec(losses, bold = TRUE, color = &quot;black&quot;, background = &quot;red&quot;) </code></pre>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>

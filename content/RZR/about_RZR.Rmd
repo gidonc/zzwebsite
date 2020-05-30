@@ -89,7 +89,7 @@ all_matches %>%
 
 
 
-```{r}
+```{r, echo=FALSE, warning=FALSE}
 the_table <- all_matches %>%
   arrange(-event_no, -special_round) %>%
   filter(teamname=="RZR") %>%

@@ -67,7 +67,7 @@ all_matches %>%
   ggplot(aes(x=match_number, y=zz_cups_before)) +
   geom_point() +
   geom_line() +
-  geom_label_repel(size=1, aes(label=opposition))+
+  geom_label_repel(size=2, aes(label=opposition))+
   theme_bw() +
   labs(y="cups")
 
@@ -87,4 +87,21 @@ all_matches %>%
 ```
 
 
+```{r}
+the_table <- all_matches %>%
+  arrange(-event_no, -special_round) %>%
+  filter(teamname=="GTS") %>%
+  mutate(opposition = paste0(opposition, " (cups:", opp_cups_before, "; rank: ", opp_rank_before, ")"))%>%
+  dplyr::select(event_round, opposition, zz_points, opp_points, zz_cups_before, zz_cup_change, result) 
+
+wins <- which(the_table$result=="wins")
+losses <- which(the_table$result=="losses")
+the_table%>%
+  dplyr::select(-result) %>%
+  kable(booktabs = T) %>%
+  kable_styling() %>%
+  row_spec(wins, bold = TRUE, color = "black", background = "lightgreen") %>%
+  row_spec(losses, bold = TRUE, color = "black", background = "red") 
+  
+```
 

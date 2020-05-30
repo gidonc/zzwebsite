@@ -53,7 +53,7 @@ gplong <- gplong%>%
          max_gp=max(GP)) 
 
 the_first <- gplong %>%
-  filter(max_gp>4000, n_measures>1, current) %>%
+  filter(max_gp>4000, current) %>%
   arrange(-event_slope_text) %>%
   ungroup() %>%
   slice(1) %>%

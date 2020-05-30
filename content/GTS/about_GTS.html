@@ -8,6 +8,7 @@ tags:
 - GT
 ---
 
+<script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
 
 
 <p>Zig-Zag GTS is the second team in the Zig-Zag family. It was formed in May 2020 (during the Timesplitting event) as a combination of the top players in Zig-Zag GS (former ZZ second team) and Zig-Zag GT (former ZZ academy team).</p>
@@ -18,3 +19,103 @@ tags:
 <p><img src="/GTS/about_GTS_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>Second, the cup progress relative to the other Zig-Zag teams.</p>
 <p><img src="/GTS/about_GTS_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<pre class="r"><code>the_table &lt;- all_matches %&gt;%
+  arrange(-event_no, -special_round) %&gt;%
+  filter(teamname==&quot;GTS&quot;) %&gt;%
+  mutate(opposition = paste0(opposition, &quot; (cups:&quot;, opp_cups_before, &quot;; rank: &quot;, opp_rank_before, &quot;)&quot;))%&gt;%
+  dplyr::select(event_round, opposition, zz_points, opp_points, zz_cups_before, zz_cup_change, result) 
+
+wins &lt;- which(the_table$result==&quot;wins&quot;)
+losses &lt;- which(the_table$result==&quot;losses&quot;)
+the_table%&gt;%
+  dplyr::select(-result) %&gt;%
+  kable(booktabs = T) %&gt;%
+  kable_styling() %&gt;%
+  row_spec(wins, bold = TRUE, color = &quot;black&quot;, background = &quot;lightgreen&quot;) %&gt;%
+  row_spec(losses, bold = TRUE, color = &quot;black&quot;, background = &quot;red&quot;) </code></pre>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+event_round
+</th>
+<th style="text-align:left;">
+opposition
+</th>
+<th style="text-align:right;">
+zz_points
+</th>
+<th style="text-align:right;">
+opp_points
+</th>
+<th style="text-align:right;">
+zz_cups_before
+</th>
+<th style="text-align:right;">
+zz_cup_change
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: lightgreen !important;">
+high gear low gear 2
+</td>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: lightgreen !important;">
+ch’ti racing (cups:8979; rank: 380)
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgreen !important;">
+2806
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgreen !important;">
+1708
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgreen !important;">
+8987
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgreen !important;">
+134
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: lightgreen !important;">
+high gear low gear 1
+</td>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: lightgreen !important;">
+PolishWarriors (cups:8748; rank: 613)
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgreen !important;">
+2593
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgreen !important;">
+1927
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgreen !important;">
+8849
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgreen !important;">
+138
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: lightgreen !important;">
+timesplitting 3
+</td>
+<td style="text-align:left;font-weight: bold;color: black !important;background-color: lightgreen !important;">
+Aussie Muscle (cups:8687; rank: 608)
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgreen !important;">
+3451
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgreen !important;">
+1072
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgreen !important;">
+8683
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;background-color: lightgreen !important;">
+166
+</td>
+</tr>
+</tbody>
+</table>

@@ -80,6 +80,7 @@ readr::write_rds(re.playersf2, paste0(rprojroot::find_rstudio_root_file(), "/pla
 
 blogdown::build_site()
 
+
 gitadd <- function(dir = rprojroot::find_rstudio_root_file()){
   cmd_list <- list(
     cmd1 = tolower(substr(dir,1,2)),

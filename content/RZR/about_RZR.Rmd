@@ -89,3 +89,22 @@ all_matches %>%
 
 
 
+```{r}
+the_table <- all_matches %>%
+  arrange(-event_no, -special_round) %>%
+  filter(teamname=="RZR") %>%
+  mutate(opposition = paste0(opposition, " (cups:", opp_cups_before, "; rank: ", opp_rank_before, ")"))%>%
+  mutate(zz_cup_change=ifelse(is.na(zz_cup_change), zz_cups_after-zz_cups_before, zz_cup_change)) %>%
+  dplyr::select(event_round, opposition, zz_points, opp_points, zz_cups_before, zz_cup_change, result)
+  
+
+wins <- which(the_table$result=="wins")
+losses <- which(the_table$result=="losses")
+the_table%>%
+  dplyr::select(-result) %>%
+  kable(booktabs = T) %>%
+  kable_styling() %>%
+  row_spec(wins, bold = TRUE, color = "black", background = "lightgreen") %>%
+  row_spec(losses, bold = TRUE, color = "black", background = "red") 
+  
+```

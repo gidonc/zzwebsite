@@ -11,7 +11,7 @@ drive_auth("gidon.d.cohen@gmail.com")
 sheets_auth(token=drive_token())
 
 # Re-read the data if the stored data is more than three hours old (established date from just one of the stored data files)
-readdata <- Sys.time() - file.info(paste0(rprojroot::find_rstudio_root_file(), "/resources/gt_results.RDS"))$mtime > lubridate::hours(3)
+readdata <- Sys.time() - file.info(paste0(rprojroot::find_rstudio_root_file(), "/resources/zz_results.RDS"))$mtime > lubridate::hours(3)
 
 myclean <- function(x, illegal="[!. @$£()*&^~#]", replacement =""){
   gsub(illegal, replacement, x)

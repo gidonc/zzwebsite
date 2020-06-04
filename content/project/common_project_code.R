@@ -33,6 +33,8 @@ if(readdata==TRUE){
   gs_results <- read_sheet("1VfIqaB--8Y-pF06zp1KEBrTJyX1A_33XKG30n38Da14", sheet=4, col_types="c", skip = 3) %>%
     mutate(team="GS")
   
+  gptracker <- read_sheet("1oGTfeDSjWoqHaOZYrw09kMxP42bo_sBBVVKJbEThsMI", sheet=5)
+  
   gt_gts_matches <- read_sheet("1oGTfeDSjWoqHaOZYrw09kMxP42bo_sBBVVKJbEThsMI", sheet=3) %>%
     mutate(teamname=ifelse(match_number < 71, "GT", "GTS"))
   gt_gts_results <- read_sheet("1oGTfeDSjWoqHaOZYrw09kMxP42bo_sBBVVKJbEThsMI", sheet=4, col_types="c", skip = 3) 
@@ -44,6 +46,7 @@ if(readdata==TRUE){
   readr::write_rds(gt_gts_matches, paste0(rprojroot::find_rstudio_root_file(), "/resources/gt_gts_matches.RDS"))
   readr::write_rds(gt_gts_results, paste0(rprojroot::find_rstudio_root_file(), "/resources/gt_gts_results.RDS"))
   readr::write_rds(transfers, paste0(rprojroot::find_rstudio_root_file(), "/resources/transfers.RDS"))
+  readr::write_rds(gptracker, paste0(rprojroot::find_rstudio_root_file(), "/resources/gptracker.RDS"))
 } else {
   zz_matches <- readr::read_rds(paste0(rprojroot::find_rstudio_root_file(), "/resources/zz_matches.RDS"))
   zz_results <- readr::read_rds(paste0(rprojroot::find_rstudio_root_file(), "/resources/zz_results.RDS"))
@@ -53,6 +56,7 @@ if(readdata==TRUE){
   gt_gts_matches <- readr::read_rds(paste0(rprojroot::find_rstudio_root_file(), "/resources/gt_gts_matches.RDS"))
   gt_gts_results <- readr::read_rds(paste0(rprojroot::find_rstudio_root_file(), "/resources/gt_gts_results.RDS"))
   transfers <- readr::read_rds(paste0(rprojroot::find_rstudio_root_file(), "/resources/transfers.RDS"))
+  gptracker <- readr::read_rds(paste0(rprojroot::find_rstudio_root_file(), "/resources/gptracker.RDS"))
 }
 
 cb <- function(x) {

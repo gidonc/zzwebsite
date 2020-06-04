@@ -9,21 +9,21 @@ tags:
 - Detailed
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE)
-library(tidyverse)
-library(haven)
-library(huxtable)
-library(googledrive)
-library(googlesheets4)
-library(stringr)
-library(ggrepel)
-library(arm)
-drive_auth("gidon.d.cohen@gmail.com")
-sheets_auth(token=drive_token())
-gptracker <- read_sheet("1oGTfeDSjWoqHaOZYrw09kMxP42bo_sBBVVKJbEThsMI", sheet=5)
+```{r, echo=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::read_chunk(paste0(rprojroot::find_rstudio_root_file(), "/content/project/common_project_code.R"))
 
 ```
+
+
+```{r setup, include=FALSE}
+```
+
+
+```{r cleancalculate, echo=FALSE, message=FALSE, warning=FALSE}
+
+```
+
 
 ```{r, echo=FALSE}
 gplong <- gptracker %>% 

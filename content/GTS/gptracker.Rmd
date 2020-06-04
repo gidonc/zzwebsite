@@ -75,11 +75,11 @@ gplong %>%
   theme_bw()
 ```
 
-## The Middle Order (GP 4000-6000)
+## The Middle Order (GP 5000-6000)
 
 ```{r, echo=FALSE}
 gplong%>%
-  filter(max_gp<6000, max_gp>4000, n_measures>1, current) %>%
+  filter(max_gp<6000, max_gp>5000, n_measures>1, current) %>%
   ggplot(aes(event, GP, group=Players)) +
   facet_wrap(~Players_f + paste("rate: ", round(event_slope_text)), ncol=7)+
   geom_line() +
@@ -87,11 +87,11 @@ gplong%>%
 ```
 
 
-## The Tail Enders (GP under 4000)
+## The Tail Enders (GP under 5000)
 
 ```{r, echo=FALSE, fig.height=7}
 gplong%>%
-  filter(max_gp<4000, n_measures>1, current) %>%
+  filter(max_gp<5000, n_measures>1, current) %>%
   ggplot(aes(event, GP, group=Players)) +
    facet_wrap(~Players_f + paste("rate: ", round(event_slope_text)), ncol=7)+
   geom_line() +

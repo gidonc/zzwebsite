@@ -31,7 +31,7 @@ subtitle = ""
   
   [[content.filter_button]]
     name = "Zig-Zag GS"
-    tag = "GS"
+    tag = "GTS"
   
 
 [design]

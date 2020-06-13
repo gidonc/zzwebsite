@@ -1,0 +1,119 @@
+---
+title: "Mirisek"
+date: "13 June, 2020"
+output: html_document
+summary: "player profile"
+tags:
+  - GTS
+---
+
+
+
+
+Mirisek is currently a player in GTS.  
+
+They are currently ranked 36 in GTS (80 in the Zig-Zag family).  
+
+In the last 15 matches they are ranked 36 in GTS (80 in the Zig-Zag family).  
+
+Their best score was 31007 in Timesplitting 3.
+
+Their highest rank within the team was 10 in summer thrills & spills 1 . 
+
+Their scores relative to the rest of the team are shown in the figure and table below. In the figure, the red line shows the trajectory of Mirisek's scores. The grey line shows the team median and the grey ribbon indicates the range from top five score to bottom five score.
+
+![Mirisek performance relative to each team](MirisekGTS.jpg)
+
+
+### Mirisek's scores
+
+<table class="table table-striped" style="font-size: 11px; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;"> event_std </th>
+   <th style="text-align:right;"> round </th>
+   <th style="text-align:right;"> score </th>
+   <th style="text-align:left;"> team_rank_out </th>
+   <th style="text-align:left;"> global_rank_out </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> timesplitting </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 31007 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">26 of 49</span> </td>
+   <td style="text-align:left;"> 70 of 95 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> high gear low gear </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 22499 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">31 of 48</span> </td>
+   <td style="text-align:left;"> 72 of 93 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> high gear low gear </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 22254 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">36 of 48</span> </td>
+   <td style="text-align:left;"> 82 of 94 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> high gear low gear </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 22359 </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">42 of 47</span> </td>
+   <td style="text-align:left;"> 87 of 93 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> high gear low gear </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 22725 </td>
+   <td style="text-align:left;"> <span style="     color: orange !important;">43 of 49</span> </td>
+   <td style="text-align:left;"> 43 of 49 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> don't choke </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 18528 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">34 of 49</span> </td>
+   <td style="text-align:left;"> 79 of 95 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> don't choke </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 21504 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">33 of 49</span> </td>
+   <td style="text-align:left;"> 77 of 94 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> don't choke </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 23738 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">23 of 48</span> </td>
+   <td style="text-align:left;"> 64 of 90 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> summer thrills &amp; spills </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 23643 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">10 of 49</span> </td>
+   <td style="text-align:left;"> 32 of 91 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> summer thrills &amp; spills </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 21563 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">22 of 49</span> </td>
+   <td style="text-align:left;"> 62 of 90 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> summer thrills &amp; spills </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 19973 </td>
+   <td style="text-align:left;"> <span style="     color: black !important;">38 of 49</span> </td>
+   <td style="text-align:left;"> 81 of 93 </td>
+  </tr>
+</tbody>
+</table>

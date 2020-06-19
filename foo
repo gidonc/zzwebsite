@@ -1,0 +1,1 @@
+Error in try(2 + me, outFile = "foo") : object 'me' not found

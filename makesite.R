@@ -78,8 +78,22 @@ readr::write_rds(res_long, paste0(rprojroot::find_rstudio_root_file(), "/playerp
 readr::write_rds(re.playersf1, paste0(rprojroot::find_rstudio_root_file(), "/playerprofiles/re.playersf1.RDS"))
 readr::write_rds(re.playersf2, paste0(rprojroot::find_rstudio_root_file(), "/playerprofiles/re.playersf2.RDS"))
 
-blogdown::build_site()
 
+# blogdown::build_site()
+
+bo <- 1
+while(bo!=100){
+  x = try(blogdown::build_site(),silent=TRUE)
+  if (class(x)=="try-error") {
+    cat("ERROR1: ", x, "\n")
+    Sys.sleep(1)
+    print("retrying...")
+    bo <- bo+1
+    print(bo)
+  } else {
+    break
+  } 
+}
 
 gitadd <- function(dir = rprojroot::find_rstudio_root_file()){
   cmd_list <- list(

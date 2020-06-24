@@ -26,11 +26,11 @@ subtitle = ""
     tag = "*"
 
   [[content.filter_button]]
-    name = "Zig-Zag Racers"
+    name = "Zig-Zag RZR"
     tag = "Zig-Zag RZR"
   
   [[content.filter_button]]
-    name = "Zig-Zag GS"
+    name = "Zig-Zag GTS"
     tag = "GTS"
   
 

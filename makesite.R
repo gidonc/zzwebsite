@@ -29,7 +29,8 @@ players <- filter(res_long, Current=="y", team %in% c("GTS", "Zig-Zag RZR")) %>%
 
 # write templates
 
-do.call(file.remove, list(list.files("content/playerprofiles", full.names = TRUE)))
+do.call(file.remove, list(list.files("content/playerprofiles", full.names = TRUE, recursive = TRUE)))
+unlink(list.files("content/playerprofiles", full.names = TRUE, include.dirs=TRUE, recursive = TRUE), recursive=TRUE)
 
 for (n in 1:nrow(players)){
   this_safeplayer <- dplyr::slice(players, n) %>% 

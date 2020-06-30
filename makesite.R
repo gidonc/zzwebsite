@@ -28,9 +28,12 @@ players <- filter(res_long, Current=="y", team %in% c("GTS", "Zig-Zag RZR")) %>%
   ungroup() 
 
 # write templates
+# blogdown::build_site()
 
-do.call(file.remove, list(list.files("content/playerprofiles", full.names = TRUE, recursive = TRUE)))
-unlink(list.files("content/playerprofiles", full.names = TRUE, include.dirs=TRUE, recursive = TRUE), recursive=TRUE)
+bo <- 1
+while(bo!=100){
+  do.call(file.remove, list(list.files("content/playerprofiles", full.names = TRUE, recursive = TRUE)))
+  unlink(list.files("content/playerprofiles", full.names = TRUE, include.dirs=TRUE, recursive = TRUE), recursive=TRUE)
 
 for (n in 1:nrow(players)){
   this_safeplayer <- dplyr::slice(players, n) %>% 
@@ -80,10 +83,6 @@ readr::write_rds(re.playersf1, paste0(rprojroot::find_rstudio_root_file(), "/pla
 readr::write_rds(re.playersf2, paste0(rprojroot::find_rstudio_root_file(), "/playerprofiles/re.playersf2.RDS"))
 
 
-# blogdown::build_site()
-
-bo <- 1
-while(bo!=100){
   x = try(blogdown::build_site(),silent=TRUE)
   if (class(x)=="try-error") {
     cat("ERROR1: ", x, "\n")

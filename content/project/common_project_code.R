@@ -395,9 +395,10 @@ res_long <- res_long %>%
   mutate(global_rank_out = paste(global_rank, "of", global_count),
          team_rank_out = paste(team_rank, "of", team_count))
 
-f1 <- lmer(std_score~ has_zig_zag +  has_gts + (1|PlayerTeam), res_long)
+# f1 <- lmer(std_score~ has_zig_zag +  has_gts + (1|PlayerTeam), res_long)
+f1 <- lmer(score~ has_zig_zag +  has_gts + (1|PlayerTeam), res_long)
 res_long_recent <- filter(res_long, matches_ago<16)
-f2 <- lmer(std_score~ has_zig_zag + has_gts + (1|PlayerTeam), res_long_recent)
+f2 <- lmer(score~ has_zig_zag + has_gts + (1|PlayerTeam), res_long_recent)
 
 results_summary <- res_long %>%
   filter(!is.na(score)) %>%
@@ -413,7 +414,8 @@ re.playersf1<-ranef(f1)$PlayerTeam %>%
   rownames_to_column("PlayerTeam") %>%
   as_tibble() %>%
   rename(StdScore=2) %>%
-  mutate(StdScore=round(StdScore*score_sd + score_mu, 0)) %>%
+  # mutate(StdScore=round(StdScore*score_sd + score_mu, 0)) %>%
+  mutate(StdScore, 0) %>%
   arrange(-StdScore) %>%
   left_join(results) %>%
   left_join(results_summary) %>%
@@ -431,6 +433,7 @@ re.playersf2<-ranef(f2)$PlayerTeam %>%
   as_tibble() %>%
   rename(StdScore=2) %>%
   mutate(StdScore=round(StdScore*score_sd + score_mu, 0)) %>%
+  mutate(StdScore, 0) %>%
   arrange(-StdScore) %>%
   left_join(results) %>%
   left_join(recent_results_summary) %>%

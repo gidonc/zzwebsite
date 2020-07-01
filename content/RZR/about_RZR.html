@@ -19,29 +19,6 @@ tags:
 <p>First, the cup progress over time (full details including opposition names are in the table below):</p>
 <p><img src="/RZR/about_RZR_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>Second, the progress of RZR in terms of world rank</p>
-<pre class="r"><code>all_matches %&gt;%
-  filter(teamname==&quot;RZR&quot;, !is.na(zz_rank_before)) %&gt;%
-  ggplot(aes(x=match_number, y=zz_rank_before)) +
-  geom_line() +
-  # geom_label_repel(size=1, aes(label=opposition))+
-  theme_bw() +
-  labs(y=&quot;rank&quot;) +  
-  scale_y_reverse(limits=c(NA, 1)) +
-  geom_hline(yintercept=1) +
-  annotate(x=100, y=1, geom=&quot;text&quot;, label=&quot;world rank 1&quot;, vjust=1)+
-  geom_hline(yintercept=100) +
-  annotate(x=170, y=100, geom=&quot;text&quot;, label=&quot;world rank 100&quot;, vjust=1)+
-  geom_hline(yintercept=200) +
-  annotate(x=170, y=200, geom=&quot;text&quot;, label=&quot;world rank 200&quot;, vjust=1) +
-  geom_vline(xintercept=110) +
-  annotate(x=110, y=250, geom=&quot;text&quot;, label=&quot;mergers&quot;, vjust=1, angle=90) +
-  geom_label_repel(data = all_matches %&gt;%
-                     filter(teamname==&quot;RZR&quot;,
-                            !is.na(zz_rank_before)) %&gt;%
-                     arrange(-match_number) %&gt;%
-                     slice(1)
-                   ,
-                   aes(label=zz_rank_before))</code></pre>
 <p><img src="/RZR/about_RZR_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p>Third, the cup progress relative to the other Zig-Zag teams.</p>
 <p><img src="/RZR/about_RZR_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>

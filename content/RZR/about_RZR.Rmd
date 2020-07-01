@@ -79,7 +79,7 @@ all_matches %>%
 
 Second, the progress of RZR in terms of world rank
 
-```{r}
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
 all_matches %>%
   filter(teamname=="RZR", !is.na(zz_rank_before)) %>%
   ggplot(aes(x=match_number, y=zz_rank_before)) +

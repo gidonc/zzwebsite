@@ -433,7 +433,7 @@ re.playersf2<-ranef(f2)$PlayerTeam %>%
   as_tibble() %>%
   rename(StdScore=2) %>%
   # mutate(StdScore=round(StdScore*score_sd + score_mu, 0)) %>%
-  mutate(lme4::fixef(f2)[1] +StdScore, 0) %>%
+  mutate(StdScore = round(lme4::fixef(f2)[1] +StdScore, 0)) %>%
   arrange(-StdScore) %>%
   left_join(results) %>%
   left_join(recent_results_summary) %>%

@@ -1,0 +1,53 @@
+---
+title: "GT Overall Player Scores"
+author: "giddybb"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: html_document
+summary: Zig-Zag GT player average scores including information from all events.
+tags:
+- Player
+- Detailed
+- zz3
+---
+
+```{r, echo=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::read_chunk(paste0(rprojroot::find_rstudio_root_file(), "/content/project/common_project_code.R"))
+
+```
+
+
+```{r setup, include=FALSE}
+```
+
+
+```{r cleancalculate, echo=FALSE, message=FALSE, warning=FALSE}
+```
+
+
+## All Time Results
+The table below shows ranks players using a standardized score (see below) and also reports their all time average score. The table is based on matches up to:  
+Zig-Zag RZR match vs `r most.recent.zz1$opposition` (`r most.recent.zz1$event`, round `r most.recent.zz1$round`)  
+GS match vs `r most.recent.gs$opposition` (`r most.recent.gs$event`, round `r most.recent.gs$round`)  
+GT match vs `r most.recent.gt$opposition` (`r most.recent.gt$event`, round `r most.recent.gt$round`)  
+
+
+```{r, echo=FALSE, message=FALSE}
+
+re.playersf1 %>%
+  mutate(StdScore=cb(StdScore),
+         Score=cb(round(Score))) %>%
+  filter(team=="GT") %>%
+  mutate(Players=paste0("[", Players, "](/", playerprofileurl, ")")) %>%
+  # mutate(Players=cell_spec(Players, color=ifelse(Current=="y"&!is.na(Current), "black", "blue"),
+  #                          strikeout=ifelse(Current=="y", FALSE, TRUE))) %>%
+  mutate(Team_rank=cell_spec(Team_rank, color=ifelse(bottom_10==TRUE, "red", 
+                                                     ifelse(bottom_15, "orange", "black")))) %>%
+  mutate(team=cell_spec(team, color=ifelse(team=="Zig-Zag RZR", "purple", "blue"))) %>%
+  mutate(Participation=cell_spec(paste0(round(Participation), "%"), color=ifelse(Participation==100, "black", "red"))) %>%
+  dplyr::select(Rank, Team_rank, Players, team, StdScore, Score, Participation, n)  %>%
+  kable(escape=F) %>%
+  kable_styling(c("striped"), full_width = T, font_size = 11)
+```
+
+The standardized score is a score which has been adjusted for the difficulty of the event round, and the variability of score in the event round and which teams played in the event round (of Zig-Zag and GS). Results have been rescaled back to the average across all the events to make them easier to interpret. Calculations include all players past and present, but only current players (in their current teams) are shown. N is the number of matches which the result is based on.

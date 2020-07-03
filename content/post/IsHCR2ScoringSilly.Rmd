@@ -1,0 +1,121 @@
+---
+title: "Silly or Sensible? An Analysis of the HCR2 Cup Scoring Algorithm"
+author: "giddybb"
+date: 2020-07-02
+categories: ["scoring algorithm"]
+tags: ["scoring algorithm", "HCR2"]
+summary: Learn about the HCR2 scoring algorithm and why it is a bit silly.
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::read_chunk(paste0(rprojroot::find_rstudio_root_file(), "/content/project/common_project_code.R"))
+```
+
+
+
+```{r setup, include=FALSE}
+```
+
+
+```{r cleancalculate, echo=FALSE, message=FALSE, warning=FALSE}
+
+```
+
+
+```{r dataprocess, echo=FALSE, message=FALSE, warning=FALSE}
+newscorematches <- all_matches %>% filter(event_no > 15) %>% filter(wincupchange>0, wincupchange<200) %>%
+  mutate(winner_ranked_higher=wincup>losecup) %>% filter(!is.na(winner_ranked_higher))
+```
+
+What do we know about how many cups teams gain (or lose) when they win (or lose) a match in HCR2?  
+I can predict pretty much **exactly** and how many cups teams will lose for a loss in **every**  case, and **roughly** how many cups teams get for a win in **most** cases. 
+
+Is the HCR2 scoring system sensible? No. It is quite silly, especially for losses. 
+
+In this note I show these two things. First, I describe what I know about scoring algorithm, for (a) losing and (b) winning teams. I hope you will learn something about cup losses even if what I've written about winning is already obvious to you. After describing the algorithm I show that although the algorithm is sensible for the winning team it is very silly for the losing team. 
+
+
+## Losing: How many cups does the losing team drop? 
+How many cups do teams drop when they lose a match? 
+
+Although patterns relating to losing are not obvious to the casual observer, the cup changes of the losing team are in fact very predictable. It is possible to predict within one or two what the cup loss will be from just two pieces of information. Those pieces of information are: the number of cups the losing team has, and whether the losing team or the winning team was ranked higher. 
+
+The graph below gives an idea of just how predicatable cup losses actually are.The graph shows the number of cups lost by the losing team on the y-axis, and the number of cups held by the losing team going into the match. We plot separate lines for the cases where the winner is ranked higher (in blue) and where the loser is ranked higher (in red). From these two parameters we can just about perfectly predict how many cups a team will drop when the lose a match. 
+
+
+```{r graph2, warning=FALSE, message=FALSE}
+
+newscorematches %>%
+  ggplot(aes(losecup, losecupchange, colour=winner_ranked_higher)) +
+  # facet_wrap(~teamname, scales="free") +
+  geom_point() +
+  stat_smooth(method="lm", se=FALSE) +
+  theme_bw()+
+  ggtitle("Cup Changes for Losers in HCR2 Team Matches")
+```
+
+
+```{r, echo=FALSE, results='hide'}
+# rzr <- newscorematches %>% filter(teamname=="RZR")
+# f1 <- lm(losecupchange ~ losecup, rzr)
+# f2 <- lm(losecupchange ~ wincup, rzr)
+# f3 <- lm(losecupchange ~ wincup + losecup, rzr)
+# f4 <- lm(losecupchange ~ wincup + losecup, rzr)
+# 
+# huxtable::huxreg(f1, f2, f3, f4)
+
+lf1 <- lm(losecupchange ~ losecup, newscorematches)
+lf2 <- lm(losecupchange ~ wincup, newscorematches)
+lf3 <- lm(losecupchange ~ losecup + winner_ranked_higher, newscorematches)
+lf4 <- lm(losecupchange ~ losecup * winner_ranked_higher, newscorematches)
+huxtable::huxreg(lf1, lf2, lf3, lf4)
+
+
+wf1 <- lm(wincupchange ~ losecup, newscorematches)
+wf2 <- lm(wincupchange ~ wincup, newscorematches)
+wf3 <- lm(wincupchange ~ wincup +  winner_ranked_higher, newscorematches)
+wf4 <- lm(wincupchange ~ wincup*winner_ranked_higher , newscorematches)
+huxtable::huxreg(wf1, wf2, wf3, wf4)
+
+```
+If you want a single formula which will produce both the two lines in the graph above it is:
+
+$$ cuploss = `r lf4$coefficients[["(Intercept)"]] %>% round(3)` + `r lf4$coefficients[["losecup"]] %>% round(3)` * losecup + `r lf4$coefficients[["winner_ranked_higherTRUE"]] %>% round(3)` * winnerrankedhigher  + `r lf4$coefficients[["losecup:winner_ranked_higherTRUE"]] %>% round(3)` * losecup * winnerrankedhigher $$
+
+Where $cuploss$ is the number of cups lost by the losing team, $losecup$ is the number of cups held by the eventually losing team going into a match, and $winnerrankedhigher$ takes the value 1 if the winner is ranked higher than the loser going into a match and take the value of 0 otherwise.
+
+## Winning: How many cups does the winning team gain?
+How many cups do teams get when they win a match? 
+The answer depends on whether the higher ranked or lower ranked team wins.If the lower ranked team wins a match they usually get 160-170 cups.  If the higher ranked ranked team wins a match they will usually get 130-140 cups.
+
+I say usually because there have been a few exceptions to this, but the pattern is basically followed across all four Zig-Zag teams. 
+
+This is the pattern that can be seen in the graph below. The basic pattern to observe is that there is a step-like decline in cups won when we move from cases where the higher ranked team won, to cases where the lower ranked team won. 
+
+To describe the graph in more detail, it plots the number of cups gained by the winning team in matches from across four Zig-Zag teams (whether Zig-Zig won or lost) on the y-axis. That is the higher up on the graph the point is the more cups were gained by the winning team, and the lower down on the graph the fewer cups were gained by the winning team. The difference in cups between the winning a losing team in plotted on the x-axis. When the difference in cups is zero the two teams are ranked the same, there is a vertical black line. Points to left of this, with a negative cup difference, were matches where the lower ranked team won the match. Points to the right of this, with a positive cup difference were won by the higher ranked team.
+
+```{r cars, echo=FALSE, warning=FALSE, message=FALSE}
+
+newscorematches %>%
+  ggplot(aes(cupdiff, wincupchange, colour=winner_ranked_higher)) +
+  geom_point()+
+  geom_vline(xintercept=0) +
+  theme_bw() +
+  ggtitle("Cup Changes for Winners in HCR2 Team Matches")
+```
+
+
+## Silly or Sensible?
+Are the patterns from the algorithm described above sensible or silly? To address this question we describe a condition which we would expect an ranking algorithm to meet, but which is met by only half of the HCR2 cup change algorithm.
+
+The condition is as follows:
+
+If the worse (lower ranked) team loses to a better (higher ranked) team, that is what was already expected from their rankings. The match result does not reveal much new information beyond that already in the ranking system, so we should see small changes in ranking points (cups). 
+
+If the worse (lower ranked) team beats the better (higher ranked) team, that is unexpected from the ranking system. The match result reveal new information not already in the ranking information, so we should see large changes in ranking points (cups).
+
+We describe a ranking system as sensible if it conforms to these patterns, that is changes are of larger magnitude when more new information is revealed. We describe a ranking system as silly if it runs against these patterns, that is that changes are larger of larger magnitude when less new information is revealed. 
+
+The patterns we describe above meet this condition for the winners. Changes are of larger magnitude when the lower ranked team wins, that is broadly sensible.
+However, for the losing team that condition isn't met. For losers changes are of larger magnitude when the higher ranked team wins. That is just plain silly!

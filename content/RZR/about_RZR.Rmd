@@ -50,7 +50,9 @@ last_round <- inc_current_match %>% slice(1) %>% pull(event_round)
 
 ```
 
-Zig-Zag RZR is the first team in the Zig-Zag family. RZR was formed (as Zig-Zag Racers)  at the end of June 2019 (at the start of the Newfangled vehicles event). It was born from the embers of rizzlaracers. Rizzlaracers was a top team (briefly world number one and consistently top thirty) brought down by an inactive leader.    
+Zig-Zag RZR is the first team in the Zig-Zag family. RZR was formed (as Zig-Zag Racers)  at the end of June 2019 (at the start of the Newfangled vehicles event). It was born from the embers of rizzlaracers. Rizzlaracers was a top team (briefly world number one and consistently top thirty) brought down by an inactive leader. 
+
+The team merged with GreasySpanner and London UK after 110 matches. We experienced an extended period of stagnation in ranking, where we did not seem able to break into the top 100. After this, and specifically after yet another loss to Triglav in our 134th match, our magnificent leader Layoo began heroic efforts of team tracking, with carefully considered delays in matchmaking. The impact of this on our rise in the rankings is clear below. 
 
 RZR  was last recorded as having `r format(current_cups, scientific=FALSE)` cups and being ranked `r current_rank` in the world. This measurement was taken going into the match against `r last_opponent` (`r last_round`).
 
@@ -70,6 +72,8 @@ all_matches %>%
   ggplot(aes(x=match_number, y=zz_cups_before)) +
   geom_point() +
   geom_line() +
+  annotate(x=110, y=250, geom="text", label="mergers", vjust=1, angle=90) +
+  annotate(x=135, y=250, geom="text", label="Layoo starts tracking", vjust=1, angle=90) +
   # geom_label_repel(size=1, aes(label=opposition))+
   theme_bw() +
   labs(y="cups")
@@ -96,6 +100,7 @@ all_matches %>%
   annotate(x=170, y=200, geom="text", label="world rank 200", vjust=1) +
   geom_vline(xintercept=110) +
   annotate(x=110, y=250, geom="text", label="mergers", vjust=1, angle=90) +
+  annotate(x=135, y=250, geom="text", label="Layoo starts tracking", vjust=1, angle=90) +
   geom_label_repel(data = all_matches %>%
                      filter(teamname=="RZR",
                             !is.na(zz_rank_before)) %>%

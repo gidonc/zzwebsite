@@ -195,7 +195,7 @@ most.recent.zz1 <- zz_res_long %>% filter(!is.na(score)) %>% arrange(-match_numb
 most.recent.gt <- gt_res_long %>% filter(!is.na(score)) %>% arrange(-match_number) %>% slice(1) 
 most.recent.gts <- gts_res_long %>% filter(!is.na(score)) %>% arrange(-match_number) %>% slice(1) 
 
-f1 <- lmer(std_score~ has_zig_zag + has_gts + (1|PlayerTeam), res_long)
+f1 <- lmer(std_score~ has_zig_zag + has_gts + (1|PlayerTeam) +(1|event_round), res_long)
 res_long_recent <- filter(res_long, matches_ago<16)
 f2 <- lmer(std_score~ has_zig_zag + has_gts + (1|PlayerTeam), res_long_recent)
 

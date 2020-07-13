@@ -72,8 +72,10 @@ all_matches %>%
   ggplot(aes(x=match_number, y=zz_cups_before)) +
   geom_point() +
   geom_line() +
-  annotate(x=110, y=250, geom="text", label="mergers", vjust=1, angle=90) +
-  annotate(x=135, y=250, geom="text", label="Layoo starts tracking", vjust=1, angle=90) +
+  geom_vline(xintercept=110) +
+  annotate(x=110, y=2000, geom="text", label="mergers", vjust=1, angle=90) +
+  geom_vline(xintercept=135) +
+  annotate(x=135, y=2000, geom="text", label="Layoo starts tracking", vjust=1, angle=90) +
   # geom_label_repel(size=1, aes(label=opposition))+
   theme_bw() +
   labs(y="cups")
@@ -100,7 +102,8 @@ all_matches %>%
   annotate(x=170, y=200, geom="text", label="world rank 200", vjust=1) +
   geom_vline(xintercept=110) +
   annotate(x=110, y=250, geom="text", label="mergers", vjust=1, angle=90) +
-  annotate(x=135, y=250, geom="text", label="Layoo starts tracking", vjust=1, angle=90) +
+  geom_vline(xintercept=135) +
+  annotate(x=135, y=220, geom="text", label="Layoo starts tracking", vjust=1, angle=90) +
   geom_label_repel(data = all_matches %>%
                      filter(teamname=="RZR",
                             !is.na(zz_rank_before)) %>%
@@ -141,8 +144,6 @@ all_matches %>%
   annotate(x=170, y=100, geom="text", label="world rank 100", vjust=1)+
   geom_hline(yintercept=200) +
   annotate(x=170, y=200, geom="text", label="world rank 200", vjust=1) +
-  geom_vline(xintercept=110) +
-  annotate(x=110, y=750, geom="text", label="mergers", vjust=1, angle=90) +
   coord_cartesian(ylim=c(1000, 0))
 ```
 

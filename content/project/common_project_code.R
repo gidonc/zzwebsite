@@ -281,7 +281,7 @@ all_zz_matches <- zz_oldnodups %>%
          opp_cups_before=as.numeric(opp_cups_before)) %>%
   #select(zz_cups_before, opposition, match_number, opp_cups_before)  %>%
   bind_rows(zz_scores) %>% 
-  mutate(actual_match_no=rank(match_number, desc)) %>%
+  mutate(actual_match_no=rank(match_number, na.last=FALSE)) %>%
   mutate(event=ifelse(is.na(event), "unrecorded", event),
          event_std=ifelse(is.na(event_std), "unrecorded", event_std)) %>%
   mutate(teamname="RZR")

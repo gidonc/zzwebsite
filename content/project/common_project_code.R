@@ -30,7 +30,7 @@ if(readdata==TRUE){
   
   gs_matches <- read_sheet("1VfIqaB--8Y-pF06zp1KEBrTJyX1A_33XKG30n38Da14", sheet=3) %>%
     mutate(teamname="GS")
-  gs_results <- read_sheet("1VfIqaB--8Y-pF06zp1KEBrTJyX1A_33XKG30n38Da14", sheet=4, col_types="c", skip = 3) %>%
+  gs_results <- read_sheet("1VfIqaB--8Y-pF06zp1KEBrTJyX1A_33XKG30n38Da14", sheet=4, col_types="c", skip = 3, n_max = 300) %>%
     mutate(team="GS")
   
   gptracker <- read_sheet("1oGTfeDSjWoqHaOZYrw09kMxP42bo_sBBVVKJbEThsMI", sheet=5)

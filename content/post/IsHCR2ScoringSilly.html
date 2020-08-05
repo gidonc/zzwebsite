@@ -20,7 +20,7 @@ I can predict pretty much <strong>exactly</strong> and how many cups teams will 
 <p>The graph below gives an idea of just how predicatable cup losses actually are.The graph shows the number of cups lost by the losing team on the y-axis, and the number of cups held by the losing team going into the match. We plot separate lines for the cases where the winner is ranked higher (in blue) and where the loser is ranked higher (in red). From these two parameters we can just about perfectly predict how many cups a team will drop when the lose a match.</p>
 <p><img src="/post/IsHCR2ScoringSilly_files/figure-html/graph2-1.png" width="672" /></p>
 <p>If you want a single formula which will produce both the two lines in the graph above it is:</p>
-<p><span class="math display">\[ cuploss = 0.503 + -0.009 * losecup + 0.901 * winnerrankedhigher  + -0.002 * losecup * winnerrankedhigher \]</span></p>
+<p><span class="math display">\[ cuploss = 0.503 + -0.009 * losecup + 1.095 * winnerrankedhigher  + -0.002 * losecup * winnerrankedhigher \]</span></p>
 <p>Where <span class="math inline">\(cuploss\)</span> is the number of cups lost by the losing team, <span class="math inline">\(losecup\)</span> is the number of cups held by the eventually losing team going into a match, and <span class="math inline">\(winnerrankedhigher\)</span> takes the value 1 if the winner is ranked higher than the loser going into a match and take the value of 0 otherwise.</p>
 </div>
 <div id="winning-how-many-cups-does-the-winning-team-gain" class="section level2">

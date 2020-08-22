@@ -50,7 +50,7 @@ They are currently ranked `r this_allmatches_team_rank` in Zig-Zag RZR (`r this_
 
 In the last 15 matches they are ranked `r this_recent_team_rank` in Zig-Zag RZR (`r this_recent_overall_rank` in the Zig-Zag family).  
 
-Their best score was 23792 in Trackday Day 2 1.
+Their best score was 25491 in Trackday Day 2 3.
 
 Their highest rank within the team was `r bestrank` `r best` 
 
